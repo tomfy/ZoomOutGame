@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3v79mr8qBDYk_FpYKSIpx4HE9237hSuY&sensor=false">
+    </script>
+    <script type="text/javascript">
+      var map;
+      var city_coords = 
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(54.4858, -0.6206),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.SATELLITE,
+          draggable: false,
+          scrollwheel: false,
+          disableDoubleClickZoom: true,
+          disableDefaultUI: true
+          
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+      
+      }
+    </script>
+  </head>
+  <body onload="initialize()">
+      <button onclick="map.setZoom(map.getZoom()+1)">Zoom in</button>
+  <button onclick="map.setZoom(map.getZoom()-1)">Zoom out</button>
+
+    <div id="map_canvas" style="width:100%; height:100%">
+</div>
+  </body>
+</html>
