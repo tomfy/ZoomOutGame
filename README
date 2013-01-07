@@ -1,0 +1,22 @@
+A web-based geography game. You are shown a place as a satellite image and must
+choose the correct place name from a list. You can also zoom out (or in). Generally
+it starts at a zoom level at which it is hard to recognize the place, and you
+need to zoom out a few levels until you can see some distinctive geographic feature
+such as coastline, river, mountain range, etc., in order to identify the place.
+
+The python script gtrends.py takes up to 4 arguments, each of which is a google 
+search term. It returns corresponding google trends values averaged over ____.
+The way google trends works, it always normalizes such that the highest point is 100,
+and the numbers for each search term are integers, so there is not much dynamic range.
+If you put in two searches of wildly differing popularity the unpopular one will just 
+be zero. So if you want e.g. to compare 'New York' and 'Owego', you need to find some
+search of intermediate popularity, e.g. 
+'New York' 'Buffalo'  ->  63.0, 8.9
+'Buffalo'  'Ithaca'  ->  76.2, 8.7
+'Ithaca'  'Owego'  -> 59.7, 2.71
+
+So now we know that the 'New York' search is about
+
+63/8.9 * 76.2/8.7 * 59.7/2.71  = 1366
+
+times as popular as the 'Owego' search. 
