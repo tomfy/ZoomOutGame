@@ -1,17 +1,11 @@
 
 function zoom_out_game(places) { // function zoom_out_game is a constructor, so 'this' keyword
 // refers to the object contructed
-  //    if (false && localStorage.counter >= places.length) {
-  //      localStorage.counter = 0;
-  //      shuffle(places);
-  //      console.log("shuffled places array: " + places);
-  //  }
-  //  console.log("counter: " + localStorage.counter);
     var zoom_offset = -1;
     var the_place = random_place(places);
   //  the_place.age = 0; 
     var map = map_of_place(the_place, zoom_offset);
-
+    
     var score = 0; // number of question which were answered correctly on most recent asking.
 
     var zoom_button_area = document.getElementById("zoom_buttons");
@@ -51,10 +45,7 @@ function zoom_out_game(places) { // function zoom_out_game is a constructor, so 
         a.href = "#";
         answer_buttons[i].addEventListener("click", function(event) {
 	    the_place = handle_answer_button_click(event, the_place);
-    //        console.log("answer was correct? " + the_place.last_answer_correct);
-//	    console.log("evlistener fcn. next place: " + the_place.name);
-        }, false);
-
+          }, false);
              answer_button_area.appendChild(answer_buttons[i]);
     }
 
@@ -62,7 +53,6 @@ function zoom_out_game(places) { // function zoom_out_game is a constructor, so 
         var txtnode = event.target.childNodes[0];
         var txt = txtnode.nodeValue;
         console.log("text: " + txt);
-//	var is_correct;
         if (txt == the_place.name) {
             console.log("Yes, it's " + the_place.name);
         //    alert("Yes, it's " + the_place.name);
@@ -81,7 +71,7 @@ function zoom_out_game(places) { // function zoom_out_game is a constructor, so 
 	console.log("SCORE: " + score);
 	console.log("circle position:   {", the_place.marker.getCenter().lat() + ", lng: " + the_place.marker.getCenter().lng() + "}  ");
 	return the_place;
-    }
+    } // end of handle_answer_button_click
 } // end of zoom_out_game (constructor)
 
 
@@ -117,10 +107,12 @@ function random_place(places) {
 
 function map_of_place(the_place, zoom_offset) {
     console.log("the_place.frame_center lat, lng: " + the_place.frame_center.lat + "  " + the_place.frame_center.lng);
+ console.log("the_place.marker_position lat, lng: " + the_place.marker_position.lat + "  " + the_place.marker_position.lng);
     if(the_place.frame_center_latlng === undefined) the_place.frame_center_latlng = new google.maps.LatLng(the_place.frame_center.lat, the_place.frame_center.lng);
 
-
-//    var radius = (the_place.radius === undefined) ? 5000 : the_place.radius;
+// get a map of the_place if not already defined ...
+    if(the_place.map === undefined){ 
+	console.log("the_place.map is undefined. get a map. place name: " + the_place.name);
     var mapOptions = {
         zoom: the_place.zoom + zoom_offset,
         center: the_place.frame_center_latlng,
@@ -130,9 +122,12 @@ function map_of_place(the_place, zoom_offset) {
         disableDoubleClickZoom: true,
         disableDefaultUI: true
     };
-var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	the_place.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
  if(the_place.marker_position_latlng === undefined) the_place.marker_position_latlng = new google.maps.LatLng(the_place.marker_position.lat, the_place.marker_position.lng);
+    console.log('circle lat, lng: ' + the_place.marker_position.lat + "  " + the_place.marker_position.lng);
+    console.log('frame latlng: ' + the_place.frame_center_latlng.toString());
+    console.log('circle latlng: ' + the_place.marker_position_latlng.toString());
      if (the_place.marker === undefined) {
         var circle = new google.maps.Circle({
             strokeColor: 'B0D000', // 0000',
@@ -140,16 +135,29 @@ var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions)
             strokeWeight: 2,
             //   fillColor: '#FF0000',
             fillOpacity: 0.0,
-            map: map,
+            map: the_place.map,
+	    clickable: true,
 	    draggable: true,
             center: the_place.marker_position_latlng,
             radius: the_place.radius * Math.pow(2, 10 - the_place.zoom)
         });
+var infoWindow= new google.maps.InfoWindow({
+    content: the_place.name
+    });
+	 google.maps.event.addListener(circle, 'rightclick', function(ev){
+    infoWindow.setPosition(circle.getCenter());
+    infoWindow.open(map);
+	//     console.log("place: " + infoWindow.content + ". location:  {lat: ", circle.getCenter().lat() + ", lng: " + circle.getCenter().lng() + "}  ");
+});
+	 google.maps.event.addListener(circle, 'click', function(ev){
+	     console.log("place: " + infoWindow.content + ". location:  {lat: ", circle.getCenter().lat() + ", lng: " + circle.getCenter().lng() + "}  ");
+	 }); 
 	 the_place.marker = circle;
      }else{
-	 the_place.marker.map = map;
+	 the_place.marker.map = the_place.map;
      }
-    return map;
+    }
+    return the_place.map;
 } // end of map_of_place
 
 function relprob(places, i) {
