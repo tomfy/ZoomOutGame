@@ -17,21 +17,15 @@ function initialize() {
     //    places = oldPeninsulas.slice(0);
 
     //   places = Peninsulas.slice(0); 
- //   places = GBcities.slice(0);
-  //  places = StrangePlaces.slice(0);
- //   places = PopulousIslands.slice(0,8);
-//    places = WorldBigIslands_top20.slice(0,3);
-    places = Phillipines_Big11.slice(0,5);
+//    places = GBcities.slice(0);
+ //   places = StrangePlaces.slice(0);
+  //  places = PopulousIslands.slice(0,10);
+    places = WorldBigIslands_top32.slice(20,32);
+  //  places = Philippines_Big11.slice(0,11);
     console.log('counter, places.length: ' + localStorage.counter + " " + places.length);
     //   shuffle(places); 
 
-    //    if (localStorage.counter >= 0) {
-    //        localStorage.counter++;
-    //    } else {
-    //        localStorage.counter = 0;
-    //    }
-
-//    puzzle_obj = new drag_game(places);
+ //    puzzle_obj = new drag_game(places);
    puzzle_obj = new zoom_out_game(places);
 
 }

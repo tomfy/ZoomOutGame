@@ -19,7 +19,9 @@ function initialize() {
 
     //   places = Peninsulas.slice(0); 
   //  places = GBcities.slice(0);
-    places = PopulousIslands.slice(0);
+  //  places = PopulousIslands.slice(0);
+ // places = WorldBigIslands_top32.slice(20,32);
+ places = Philippines_Big11.slice(0);
 //    places = StrangePlaces.slice(0);
 
     var cropped_places = [];
@@ -48,7 +50,8 @@ function initialize() {
     //        localStorage.counter = 0;
     //    }
 
-    puzzle_obj = new drag_game(cropped_places);
+    puzzle_obj = new drag_game(places);
+    console.log("XXXXXXXXXXXXXXXXXXXXXXXX");
 //   puzzle_obj = new zoom_out_game(places);
 
 }

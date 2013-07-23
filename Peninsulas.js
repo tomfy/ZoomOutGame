@@ -12,7 +12,7 @@ var India = new Place({
         lng: 77.61
     },
 });
-var   =new Place({
+var Iberia = new Place({
     name: 'Iberia',
     zoom: 7.0,
 
@@ -25,7 +25,7 @@ var   =new Place({
         lng: -4.57
     },
 });
-var   =new Place({
+var Korea = new Place({
     name: 'Korea',
     zoom: 8.0,
 
@@ -38,7 +38,7 @@ var   =new Place({
         lng: 127.79
     },
 });
-var   =new Place({
+var Italy = new Place({
     name: 'Italy',
     zoom: 8.0,
 
@@ -51,7 +51,7 @@ var   =new Place({
         lng: 13.10
     },
 });
-var   =new Place({
+var Arabia = new Place({
     name: 'Arabia',
     zoom: 7.0,
 
@@ -64,10 +64,9 @@ var   =new Place({
         lng: 47.11
     },
 });
-var   =new Place({
+var Malay_Peninsula = new Place({
     name: 'Malay peninsula',
     zoom: 7.0,
-
     frame_center: {
         lat: 5.35,
         lng: 101.47
@@ -77,10 +76,9 @@ var   =new Place({
         lng: 101.47
     },
 });
-var   =new Place({
+var Scandinavia = new Place({
     name: 'Scandinavia',
     zoom: 7.0,
-
     frame_center: {
         lat: 62.24,
         lng: 13.49
@@ -90,10 +88,9 @@ var   =new Place({
         lng: 13.49
     },
 });
-var   =new Place({
+var Florida = new Place({
     name: 'Florida',
     zoom: 9.0,
-
     frame_center: {
         lat: 27.60,
         lng: -81.47
@@ -104,7 +101,7 @@ var   =new Place({
     },
 });
 
-var   =new Place({
+var Peloponnese = new Place({
     name: 'Peloponnese',
     zoom: 9.0,
     frame_center: {
@@ -116,8 +113,8 @@ var   =new Place({
         lng: 22.15
     },
 });
-var   =new Place({
-    name: 'Shandong',
+var Shandong_Peninsula = new Place({
+    name: 'Shandong Peninsula',
     zoom: 9.0,
     frame_center: {
         lat: 37.15,
@@ -128,7 +125,7 @@ var   =new Place({
         lng: 120.76
     },
 });
-var   =new Place({
+var Antarctic_Peninsula = new Place({
     name: 'Antarctic peninsula',
     zoom: 7.0,
     frame_center: {
@@ -140,7 +137,7 @@ var   =new Place({
         lng: -66.45
     },
 });
-var   =new Place({
+var Yucatan = new Place({
     name: 'Yucatan',
     zoom: 8.0,
 
@@ -153,8 +150,8 @@ var   =new Place({
         lng: -89.03
     },
 });
-var   =new Place({
-    name: 'Liaodong peninsula',
+var Liaodong_Peninsula = new Place({
+    name: 'Liaodong Peninsula',
     zoom: 9.0,
 
     frame_center: {
@@ -166,8 +163,8 @@ var   =new Place({
         lng: 122.45
     },
 });
-var   =new Place({
-    name: 'Leizhou peninsula',
+var Leizhou_Peninsula = new Place({
+    name: 'Leizhou Peninsula',
     zoom: 10.0,
     frame_center: {
         lat: 20.79,
@@ -178,10 +175,9 @@ var   =new Place({
         lng: 110.02
     },
 });
-var   =new Place({
-    name: 'Cape York peninsula',
+var Cape_York_Peninsula = new Place({
+    name: 'Cape York Peninsula',
     zoom: 8.0,
-
     frame_center: {
         lat: -14.2,
         lng: 142.91
@@ -191,7 +187,7 @@ var   =new Place({
         lng: 142.91
     },
 });
-var   =new Place({
+var Jutland = new Place({
     name: 'Jutland',
     zoom: 8.0,
     frame_center: {
@@ -204,7 +200,7 @@ var   =new Place({
     },
 });
 
-var   =new Place({
+var Baja_California = new Place({
     name: 'Baja California',
     zoom: 8.0,
     frame_center: {
@@ -216,7 +212,7 @@ var   =new Place({
         lng: -113.42
     },
 });
-var   =new Place({
+var Alaska_Peninsual = new Place({
     name: 'Alaska Peninsula',
     zoom: 8.0,
     frame_center: {
@@ -228,7 +224,7 @@ var   =new Place({
         lng: -159.04
     },
 });
-var   =new Place({
+var Kamchatka_Peninsual = new Place({
     name: 'Kamchatka Peninsula',
     zoom: 7.0,
     frame_center: {
@@ -240,7 +236,7 @@ var   =new Place({
         lng: 159.74
     },
 });
-var   =new Place({
+var Seward_Peninsual = new Place({
     name: 'Seward Peninsula',
     zoom: 8.0,
 
@@ -253,7 +249,7 @@ var   =new Place({
         lng: -163.70
     },
 });
-var   =new Place({
+var Kola_Peninsula = new Place({
     name: 'Kola Peninsula',
     zoom: 7.0,
 
@@ -266,7 +262,7 @@ var   =new Place({
         lng: 37.27
     },
 });
-var   =new Place({
+var Chukchi_Peninsual = new Place({
     name: 'Chukchi Peninsula',
     zoom: 7.0,
 
@@ -279,7 +275,7 @@ var   =new Place({
         lng: -174.86
     },
 });
-var   =new Place({
+var Boothia_Peninsual = new Place({
     name: 'Boothia Peninsula',
     zoom: 7.0,
     frame_center: {
@@ -291,7 +287,7 @@ var   =new Place({
         lng: -94.39
     },
 });
-var   = new Place({
+var Yamal_Peninsula = new Place({
     name: 'Yamal Peninsula',
     zoom: 7.0,
     frame_center: {

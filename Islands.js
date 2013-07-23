@@ -1,4 +1,5 @@
 // Islands
+// Biggest area:
 var Greenland = new Place({
     name: 'Greenland',
     zoom: 5,
@@ -101,7 +102,7 @@ var Honshu = new Place({
 var Victoria_Island = new Place({
     name: 'Victoria Island',
     area: 217.3,
-    zoom: 7.0,
+    zoom: 6.0,
     frame_center: {
         lat: 71.05,
         lng: -110.51
@@ -274,16 +275,61 @@ var Ireland = new Place({
         lng: -7.91
     },
 });
-
-// Populous Islands not found above:
-var Taiwan = new Place({
-    name: 'Taiwan',
-    population: 23.2,
+var Hokkaido = new Place({
+    name: 'Hokkaido',
+    population: 5.44,
+    area: 78.7,
     zoom: 8.0,
     frame_center: {
-        lat: 23.68491,
-        lng: 120.90661
+        lat: 43.39,
+        lng: 142.58
     },
+    marker_position: {
+        lat: 43.39,
+        lng: 142.58
+    },
+});
+var Hispaniola = new Place({
+    name: 'Hispaniola',
+    population: 19.9,
+    area: 73.9,
+    zoom: 8.0,
+    frame_center: {
+        lat: 19.00,
+        lng: -71.54
+    },
+    marker_position: {
+        lat: 19.00,
+        lng: -71.54
+    },
+});
+var Sakhalin = new Place({
+        name: 'Sakhalin',
+        population: 0.485,
+        area: 72.49,
+        zoom: 7.0,
+        frame_center: {
+            lat: 50.175733,
+            lng: 142.959097
+        },
+        marker_position: {
+            lat: 50.175733,
+            lng: 142.959097
+        }
+});
+var Banks_Island = new Place({
+        name: 'Banks Island',
+        population: 0.000136,
+        area: 70.03,
+    zoom: 7.0,
+        frame_center: {
+            lat: 72.998423,
+            lng: -121.439086
+        },
+        marker_position: {
+            lat: 72.998423,
+            lng: -121.439086
+        },
 });
 var Sri_Lanka = new Place({
     name: 'Sri Lanka',
@@ -300,21 +346,111 @@ var Sri_Lanka = new Place({
     },
     //{lat: 7.92, lng: 80.77},
 });
-var Hispaniola = new Place({
-    name: 'Hispaniola',
-    population: 19.9,
-    area: 73.9,
+var Tasmania = new Place({
+    name: 'Tasmania',
+    population: 0.512,
+    area: 65.02,
     zoom: 8.0,
-
     frame_center: {
-        lat: 19.00,
-        lng: -71.54
-    },
-    marker_position: {
-        lat: 19.00,
-        lng: -71.54
+        lat: -42.1843449,
+        lng: 146.715009
     },
 });
+var Devon_Island = new Place({
+    name: 'Devon Island',
+    population: 0,
+    area: 55.25,
+    zoom: 7.0,
+    frame_center: {lat:  75.48754, lng: -88.79613},
+    marker_position: {lat:  75.12984, lng: -89.36577},
+});
+var Alexander_Island = new Place({
+    name: 'Alexander Island', 
+population: 0,
+area: 49.07,
+zoom: 7.0, 
+    frame_center: {lat: -71.0, lng: -70.0},
+  //  marker_position: 
+    });
+var Tierra_del_Fuego = new Place({
+    name: 'Tierra del Fuego',
+    population: 0.120, // very approx.
+    area: 47.4,
+    zoom: 8.0,
+    frame_center: {lat:  -53.95611, lng: -68.680239}, 
+    marker_position: {lat:  -54.104480, lng: -68.493370},
+});
+var Severny_Island = new Place({
+    name: 'Severny Island',
+    population: undefined,
+    area: 47.08,
+    zoom: 7.0,
+    frame_center: {lat:  75.05975, lng: 58.82664},
+    marker_position: {lat:  75.05975, lng: 58.82664}
+});
+// Berkner island. This is an antarctic ice island - ice resting on underwater rock. I'm not going to count it.
+var Axel_Heiberg_Island = new Place({
+    name: 'Axel Heiberg Island',
+    population: undefined,
+    area: 43.18,
+    zoom: 6.0,
+    frame_center: {lat:  79.65257877833461, lng: -91.17164348931226},
+});
+var Melville_Island = new Place({
+    name: 'Melville Island',
+    population: 0,
+    area: 42.15,
+    zoom: 7.0,
+    frame_center: {
+        lat: 75.639079,
+        lng: -110.814563
+    },
+    marker_position: {
+        lat: 75.386334,
+        lng: -111.01183
+    }
+});
+
+var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
+    'Hispaniola', 'Sakhalin',
+    //	'Banks Island', // Canada
+    'Sri Lanka', 'Tasmania',
+    //	'Devon Island', // Canada
+    //	'Alexander Island', // Antarctica
+    'Tierra del Fuego', 'Severny Island', // Novaya Zemlya, N. Island
+
+
+    //	'Berkner Island', // Antarctica
+    //	'Axel Heiberg Island', // Canada
+    //	'Melville Island', 'Southampton Island', // both Canada
+    'Marajo', // Brazil
+    'Spitsbergen', // Svalbard
+    'Kyushu', 'Taiwan', 'New Britain, Papua New Guinea',
+    //	'Prince of Wales Island, Canada', // Canada
+    //	'Yuzhny Island', // Novaya Zemlya S. Island
+    'Hainan', 'Vancouver Island', 'Timor', 'Sicily',
+    //	'Somerset Island', // Canada
+    //	'Kotelny Island', // Russia - are Kotelny and Faddeyevsky really connected??
+    'Sardinia' // 23,848 km^2, next biggest is 19,162
+];
+
+
+// end of Big islands
+
+// Populous Islands not found above:
+var Taiwan = new Place({
+    name: 'Taiwan',
+    population: 23.2,
+    zoom: 8.0,
+    frame_center: {
+        lat: 23.68491,
+        lng: 120.90661
+    },
+});
+// Sri Lanka
+
+// var Hispaniola = new Place({
+
 var Salsette = new Place({
     name: 'Salsette',
     population: 15.1,
@@ -385,21 +521,8 @@ var Long_Island = new Place({
         lng: -73.05
     },
 });
-var Hokkaido = new Place({
-    name: 'Hokkaido',
-    population: 5.44,
-    area: 78.7,
-    zoom: 8.0,
-
-    frame_center: {
-        lat: 43.39,
-        lng: 142.58
-    },
-    marker_position: {
-        lat: 43.39,
-        lng: 142.58
-    },
-});
+// Ireland
+// Hokkaido
 var Singapore = new Place({
     name: 'Singapore',
     population: 5.31,
@@ -643,40 +766,67 @@ var Masbate = new Place({
 // --------------------------------------------
 //   var gc = new google.maps.Geocoder();
 var GBisland_names = [ // area > 300 km^2, or population > 10,000
-'Isle of Wight', 'Isle of Man', 'Orkney', 'Isle of Skye', 'Lewis and Harris', 'Isle of Arran', 'Isle of Mull', 'Anglesey', 'Portsea Island', 'Canvey Island', 'Isle of Sheppey', 'Jersey', 'Guernsey', 'Scilly Isles', 'North Uist', 'South Uist', 'Shetland Mainland', 'Islay', 'Jura', 'Isle of Walney', 'Hayling Island', 'Holy Island, Anglesey'];
+    'Isle of Wight', 'Isle of Man', 'Orkney', 'Isle of Skye', 'Lewis and Harris', 'Isle of Arran', 'Isle of Mull', 'Anglesey', 'Portsea Island', 'Canvey Island', 'Isle of Sheppey', 'Jersey', 'Guernsey', 'Scilly Isles', 'North Uist', 'South Uist', 'Shetland Mainland', 'Islay', 'Jura', 'Isle of Walney', 'Hayling Island', 'Holy Island, Anglesey'
+];
 
 var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
-'Hispaniola', 'Sakhalin',
-//	'Banks Island', // Canada
-'Sri Lanka', 'Tasmania',
-//	'Devon Island', // Canada
-//	'Alexander Island', // Antarctica
-'Tierra del Fuego', 'Severny Island', // Novaya Zemlya, N. Island
-//	'Berkner Island', // Antarctica
-//	'Axel Heiberg Island', // Canada
-//	'Melville Island', 'Southampton Island', // both Canada
-'Marajo', // Brazil
-'Spitsbergen', // Svalbard
-'Kyushu', 'Taiwan', 'New Britain, Papua New Guinea',
-//	'Prince of Wales Island, Canada', // Canada
-//	'Yuzhny Island', // Novaya Zemlya S. Island
-'Hainan', 'Vancouver Island', 'Timor', 'Sicily',
-//	'Somerset Island', // Canada
-//	'Kotelny Island', // Russia - are Kotelny and Faddeyevsky really connected??
-'Sardinia' // 23,848 km^2, next biggest is 19,162
+    'Hispaniola', 'Sakhalin',
+    //	'Banks Island', // Canada
+    'Sri Lanka', 'Tasmania',
+    //	'Devon Island', // Canada
+    //	'Alexander Island', // Antarctica
+    'Tierra del Fuego', 'Severny Island', // Novaya Zemlya, N. Island
+    //	'Berkner Island', // Antarctica
+    //	'Axel Heiberg Island', // Canada
+    //	'Melville Island', 'Southampton Island', // both Canada
+    'Marajo', // Brazil
+    'Spitsbergen', // Svalbard
+    'Kyushu', 'Taiwan', 'New Britain, Papua New Guinea',
+    //	'Prince of Wales Island, Canada', // Canada
+    //	'Yuzhny Island', // Novaya Zemlya S. Island
+    'Hainan', 'Vancouver Island', 'Timor', 'Sicily',
+    //	'Somerset Island', // Canada
+    //	'Kotelny Island', // Russia - are Kotelny and Faddeyevsky really connected??
+    'Sardinia' // 23,848 km^2, next biggest is 19,162
 ];
 
 var MediterraneanIslands = ['Sicily', 'Sardinia', 'Corsica', 'Cyprus', 'Crete', 'Euboea', 'Malta', 'Rhodes', 'Majorca', 'Lesbos', 'Elba', 'Ibiza', 'Minorca'
 
-//	 'Cyclades, Greece',
-//	'Dodecanese, Greece',
-//	'Balearic Islands',
+    //	 'Cyclades, Greece',
+    //	'Dodecanese, Greece',
+    //	'Balearic Islands',
 ];
 
-var WorldBigIslands_top20 = [Greenland, New_Guinea, Borneo, Madagascar, Baffin_Island, Sumatra, Honshu, Victoria_Island, Great_Britain, Ellesmere_Island, Sulawesi, South_Island_New_Zealand, Java, North_Island_New_Zealand, Luzon, Newfoundland, Cuba, Iceland, Mindanao, Ireland];
+var WorldBigIslands_top32 = [
+    Greenland, New_Guinea, Borneo, Madagascar,
+    Baffin_Island, Sumatra, Honshu, Victoria_Island,
+    Great_Britain, Ellesmere_Island, 
 
-var PopulousIslands = [Java, Honshu, Great_Britain, Sumatra, Luzon, Taiwan, Sri_Lanka, Madagascar, Mindanao, Hispaniola, Borneo, Sulawesi, Salsette, Kyushu, Cuba, Hainan, Long_Island, New_Guinea, Ireland, Hokkaido, Singapore, Sicily, Bali, Negros, Panay, Shikoku, Puerto_Rico, Cebu, Madura, North_Island_New_Zealand, Lombok, Timor, Jamaica];
+    Sulawesi, South_Island_New_Zealand,
+    Java, North_Island_New_Zealand, Luzon, Newfoundland,
+    Cuba, Iceland, Mindanao, Ireland,
+ 
+    Hokkaido, Hispaniola, Sakhalin, Banks_Island, 
+    Sri_Lanka, Tasmania, Devon_Island, Alexander_Island,
+    Tierra_del_Fuego, Severny_Island, Axel_Heiberg_Island, Melville_Island
+];
+
+var PopulousIslands = [
+    Java, Honshu, Great_Britain, Sumatra,
+    Luzon, Taiwan, Sri_Lanka, Madagascar,
+    Mindanao, Hispaniola, Borneo, Sulawesi,
+    Salsette, Kyushu, Cuba, Hainan,
+    Long_Island, New_Guinea, Ireland, Hokkaido,
+    Singapore, Sicily, Bali, Negros,
+    Panay, Shikoku, Puerto_Rico, Cebu,
+    Madura, North_Island_New_Zealand, Lombok, Timor,
+    Jamaica
+];
 
 var Philippines_Big11 = [
-Luzon, Mindanao, Negros, Samar, Palawan, Panay, 
-Mindoro, Leyte, Cebu, Bohol, Masbate];
+    Luzon, Mindanao, Negros, Samar,
+    Palawan, Panay, Mindoro, Leyte,
+    Cebu, Bohol, Masbate
+];
+
+var Indonesia_Big
