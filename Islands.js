@@ -141,6 +141,7 @@ var Ellesmere_Island = new Place({
 });
 var Sulawesi = new Place({
     name: 'Sulawesi',
+    population: 17.360,
     area: 180.7,
     zoom: 8.0,
     frame_center: {
@@ -154,6 +155,7 @@ var Sulawesi = new Place({
 });
 var South_Island_New_Zealand = new Place({
     name: 'South Island, New Zealand',
+    population: 1.04,
     area: 145.8,
     zoom: 7.0,
     frame_center: {
@@ -169,7 +171,7 @@ var Java = new Place({
     name: 'Java',
     population: 132.941,
     // in millions
-    area: 138.8,
+    area: 138.8, // km^2
     zoom: 8.0,
     frame_center: {
         lat: -7.39,
@@ -644,6 +646,7 @@ var Lombok = new Place({
 var Timor = new Place({
     name: 'Timor',
     population: 2.79,
+    area: 28.418,
     zoom: 9.0,
     frame_center: {
         lat: -9.226799422752977,
@@ -662,6 +665,13 @@ var Jamaica = new Place({
         lat: 18.149722821927448,
         lng: -77.27968367837246
     },
+});
+var Zealand = new Place({
+    name: 'Zealand',
+    population: 2.275,
+    area: 7.031,
+    zoom: 10.0,
+    frame_center: {lat: 55.569, lng: 11.8542},
 });
 
 // Philippine Islands 3-11 by area (Luzon, Mindanao, Negros, Panay, Cebu already found above)
@@ -718,6 +728,8 @@ var Mindoro = new Place({
 });
 var Leyte = new Place({
     name: 'Leyte',
+    population: 2.188,
+    area: 7.368,
     zoom: 10.0,
     frame_center: {
         lat: 10.837774,
@@ -763,6 +775,112 @@ var Masbate = new Place({
     },
 });
 
+// Indonesian Islands
+// by size:
+// New Guinea, Borneo, Sumatra, Sulawesi, Java, // already found above. 
+var Halmahera = new Place ({
+    name: 'Halmahera',
+    population: 0.4499, // millions
+    area: 18.040, // thousands of km^2
+    zoom: 9.0,
+    frame_center: {lat: 0.6921, lng: 127.8699},
+});
+var Seram = new Place ({
+    name: 'Seram',
+    population: 0.4341,
+    area: 17.454,
+    zoom: 9,
+    frame_center:  {lat: -3.1515, lng: 129.4629}
+});
+var Sumbawa = new Place ({
+    name: 'Sumbawa',
+    population: 1.33,
+    area: 14.386,
+    zoom: 9.0,
+    frame_center: {lat: -8.5973, lng: 117.9492},
+    marker_position: {lat: -8.7982, lng: 117.9382},
+});
+var Flores = new Place ({
+    name: 'Flores',
+    population: 1.831,
+    area: 14.154,
+    zoom: 9,
+ // frame_center: {lat: -8.5329, lng: 121.5866},
+    frame_center: {lat: -8.6625, lng: 121.5967},
+    marker_position: {lat: -8.6625, lng: 121.322},
+});
+var Yos_Sudarso = new Place ({
+    name: 'Yos_Sudarso',
+    population: 0.011,
+    area: 11.742,
+    zoom: 9,
+    frame_center: {lat: -7.8152, lng: 138.4506},
+});
+var Bangka = new Place ({
+    name: 'Bangka',
+    population: 0.9607,
+    area: 11.413,
+    zoom: 9,
+    frame_center: {lat: -2.2963, lng: 105.9942},
+});
+var Sumba = new Place ({
+    name: 'Sumba',
+    population: 0.6861,
+    area: 10.711,
+    zoom: 9,
+    frame_center: {lat: -9.7253, lng: 120.0256},
+});
+var Buru = new Place ({
+    name: 'Buru',
+    population: 0.1621,
+    area: 8.473,
+    zoom: 9,
+    frame_center:  {lat: -3.4202, lng: 126.6449},
+});
+//Belitung, Madura, Buton, Nias, Siberut, Wetar, 
+var Belitung = new Place ({
+    name: 'Belitung',
+    population: 0.2624,
+    area: 4.478,
+    zoom: 10,
+    frame_center: {lat: -2.869, lng: 107.916},
+});
+var Buton = new Place ({
+    name: 'Buton',
+    population: 0.4474,
+    area: 4.408,
+    zoom: 10,
+    frame_center: {lat: -5.0399, lng: 122.9331}
+});
+var Nias = new Place ({
+    name: 'Nias',
+    population: 0.7563,
+    area: 4.048,
+    zoom: 10,
+    frame_center: {lat: 1.0958, lng: 97.5558}, 
+});
+var Siberut = new Place ({
+    name: 'Siberut',
+    population: 0.035,
+    area: 3.828,
+    zoom: 10,
+    frame_center:  {lat: -1.3841, lng: 98.9346},
+});
+var Wetar = new Place ({
+    name: 'Wetar',
+    population: undefined, // not in wikepedia!
+    area: 3.600,
+    zoom: 10,
+    frame_center: {lat: -7.7716, lng: 126.275},
+});
+// 
+var  Batam = new Place({
+    name: 'Batam',
+    population: 1.154,
+    area: 0.715,
+    zoom: 10,
+    frame_center:  {lat: 1.0773, lng: 104.0265},
+});
 // --------------------------------------------
 //   var gc = new google.maps.Geocoder();
 var GBisland_names = [ // area > 300 km^2, or population > 10,000
@@ -820,7 +938,7 @@ var PopulousIslands = [
     Singapore, Sicily, Bali, Negros,
     Panay, Shikoku, Puerto_Rico, Cebu,
     Madura, North_Island_New_Zealand, Lombok, Timor,
-    Jamaica
+    Jamaica, Zealand, Leyte,
 ];
 
 var Philippines_Big11 = [
@@ -829,4 +947,24 @@ var Philippines_Big11 = [
     Cebu, Bohol, Masbate
 ];
 
-var Indonesia_Big
+var Indonesia_Big = [ // these are ranked by total island area, not by area of Indonesian part. (area > 3500 km^2. 
+// > 100000 km^2
+    New_Guinea, Borneo, Sumatra, Sulawesi, Java,
+// 20000 - 100000
+    Timor,
+//  10000 - 20000 km^2
+    Halmahera, Seram, Sumbawa, Flores, Yos_Sudarso,
+    Bangka, Sumba,
+//  5000 - 10000 km^2
+    Buru, // 8.5 thousand km^2
+    Bali, // 5.4 thousand km^2
+// 2500 - 5000 km^2
+    Lombok, Belitung, Madura, Buton, Nias,
+    Siberut, Wetar, // Wetar: 3600 km^2
+];
+
+var Indonesia_Populous = [ // ranked by population on whole island, not Indonesian part. (population > 1 million. 12 islands. )
+    Java, Sumatra, Borneo, Sulawesi, New_Guinea,
+    Bali, Madura, Lombok, Timor, Flores, 
+    Sumbawa, Batam,
+];
