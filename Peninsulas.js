@@ -1,4 +1,3 @@
-var Peninsulas = [];
 var India = new Place({
     name: 'India',
     zoom: 7.0,
@@ -212,7 +211,7 @@ var Baja_California = new Place({
         lng: -113.42
     },
 });
-var Alaska_Peninsual = new Place({
+var Alaska_Peninsula = new Place({
     name: 'Alaska Peninsula',
     zoom: 8.0,
     frame_center: {
@@ -224,7 +223,7 @@ var Alaska_Peninsual = new Place({
         lng: -159.04
     },
 });
-var Kamchatka_Peninsual = new Place({
+var Kamchatka_Peninsula = new Place({
     name: 'Kamchatka Peninsula',
     zoom: 7.0,
     frame_center: {
@@ -236,7 +235,7 @@ var Kamchatka_Peninsual = new Place({
         lng: 159.74
     },
 });
-var Seward_Peninsual = new Place({
+var Seward_Peninsula = new Place({
     name: 'Seward Peninsula',
     zoom: 8.0,
 
@@ -262,7 +261,7 @@ var Kola_Peninsula = new Place({
         lng: 37.27
     },
 });
-var Chukchi_Peninsual = new Place({
+var Chukchi_Peninsula = new Place({
     name: 'Chukchi Peninsula',
     zoom: 7.0,
 
@@ -275,7 +274,7 @@ var Chukchi_Peninsual = new Place({
         lng: -174.86
     },
 });
-var Boothia_Peninsual = new Place({
+var Boothia_Peninsula = new Place({
     name: 'Boothia Peninsula',
     zoom: 7.0,
     frame_center: {
@@ -299,3 +298,15 @@ var Yamal_Peninsula = new Place({
         lng: 69.92
     },
 });
+
+var Peninsulas = [
+    India, Iberia, Korea, Italy, Arabia,
+    Malay_Peninsula, Scandinavia, Florida, Peloponnese, Shandong_Peninsula,
+    Antarctic_Peninsula, Yucatan, Liaodong_Peninsula, Leizhou_Peninsula,
+    Cape_York_Peninsula, Jutland, Baja_California, Alaska_Peninsula, Kamchatka_Peninsula,
+    Seward_Peninsula, Kola_Peninsula, Chukchi_Peninsula, Boothia_Peninsula, Yamal_Peninsula,
+];
+
+var Peninsulas_top10 = [
+    India, Iberia, Korea, Italy, Arabia,
+    Malay_Peninsula, Scandinavia, Florida, Peloponnese, Shandong_Peninsula];
