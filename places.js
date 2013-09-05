@@ -5,7 +5,7 @@ var default_radius = 8000;
 function Place(obj) {
     this.name = obj.name;
     this.population = obj.population || undefined;
-    this.population = obj.population || undefined;
+    this.area = obj.area || undefined;
     this.zoom = obj.zoom || default_zoom;
 //    this.relprob = obj.relprob || init_relprob;
     this.age = obj.age || init_age;
