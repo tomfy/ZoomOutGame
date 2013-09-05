@@ -6,23 +6,26 @@
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map_canvas { height: 100%; width: 80%; float: left}
-      #answer_buttons {display: inline-block; margin-left: 15px}
+      #map_canvas { height: 100%; width: 74%; float: left}
+ 
+ #score_area {display: inline-block; margin-left: 45px}   /* applies to id score_area */
+  #locations_area {display: inline-block; margin-left: 25px} 
 /*      #buttons {float: right; display: inline-block; text-align: right}*/
 
- .labels {
+ .marker_labels {  /* applies to class labels */
    color: red;
    background-color: white;
    font-family: "Lucida Grande", "Arial", sans-serif;
    font-size: 16px;
    font-weight: bold;
    text-align: center;
-   width: 100px;     
+   width: 140px;     
    border: 1px solid black;
    white-space: wrap;
  }
+#answer_buttons a {display: block; text-align: center} 
+//margin-left: 35px}
 
-      #answer_buttons a {display: block}
     </style>
 
     <script type="text/javascript"
@@ -32,7 +35,6 @@
     <script src="../js_lib/hashtable.js"></script>
     <script src="../js_lib/tly_util.js"></script>
  <script src="text_overlay.js"></script>
-<script src="maplabel.js"></script>
 <script src="markerwithlabel.js"></script>
   <script src="places.js"></script>
  <script src="Islands.js"></script>
@@ -46,9 +48,15 @@
 
 
    <div id="map_canvas" ></div>
-
+<script src="maplabel.js"></script>
+  <div id="score_div"></div>
+ <div id="map_info_div">
+   <div id="zoom_info_div"></div>
+   <div id="map_center_info_div"></div>
+   <div id="click_position_info_div"></div>
+</div>
   <div id="zoom_buttons" ></div>
    <div id="answer_buttons"></div>
- 
+
   </body>
 </html>
