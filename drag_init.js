@@ -18,7 +18,7 @@ function initialize() {
 
 
     //   places = Peninsulas.slice(0); 
-  //  places = GBcities.slice(0);
+//    places = GBcities.slice(0);
   //  places = PopulousIslands.slice(0);
  // places = WorldBigIslands_top32.slice(20,32);
  places = Philippines_Big11.slice(0);
