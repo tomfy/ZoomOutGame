@@ -1,8 +1,9 @@
 // Islands
-// Biggest area:
+// Largest area islands:
 var Greenland = new Place({
     name: 'Greenland',
     zoom: 5,
+    population: {kilopeople: 56.37, rank: 1000},
     area: {sqkm: 2130800, rank: 1},   // are in km^2, and world rank by area
     // thousands of square kilometers
     frame_center: {
@@ -16,7 +17,7 @@ var Greenland = new Place({
 });
 var New_Guinea = new Place({
     name: 'New Guinea',
-    population: 9.43,
+    population: {kilopeople: 9425.634, rank: 16},
     area: {sqkm: 785753, rank: 2},
     // thousands of square kilometers
     zoom: 7.0,
@@ -32,7 +33,7 @@ var New_Guinea = new Place({
 });
 var Borneo = new Place({
     name: 'Borneo',
-    population: 19.7,
+    population: {kilopeople: 19712.0, rank: 11},
     area: {sqkm: 748168, rank: 3},
     zoom: 7.0,
     //    lat: 0.74,     // lng: 113.85},
@@ -47,7 +48,7 @@ var Borneo = new Place({
 });
 var Madagascar = new Place({
     name: 'Madagascar',
-    population: 20.7,
+    population: {kilopeople: 20714, rank: 8},
     area: {sqkm: 587713, rank: 4},
     zoom: 7.0,
     frame_center: {
@@ -61,6 +62,7 @@ var Madagascar = new Place({
 });
 var Baffin_Island = new Place({
     name: 'Baffin Island',
+    population: {kilopeople: 10.75, rank: 1000},
     area: {sqkm: 507451, rank: 5},
     zoom: 6.0,
     frame_center: {
@@ -74,7 +76,7 @@ var Baffin_Island = new Place({
 });
 var Sumatra = new Place({
     name: 'Sumatra',
-    population: 47.0,
+    population: {kilopeople: 47010, rank: 5},
     area: {sqkm: 473481, rank: 6}, 
     zoom: 7.0,
     frame_center: {
@@ -88,7 +90,7 @@ var Sumatra = new Place({
 });
 var Honshu = new Place({
     name: 'Honshu',
-    population: 104.0,
+    population: {kilopeople: 104000, rank: 2},
     area: {sqkm: 225800, rank: 7},
     zoom: 7.0,
     frame_center: {
@@ -102,6 +104,7 @@ var Honshu = new Place({
 });
 var Victoria_Island = new Place({
     name: 'Victoria Island',
+    population: {kilopeople: 1.9, rank: 1000}, 
     area: {sqkm: 217291, rank: 8},
     zoom: 6.0,
     frame_center: {
@@ -115,7 +118,7 @@ var Victoria_Island = new Place({
 })
 var Great_Britain = new Place({
     name: 'Great Britain',
-    population: 61.4,
+    population: {kilopeople: 61371, rank: 3},
     area: {sqkm: 209331, rank: 9},
     zoom: 7.0,
     frame_center: {
@@ -129,8 +132,9 @@ var Great_Britain = new Place({
 });
 var Ellesmere_Island = new Place({
     name: 'Ellesmere Island',
+    population: {kilopeople: 0.15, rank: 1000},
     area: {sqkm: 196236, rank: 10},
-    zoom: 5.0,
+    zoom: 6.0,
     frame_center: {
         lat: 80.41068,
         lng: -79.36122
@@ -142,7 +146,7 @@ var Ellesmere_Island = new Place({
 });
 var Sulawesi = new Place({
     name: 'Sulawesi',
-    population: 17.360,
+    population: {kilopeople: 17360, rank: 12},
     area: {sqkm: 180681, rank: 11},
     zoom: 8.0,
     frame_center: {
@@ -156,7 +160,7 @@ var Sulawesi = new Place({
 });
 var South_Island_New_Zealand = new Place({
     name: 'South Island, New Zealand',
-    population: 1.04,
+    population: {kilopeople: 1038.6, rank: 56},
     area: {sqkm: 145836, rank: 12},
     zoom: 7.0,
     frame_center: {
@@ -170,8 +174,7 @@ var South_Island_New_Zealand = new Place({
 });
 var Java = new Place({
     name: 'Java',
-    population: 132.941,
-    // in millions
+    population: {kilopeople: 132941, rank: 1},
     area: {sqkm: 138794, rank: 13}, // km^2
     zoom: 8.0,
     frame_center: {
@@ -185,7 +188,7 @@ var Java = new Place({
 });
 var North_Island_New_Zealand = new Place({
     name: 'North Island, New Zealand',
-    population: 3.39,
+    population: {kilopeople: 3393.9, rank: 30},
     area: {sqkm: 111583, rank: 14},
     zoom: 7.0,
     frame_center: {
@@ -199,7 +202,7 @@ var North_Island_New_Zealand = new Place({
 });
 var Luzon = new Place({
     name: 'Luzon',
-    population: 48.5,
+    population: {kilopeople: 48520.8, rank: 4},
     area: {sqkm: 109965, rank: 15},
     zoom: 8.0,
     frame_center: {
@@ -213,6 +216,7 @@ var Luzon = new Place({
 });
 var Newfoundland = new Place({
     name: 'Newfoundland',
+    population: {kilopeople: 479.1, rank: 81},
     area: {sqkm: 108860, rank: 16},
     zoom: 7.0,
     frame_center: {
@@ -226,6 +230,7 @@ var Newfoundland = new Place({
 });
 var Cuba = new Place({
     name: 'Cuba',
+    population: {kilopeople: 11150, rank: 15},
     area: {sqkm: 104556, rank: 17},
     zoom: 7.0,
     frame_center: {
@@ -239,6 +244,7 @@ var Cuba = new Place({
 });
 var Iceland = new Place({
     name: 'Iceland',
+    population: {kilopeople: 311.4, rank: 106},
     area: {sqkm: 101826, rank: 18},
     zoom: 7.0,
     frame_center: {
@@ -252,7 +258,7 @@ var Iceland = new Place({
 });
 var Mindanao = new Place({
     name: 'Mindanao',
-    population: 20.4,
+    population: {kilopeople: 20365, rank: 9},
     area: {sqkm: 97530, rank: 19},
     zoom: 8.0,
     frame_center: {
@@ -266,7 +272,7 @@ var Mindanao = new Place({
 });
 var Ireland = new Place({
     name: 'Ireland',
-    population: 6.38,
+    population: {kilopeople: 6380.7, rank: 19},
     area: {sqkm: 84421, rank: 20},
     zoom: 8.0,
     frame_center: {
@@ -280,7 +286,7 @@ var Ireland = new Place({
 });
 var Hokkaido = new Place({
     name: 'Hokkaido',
-    population: 5.44,
+    population: {kilopeople: 5444.3, rank: 20},
     area: {sqkm: 78719, rank: 21},
     zoom: 8.0,
     frame_center: {
@@ -294,7 +300,7 @@ var Hokkaido = new Place({
 });
 var Hispaniola = new Place({
     name: 'Hispaniola',
-    population: 19.9,
+    population: {kilopeople: 19920, rank: 10},
     area: {sqkm: 73929, rank: 22},
     zoom: 8.0,
     frame_center: {
@@ -308,7 +314,7 @@ var Hispaniola = new Place({
 });
 var Sakhalin = new Place({
         name: 'Sakhalin',
-        population: 0.485,
+    population: {kilopeople: 485, rank: 80},
     area: {sqkm: 72493, rank: 23},
         zoom: 7.0,
         frame_center: {
@@ -322,7 +328,7 @@ var Sakhalin = new Place({
 });
 var Banks_Island = new Place({
         name: 'Banks Island',
-        population: 0.000136,
+    population: {kilopeople: 0.136, rank: 1000},
     area: {sqkm: 70028, rank: 24},
     zoom: 7.0,
         frame_center: {
@@ -336,7 +342,7 @@ var Banks_Island = new Place({
 });
 var Sri_Lanka = new Place({
     name: 'Sri Lanka',
-    population: 20.9,
+    population: {kilopeople: 20860, rank: 7},
     area: {sqkm: 65268, rank: 25},
     zoom: 8.0,
     frame_center: {
@@ -347,11 +353,10 @@ var Sri_Lanka = new Place({
         lat: 7.46819251,
         lng: 80.7480541
     },
-    //{lat: 7.92, lng: 80.77},
 });
 var Tasmania = new Place({
     name: 'Tasmania',
-    population: 0.512,
+    population: {kilopeople: 507.6, rank: 77},
     area: {sqkm: 65022, rank: 26},
     zoom: 8.0,
     frame_center: {
@@ -361,7 +366,7 @@ var Tasmania = new Place({
 });
 var Devon_Island = new Place({
     name: 'Devon Island',
-    population: 0,
+    population: {kilopeople: 0, rank: 1000}, // largest uninhabited island.
     area: {sqkm: 55247, rank: 27},
     zoom: 7.0,
     frame_center: {lat:  75.48754, lng: -88.79613},
@@ -369,7 +374,7 @@ var Devon_Island = new Place({
 });
 var Alexander_Island = new Place({
     name: 'Alexander Island', 
-population: 0,
+    population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 49070, rank: 28},
 zoom: 7.0, 
     frame_center: {lat: -71.0, lng: -70.0},
@@ -377,7 +382,7 @@ zoom: 7.0,
     });
 var Tierra_del_Fuego = new Place({ // 'Isla Grande de Tierra del Fuego'
     name: 'Tierra del Fuego',
-    population: 0.120, // very approx.
+    population: {kilopeople: 108, rank: 180}, // very approx.
     area: {sqkm: 47401, rank: 29},
     zoom: 8.0,
     frame_center: {lat:  -53.95611, lng: -68.680239}, 
@@ -385,24 +390,32 @@ var Tierra_del_Fuego = new Place({ // 'Isla Grande de Tierra del Fuego'
 });
 var Severny_Island = new Place({
     name: 'Severny Island',
-    population: undefined,
+    population: {kilopeople: undefined, rank: 1000}, 
     area: {sqkm: 47079, rank: 30},
     zoom: 7.0,
     frame_center: {lat:  75.05975, lng: 58.82664},
     marker_position: {lat:  75.05975, lng: 58.82664}
 });
-// Berkner island. This is an antarctic ice island - ice resting on underwater rock. I'm not going to count it.
-// It's ranked 31st by size on wikipedia's list.
+// Berkner island. This is an antarctic ice island - ice resting on underwater rock.
+// Does not appear on google maps. So not useful here, but included for completeness.
+var Berkner_Island = new Place({ // Debateable whether it is an island.
+     name: 'Berkner Island',
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 43873, rank: 31}, 
+    zoom: 9.0,
+    frame_center: {lat: -79.5, lng:  -47.5},
+    marker_position: {lat: -79.5, lng:  -47.5},
+}); 
 var Axel_Heiberg_Island = new Place({
     name: 'Axel Heiberg Island',
-    population: undefined,
+    population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 43178, rank: 32},
     zoom: 6.0,
     frame_center: {lat:  79.65257877833461, lng: -91.17164348931226},
 });
 var Melville_Island = new Place({
     name: 'Melville Island',
-    population: 0,
+    population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 42149, rank: 33},
     zoom: 7.0,
     frame_center: {
@@ -416,7 +429,7 @@ var Melville_Island = new Place({
 });
 var Southampton_Island = new Place({
     name: 'Southampton Island',
-    population: 7.21e-4,
+    population: {kilopeople: 0.721, rank: 1000},
     area: {sqkm: 41214, rank: 34},
     zoom: 7.0,
     frame_center: {lat: 64.6615, lng: -84.5947},
@@ -424,7 +437,7 @@ var Southampton_Island = new Place({
 });
 var Marajo = new Place({
     name: 'Marajo',
-    population: 0.487,
+    population: {kilopeople: 487, rank: 79},
     area: {sqkm: 40100, rank: 35},
     zoom: 7.0,
     frame_center: {lat: -0.9503, lng: -49.7021},
@@ -432,14 +445,14 @@ var Marajo = new Place({
 });
 var Spitsbergen = new Place({
     name: 'Spitsbergen',
-    population: undefined,
+    population: {kilopeople: 2.753, rank: 1000},
     area: {sqkm: 37814, rank: 36},
     frame_center: {lat: 78.5495, lng: 16.3688},
     marker_position: {lat: 78.7163, lng: 15.9082},
 });
 var Kyushu = new Place({
     name: 'Kyushu',
-    population: 13.2,
+    population: {kilopeople: 13.200, rank: 14},
     area: {sqkm: 37437, rank: 37},
     zoom: 9.0,
 
@@ -454,7 +467,7 @@ var Kyushu = new Place({
 });
 var Taiwan = new Place({
     name: 'Taiwan',
-    population: 23.2,
+    population: {kilopeople: 23232, rank: 6},
     area: {sqkm: 35883, rank: 38},
     zoom: 8.0,
     frame_center: {
@@ -464,7 +477,7 @@ var Taiwan = new Place({
 });
 var New_Britain = new Place({
     name: 'New Britain',
-    population: 0.5139,
+    population: {kilopeople: 513.9, rank: 76},
     area: {sqkm: 35145, rank: 39},
     zoom: 8.0,
     frame_center: {lat: -5.273, lng: -209.5106},
@@ -472,21 +485,21 @@ var New_Britain = new Place({
 });
 var Prince_of_Wales_Island = new Place({
     name: 'Prince of Wales Island',
-    population: 0,
+    population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 33339, rank: 40},
     frame_center: {lat: 72.8007, lng: -98.0735},
     marker_position: {lat: 72.6858, lng: -98.8989},
 });
 var Yuzhny_Island = new Place({
     name: 'Yuzhny Island',
-    population: undefined, // 'largely evacuated in 1950's to make way for nuclear tests'
+    population: {kilopeople: undefined, rank: 1000}, // 'largely evacuated in 1950's to make way for nuclear tests'
     area: {sqkm: 33246, rank: 41},
     frame_center:  {lat: 72.0507, lng: 55.1149},
     marker_position: {lat: 72.1279, lng: 53.9648},
 });
 var Hainan = new Place({
     name: 'Hainan',
-    population: 8.67,
+    population: {kilopeople: 8672, rank: 17},
     area: {sqkm: 33210, rank: 42},
     zoom: 9.0,
     frame_center: {
@@ -500,7 +513,7 @@ var Hainan = new Place({
 });
 var Vancouver_Island = new Place({
     name: 'Vancouver Island',
-    population: 0.7489,
+    population: {kilopeople: 748.9, rank: 67},
     area: {sqkm: 31285, rank: 43},
     zoom: 9.0,
     frame_center: {lat: 49.6604, lng: -125.7256},
@@ -508,7 +521,7 @@ var Vancouver_Island = new Place({
 });
 var Timor = new Place({
     name: 'Timor',
-    population: 2.79,
+    population: {kilopeople: 2786, rank: 32},
     area: {sqkm: 28418, rank: 44},
     zoom: 9.0,
     frame_center: {
@@ -522,7 +535,7 @@ var Timor = new Place({
 });
 var Sicily = new Place({
     name: 'Sicily',
-    population: 5.02,
+    population: {kilopeople: 5017, rank: 22},
     area: {sqkm: 25662, rank: 45},
     zoom: 9.0,
     frame_center: {
@@ -536,7 +549,7 @@ var Sicily = new Place({
 });
 var Somerset_Island = new Place({
     name: 'Somerset Island',
-    population: 0,
+    population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 24786, rank: 46},
     zoom: 8.0,
     frame_center: {lat: 73.0707, lng: -93.7725},
@@ -544,15 +557,15 @@ var Somerset_Island = new Place({
 });
 var Kotelny_Island = new Place({
     name: 'Kotelny Island', // also 'Kotelny/Faddayevsky Island'
-    population: 0,
+    population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 24000, rank: 47},
     zoom: 8.0,
 frame_center: {lat: 75.443, lng: 141.0497},
-    marker_position: {lat: 76.1456, lng: 136.1316},
+    marker_position: {lat: 75.4005, lng: 140.592},
 });
 var Sardinia = new Place({
     name: 'Sardinia',
-    population: 1.637,
+    population: {kilopeople: 1637, rank: 42},
     area: {sqkm: 23949, rank: 48},
     zoom: 9.0,
     frame_center: {lat: 40.0938, lng: 9.049},
@@ -591,7 +604,8 @@ var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
 // Hispaniola
 var Salsette = new Place({
     name: 'Salsette',
-    population: 15.1,
+    population: {kilopeople: 15112, rank: 13},
+    area: {sqkm: 619, rank: 1000}, 
     zoom: 11.0,
     frame_center: {
         lat: 19.17,
@@ -605,8 +619,8 @@ var Salsette = new Place({
 //Hainan
 var Long_Island = new Place({
     name: 'Long Island',
-    population: 7.69,
-    area: 3.629,
+    population: {kilopeople: 7687, rank: 18},
+    area: {sqkm: 3629, rank: 148},
     zoom: 9.0,
 
     frame_center: {
@@ -622,9 +636,9 @@ var Long_Island = new Place({
 // Hokkaido
 var Singapore = new Place({
     name: 'Singapore',
-    population: 5.31,
+    population: {kilopeople: 5312, rank: 21},
+    area: {sqkm: 697, rank: 1000}, 
     zoom: 11.0,
-
     frame_center: {
         lat: 1.36,
         lng: 103.82
@@ -637,8 +651,8 @@ var Singapore = new Place({
 // Sicily
 var Bali = new Place({
     name: 'Bali',
-    population: 4.22,
-    area: 5.416,
+    population: {kilopeople: 4220, rank: 23},
+    area: {sqkm: 5416, rank: 108},
     zoom: 10.0,
     frame_center: {
         lat: -8.34978,
@@ -651,8 +665,8 @@ var Bali = new Place({
 });
 var Negros = new Place({
     name: 'Negros',
-    population: 4.19,
-    area: 13.07,
+    population: {kilopeople: 4195, rank: 24},
+    area: {sqkm: 13074, rank: 62},
     zoom: 9.0,
     frame_center: {
         lat: 10.08794,
@@ -661,8 +675,8 @@ var Negros = new Place({
 });
 var Panay = new Place({
     name: 'Panay',
-    population: 4.03,
-    area: 12.01,
+    population: {kilopeople: 4032, rank: 25},
+    area: {sqkm: 12011, rank: 65},
     zoom: 10.0,
     frame_center: {
         lat: 11.1785335,
@@ -671,8 +685,8 @@ var Panay = new Place({
 });
 var Shikoku = new Place({
     name: 'Shikoku',
-    population: 3.91,
-    area: 18.55,
+    population: {kilopeople: 3913, rank: 26},
+    area: {sqkm: 18545, rank: 50},
     zoom: 9.0,
     frame_center: {
         lat: 33.5788305,
@@ -685,8 +699,8 @@ var Shikoku = new Place({
 });
 var Puerto_Rico = new Place({
     name: 'Puerto Rico',
-    population: 3.73,
-    area: 9.100,
+    population: {kilopeople: 3726, rank: 27},
+    area: {sqkm: 9100, rank: 82},
     zoom: 10.0,
     frame_center: {
         lat: 18.2279785,
@@ -695,8 +709,8 @@ var Puerto_Rico = new Place({
 });
 var Cebu = new Place({
     name: 'Cebu',
-    population: 3.63,
-    area: 4.468,
+    population: {kilopeople: 3630, rank: 28},
+    area: {sqkm: 4468, rank: 125}, 
     zoom: 10.0,
     frame_center: {
         lat: 10.401537,
@@ -705,8 +719,8 @@ var Cebu = new Place({
 });
 var Madura = new Place({
     name: 'Madura',
-    population: 3.62,
-    area: 4.429,
+    population: {kilopeople: 3622, rank: 29},
+    area: {sqkm: 4429, rank: 128},
     zoom: 9.0,
     frame_center: {
         lat: -7.05416,
@@ -716,8 +730,8 @@ var Madura = new Place({
 // var North_Island_New_Zealand = new Place
 var Lombok = new Place({
     name: 'Lombok',
-    population: 3.16,
-    area: 4.625,
+    population: {kilopeople: 3160, rank: 31},
+    area: {sqkm: 4625, rank: 122},
     zoom: 10.0,
     frame_center: {
         lat: -8.575682,
@@ -727,17 +741,19 @@ var Lombok = new Place({
 // Timor
 var Jamaica = new Place({
     name: 'Jamaica',
-    population: 2.74,
+    population: {kilopeople: 2741, rank: 33},
+    area: {sqkm: 11190, rank: 71},
     zoom: 10.0,
     frame_center: {
-        lat: 18.149722821927448,
-        lng: -77.27968367837246
+        lat: 18.1497228,
+        lng: -77.2796836
     },
 });
+// Zhongshan Dao - this is listed as 34th most populous by wikipedia, but status as island is doubtful.
 var Zealand = new Place({
-    name: 'Zealand',
-    population: 2.275,
-    area: 7.031,
+    name: 'Zealand', // Denmark
+    population: {kilopeople: 2275, rank: 35}, 
+    area: {sqkm: 7031, rank: 96},
     zoom: 10.0,
     frame_center: {lat: 55.569, lng: 11.8542},
 });
@@ -746,7 +762,8 @@ var Zealand = new Place({
 // These are the other 6 largest (and most populous) Philippine islands.
 var Samar = new Place({
     name: 'Samar',
-    area: 12.85,
+    population: {kilopeople: 1751, rank: 40},
+    area: {sqkm: 12849, rank: 63},
     zoom: 9.0,
     frame_center: {
         lat: 11.865503,
@@ -760,7 +777,8 @@ var Samar = new Place({
 var Palawan = new Place({
     name: 'Palawan',
     zoom: 8.0,
-    area: 12.19,
+    population: {kilopeople: 793.4, rank: 65},
+    area: {sqkm: 12189, rank: 64},
     frame_center: {
         lat: 9.642215,
         lng: 118.547974
@@ -772,7 +790,8 @@ var Palawan = new Place({
 });
 var Mindoro = new Place({
     name: 'Mindoro',
-    area: 10.57,
+    population: {kilopeople: 1239, rank: 51},
+    area: {sqkm: 10572, rank: 74},
     zoom: 10.0,
     frame_center: {
         lat: 12.966169,
@@ -785,8 +804,8 @@ var Mindoro = new Place({
 });
 var Leyte = new Place({
     name: 'Leyte',
-    population: 2.188,
-    area: 7.368,
+    population: {kilopeople: 2188, rank: 36},
+    area: {sqkm: 7368, rank: 94},
     zoom: 10.0,
     frame_center: {
         lat: 10.837774,
@@ -800,7 +819,9 @@ var Leyte = new Place({
 // Cebu
 var Bohol = new Place({
     name: 'Bohol',
-    zoom: 10.0,
+    population: {kilopeople: 1164, rank: 53},
+    area: {sqkm: 3821, rank: 142},
+zoom: 10.0,
     frame_center: {
         lat: 9.876399,
         lng: 124.215546
@@ -813,8 +834,8 @@ var Bohol = new Place({
 
 var Masbate = new Place({
     name: 'Masbate',
-
-    area: 3.268,
+    population: {kilopeople: 659.9, rank: 72},
+    area: {sqkm: 3268, rank: 155}, 
     zoom: 10.0,
     frame_center: {
         lat: 12.189242,
@@ -831,30 +852,30 @@ var Masbate = new Place({
 // New Guinea, Borneo, Sumatra, Sulawesi, Java, // already found above. 
 var Halmahera = new Place ({
     name: 'Halmahera',
-    population: 0.4499, // millions
-    area: 18.040, // thousands of km^2
+    population: {kilopeople: 449.9, rank: 84}, 
+    area: {sqkm: 18040, rank: 51},
     zoom: 9.0,
     frame_center: {lat: 0.6921, lng: 127.8699},
 });
 var Seram = new Place ({
     name: 'Seram',
-    population: 0.4341,
-    area: 17.454,
+    population: {kilopeople: 434.1, rank: 90},
+    area: {sqkm: 17454, rank: 52},
     zoom: 9,
     frame_center:  {lat: -3.1515, lng: 129.4629}
 });
 var Sumbawa = new Place ({
     name: 'Sumbawa',
-    population: 1.33,
-    area: 14.386,
+    population: {kilopeople: 1330, rank: 45},
+    area: {sqkm: 14386, rank: 58},
     zoom: 10.0,
     frame_center: {lat: -8.5973, lng: 117.9492},
     marker_position: {lat: -8.7982, lng: 117.9382},
 });
 var Flores = new Place ({
     name: 'Flores',
-    population: 1.831,
-    area: 14.154,
+    population: {kilopeople: 1831, rank: 39},
+    area: {sqkm: 14154, rank: 60},
     zoom: 9,
  // frame_center: {lat: -8.5329, lng: 121.5866},
     frame_center: {lat: -8.6625, lng: 121.5967},
@@ -862,94 +883,186 @@ var Flores = new Place ({
 });
 var Yos_Sudarso = new Place ({
     name: 'Yos_Sudarso',
-    population: 0.011,
-    area: 11.742,
+    population: {kilopeople: 11, rank: 1000},
+    area: {sqkm: 11742, rank: 67},
     zoom: 9,
     frame_center: {lat: -7.8152, lng: 138.4506},
 });
 var Bangka = new Place ({
     name: 'Bangka',
-    population: 0.9607,
-    area: 11.413,
+    population: {kilopeople: 960.7, rank: 58},
+    area: {sqkm: 11413, rank: 68},
     zoom: 9,
     frame_center: {lat: -2.2963, lng: 105.9942},
 });
 var Sumba = new Place ({
     name: 'Sumba',
-    population: 0.6861,
-    area: 10.711,
+    population: {kilopeople: 686.1, rank: 70},
+    area: {sqkm: 10711, rank: 73},
     zoom: 9,
     frame_center: {lat: -9.7253, lng: 120.0256},
 });
 var Buru = new Place ({
     name: 'Buru',
-    population: 0.1621,
-    area: 8.473,
+    population: {kilopeople: 162.1, rank: 138},
+    area: {sqkm: 8473, rank: 88},
     zoom: 9,
     frame_center:  {lat: -3.4202, lng: 126.6449},
 });
 //Belitung, Madura, Buton, Nias, Siberut, Wetar, 
 var Belitung = new Place ({
     name: 'Belitung',
-    population: 0.2624,
-    area: 4.478,
+    population: {kilopeople: 262.4, rank: 116},
+    area: {sqkm: 4478, rank: 124},
     zoom: 10,
     frame_center: {lat: -2.869, lng: 107.916},
 });
 var Buton = new Place ({
     name: 'Buton',
-    population: 0.4474,
-    area: 4.408,
+    population: {kilopeople: 447.4, rank: 86},
+    area: {sqkm: 4408, rank: 129},
     zoom: 10,
     frame_center: {lat: -5.0399, lng: 122.9331}
 });
 var Nias = new Place ({
     name: 'Nias',
-    population: 0.7563,
-    area: 4.048,
+    population: {kilopeople: 756.3, rank: 66},
+    area: {sqkm: 4048, rank: 137},
     zoom: 10,
     frame_center: {lat: 1.0958, lng: 97.5558}, 
 });
 var Siberut = new Place ({
     name: 'Siberut',
-    population: 0.035,
-    area: 3.828,
+    population: {kilopeople: 35, rank: 1000},
+    area: {sqkm: 3828, rank: 141},
     zoom: 10,
     frame_center:  {lat: -1.3841, lng: 98.9346},
 });
 var Wetar = new Place ({
     name: 'Wetar',
-    population: undefined, // not in wikipedia!
-    area: 3.600,
+    population: {kilopeople: undefined, rank: 1000},// not in wikipedia!
+    area: {sqkm: 3600, rank: 150},
     zoom: 10,
     frame_center: {lat: -7.7716, lng: 126.275},
 });
 //  among top 20 most populous not found above:
 var  Batam = new Place({
     name: 'Batam',
-    population: 1.154,
-    area: 0.715,
+    population: {kilopeople: 1154, rank: 54},
+    area: {sqkm: 715, rank: 1000},
     zoom: 11,
     frame_center:  {lat: 1.0773, lng: 104.0265},
 });
 var Ambon = new Place({
     name: 'Ambon',
-    population: 0.441,
-    area: 0.775,
+    population: {kilopeople: 441, rank: 88},
+    area: {sqkm: 775, rank: 1000},
     zoom: 12,
     frame_center: {lat: -3.6426, lng: 128.1445},
 });
 var Bintan = new Place({
     name: 'Bintan',
-    population: 0.3349,
-    area: 2.402,
+    population: {kilopeople: 334.9, rank: 103},
+    area: {sqkm: 2402, rank: 1000},
     zoom: 11,
     frame_center: {lat: 1.022, lng: 104.4587},
     marker_position:  {lat: 1.0848, lng: 104.5143},
 });
 
 // Canadian Arctic Islands 
+// Everything down to Somerset Island is already taken care of above
+//
+var Bathurst_Island = new Place({
+    name: 'Bathurst Island',
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 16042, rank: 54},
+    zoom: 8.0,
+    frame_center: {lat: 75.8614, lng: -99.4691},
+    marker_position: {lat: 75.8183, lng: -99.8657},
+});
+var Prince_Patrick_Island = new Place({
+name: 'Prince Patrick Island',
+    population: {kilopeople: 0, rank: 1000},
+area: {sqkm: 15848, rank: 55},
+    zoom: 8.0,
+    frame_center: {lat: 76.7349, lng: -118.8566},
+    marker_position: {lat: 76.7051, lng: -119.3774},
+});
+var King_William_Island = new Place({
+    name: 'King William Island',
+    population: {kilopeople: 0.96, rank: 1000},
+    area: {sqkm: 13111, rank: 61},
+    zoom: 8.0,
+    frame_center: {lat: 69.152, lng: -97.4394},
+    marker_position: {lat: 69.0607, lng: -97.24},
+});
+var Ellef_Ringnes_Island = new Place({
+name: 'Ellef Ringnes Island',
+    population: {kilopeople: 0, rank: 1000},
+area: {sqkm: 11295, rank: 69},
+zoom: 8.0,
+    frame_center: {lat: 78.5851, lng: -102.1855},
+    marker_position: {lat: 78.6343, lng: -102.0959},
+});
+var Bylot_Island = new Place({
+    name: 'Bylot Island',
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 11067, rank: 72},
+    zoom: 8.0,
+    frame_center: {lat: 73.2419, lng: -78.4935},
+    marker_position: {lat: 73.2536, lng: -78.7939},
+});
+// Other arctic/antarctic islands
+var Nordaustlandet = new Place({
+    name: 'Nordaustlandet', // 'North East Land' - part of Svalbard
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 14467, rank: 57},
+    zoom: 9.0,
+    frame_center: {lat: 79.8549, lng: 22.7629},
+    marker_position: {lat: 79.789, lng: 22.7637},
+});
+var October_Revolution_Island = new Place({
+    name: 'October Revolution Island',
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 14204, rank: 59},
+    zoom: 9.0,
+    frame_center: {lat: 79.5097, lng: -261.633},
+    marker_position: {lat: 79.4605, lng: 97.207},
+});
+var Bolshevik_Island = new Place({
+    name: 'Bolshevik Island',
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 11206, rank: 70},
+    zoom: 9.0,
+    frame_center: {lat: 78.6959, lng: 102.5857},
+    marker_position: {lat: 78.6192, lng: 102.6013},
+});
 
+
+
+var Thurston_Island = new Place({ // Completely snow/ice covered
+    name: 'Thurston Island',
+    population: {kilopeople: 0, rank: 1000},
+    area: {sqkm: 15700, rank: 56},
+    zoom: 9.0,
+    frame_center: {lat: -72.1641, lng: -98.6118},
+    marker_position: {lat: -72.2523, lng: -98.8},
+}); 
+
+// Other islands > 10000 sq km:
+/*
+var New_Caledonia
+var Viti_Levu   // Fiji main island
+var Hawaii     // 'Big Island'
+*/
+var Cape_Breton_Island = new Place({
+    name: 'Cape Breton Island',
+    population: {kilopeople: 147.45, rank: 150},
+    area: {sqkm: 10311, rank: 77},
+    zoom: 9.0,
+    frame_center: {lat: 46.2402, lng: -60.5198},
+    marker_position: {lat: 46.1684, lng: -60.7324},
+});
 // --------------------------------------------
 //   var gc = new google.maps.Geocoder();
 var GBisland_names = [ // area > 300 km^2, or population > 10,000
@@ -984,21 +1097,28 @@ var MediterraneanIslands = ['Sicily', 'Sardinia', 'Corsica', 'Cyprus', 'Crete', 
     //	'Balearic Islands',
 ];
 
-var WorldBigIslands_top32 = [
+var WorldBigIslands_top38 = [ // everything over 35000 sqkm.
+    // 1-10
     Greenland, New_Guinea, Borneo, Madagascar,
     Baffin_Island, Sumatra, Honshu, Victoria_Island,
     Great_Britain, Ellesmere_Island, 
 
+    // 11-20
     Sulawesi, South_Island_New_Zealand,
     Java, North_Island_New_Zealand, Luzon, Newfoundland,
     Cuba, Iceland, Mindanao, Ireland,
  
+    //21-30
     Hokkaido, Hispaniola, Sakhalin, Banks_Island, 
     Sri_Lanka, Tasmania, Devon_Island, Alexander_Island,
-    Tierra_del_Fuego, Severny_Island, Axel_Heiberg_Island, Melville_Island
+    Tierra_del_Fuego, Severny_Island, 
+    
+// 31-38
+    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Marajo,
+    Spitsbergen, Kyushu, Taiwan, New_Britain
 ];
 
-var PopulousIslands = [
+var PopulousIslands = [ // top 35 by population - everything over 2 million population, except Zhongshan Dao - or doubtful insularity.
     Java, Honshu, Great_Britain, Sumatra,
     Luzon, Taiwan, Sri_Lanka, Madagascar,
     Mindanao, Hispaniola, Borneo, Sulawesi,
@@ -1032,7 +1152,7 @@ var Indonesia_Big = [ // these are ranked by total island area, not by area of I
     Siberut, Wetar, // Wetar: 3600 km^2
 ];
 
-// population > 400,000  -  19 islands.
+// population > 400,000  -  20 islands.
 var Indonesia_Populous = [ // ranked by population on whole island, not Indonesian part. (population > 1 million. 12 islands. )
     Java, Sumatra, Borneo, Sulawesi, New_Guinea,
     Bali, Madura, Lombok, Timor, Flores, 
@@ -1044,6 +1164,33 @@ var Indonesia_Populous = [ // ranked by population on whole island, not Indonesi
 var Canadian_Arctic_Islands = [
     Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island,
     Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
+    Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island,
 ];
-// Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island ];
 
+var Arctic_Islands =  [
+    Greenland,
+    Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island, Iceland,
+    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
+    Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island,
+    Spitsbergen, Nordaustlandet, 
+    Yuzhny_Island, Severny_Island, Kotelny_Island, October_Revolution_Island, Bolshevik_Island
+];
+
+ var BigOrPopulous = {'Greenland': Greenland};
+ for (var i = 0; i < WorldBigIslands_top38.length; i++) {
+     var an_island = WorldBigIslands_top38[i];
+     var name = an_island.name;
+     BigOrPopulous[name] = an_island;
+ }
+ for (var i = 0; i < PopulousIslands.length; i++) {
+     var an_island = PopulousIslands[i];
+     var name = an_island.name;
+     BigOrPopulous[name] = an_island;
+ }
+var BOP_Islands = [];
+for (var island_name in BigOrPopulous){
+    console.log("name: " + island_name);
+    var island = BigOrPopulous[island_name];
+    console.log("name, islandname: " + island_name + " " + island.name );
+    BOP_Islands.push(island);
+}
