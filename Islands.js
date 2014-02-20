@@ -390,7 +390,7 @@ var Tierra_del_Fuego = new Place({ // 'Isla Grande de Tierra del Fuego'
 });
 var Severny_Island = new Place({
     name: 'Severny Island',
-    population: {kilopeople: undefined, rank: 1000}, 
+    population: {kilopeople: 1, rank: 1000}, // population is a guess
     area: {sqkm: 47079, rank: 30},
     zoom: 7.0,
     frame_center: {lat:  75.05975, lng: 58.82664},
@@ -492,7 +492,7 @@ var Prince_of_Wales_Island = new Place({
 });
 var Yuzhny_Island = new Place({
     name: 'Yuzhny Island',
-    population: {kilopeople: undefined, rank: 1000}, // 'largely evacuated in 1950's to make way for nuclear tests'
+    population: {kilopeople: 1, rank: 1000}, // 'largely evacuated in 1950's to make way for nuclear tests' population is a guess.
     area: {sqkm: 33246, rank: 41},
     frame_center:  {lat: 72.0507, lng: 55.1149},
     marker_position: {lat: 72.1279, lng: 53.9648},
@@ -940,7 +940,7 @@ var Siberut = new Place ({
 });
 var Wetar = new Place ({
     name: 'Wetar',
-    population: {kilopeople: undefined, rank: 1000},// not in wikipedia!
+    population: {kilopeople: 7, rank: 1000},// not in wikipedia!
     area: {sqkm: 3600, rank: 150},
     zoom: 10,
     frame_center: {lat: -7.7716, lng: 126.275},
@@ -1063,11 +1063,355 @@ var Cape_Breton_Island = new Place({
     frame_center: {lat: 46.2402, lng: -60.5198},
     marker_position: {lat: 46.1684, lng: -60.7324},
 });
+
+
+// Islands of Baltic sea (broadly defined)
+
+
+var Gotland = new Place({ // Sweden
+    name: 'Gotland',
+    population: {kilopeople: 57.4, rank: 1000},
+    area: {sqkm: 2994, rank: 162},
+    zoom: 10.0,
+    frame_center: {lat: 57.475, lng: 18.473},
+    country: 'Sweden',
+}); 
+
+var Saaremaa = new Place({ // Estonia
+    name: 'Saarema',
+    population: {kilopeople: 40.3, rank: 1000},
+    area: {sqkm: 2673, rank: 173},
+    zoom: 10.0,
+    frame_center: {lat: 58.3805, lng: 22.486},
+    country: 'Estonia',
+}); 
+
+var Oeland =  new Place({ // O should have umlaut. Would Oeland be better?
+    name: 'Oeland',
+    population: {kilopeople: 24.6, rank: 1000},
+    area: {sqkm: 1342, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 56.747, lng: 16.644},
+    country: 'Sweden',
+}); 
+
+var Lolland =  new Place({ // 
+    name: 'Lolland',
+    population: {kilopeople: 68.2, rank: 1000},
+    area: {sqkm: 1243, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 54.757, lng: 11.4698},
+    country: 'Denmark',
+}); 
+
+var Fasta_Aland =  new Place({ // A should have a little circle over it - is there an alternative 
+    name: 'Fasta Aland',
+    population: {kilopeople: 22, rank: 1000},
+    area: {sqkm: 1017, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 60.2197, lng: 19.921},
+    country: 'Finland',
+}); 
+
+var Ruegen = new Place({ //
+    name: 'Ruegen',
+    population: {kilopeople: 77, rank: 1000},
+    area: {sqkm: 926, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 54.4143, lng: 13.3841},
+    country: 'Germany',
+}); 
+
+var Hiumaa =  new Place({ //
+    name: 'Hiumaa',
+    population: {kilopeople: 9.2, rank: 1000},
+    area: {sqkm: 989, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 58.8922, lng: 22.6236},
+    country: 'Estonia',
+}); 
+
+var Zealand =  new Place({ //
+    name: 'Zealand',
+    population: {kilopeople: 2275, rank: 35},
+    area: {sqkm: 7000, rank: 96},
+    zoom: 10.0,
+    frame_center: {lat: 55.5387, lng: 11.8323},
+    country: 'Denmark',
+}); 
+
+var Funen =  new Place({ // Danish spelling: Fyn
+    name: 'Funen',
+    population: {kilopeople: 447, rank: 163},
+    area: {sqkm: 2984, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 55.336, lng: 10.344},
+    country: 'Denmark',
+}); 
+
+var Bornholm =  new Place({ //
+    name: 'Bornholm',
+    population: {kilopeople: 44.1, rank: 1000},
+    area: {sqkm: 588, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 55.1322, lng: 14.9194},
+    country: 'Denmark',
+}); 
+
+var Hailuoto =  new Place({ //
+    name: 'Hailuoto',
+    population: {kilopeople: 0.989, rank: 1000},
+    area: {sqkm: 200.5, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 65.0253, lng: 24.7357},
+    country: 'Finland',
+}); 
+
+var Falster =  new Place({ //
+    name: 'Falster',
+    population: {kilopeople: 43.4, rank: 1000},
+    area: {sqkm: 514, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 54.8311, lng: 11.9531},
+    country: 'Denmark',
+}); 
+
+
 // --------------------------------------------
 //   var gc = new google.maps.Geocoder();
-var GBisland_names = [ // area > 300 km^2, or population > 10,000
-    'Isle of Wight', 'Isle of Man', 'Orkney', 'Isle of Skye', 'Lewis and Harris', 'Isle of Arran', 'Isle of Mull', 'Anglesey', 'Portsea Island', 'Canvey Island', 'Isle of Sheppey', 'Jersey', 'Guernsey', 'Scilly Isles', 'North Uist', 'South Uist', 'Shetland Mainland', 'Islay', 'Jura', 'Isle of Walney', 'Hayling Island', 'Holy Island, Anglesey'
+var Isle_of_Wight =  new Place({ //
+    name: 'Isle of Wight',
+    population: {kilopeople: 138.4, rank: 157},
+    area: {sqkm: 380, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 50.6810, lng: -1.2936},
+    country: 'United Kingdom',
+}); 
+
+var Isle_of_Man =  new Place({ //
+    name: 'Isle of Man',
+    population: {kilopeople: 85.7, rank: 1000},
+    area: {sqkm: 572, rank: 196},
+    zoom: 11.0,
+    frame_center: {lat: 54.23, lng: -4.536},
+    country: 'British crown dependency',
+}); 
+var Anglesey =  new Place({ //
+    name: 'Anglesey',
+    population: {kilopeople: 69.7, rank: 1000},
+    area: {sqkm: 714, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 53.288, lng: -4.363},
+    country: 'United Kingdom',
+}); 
+
+var Orkney_Mainland =  new Place({ //
+    name: 'Orney Mainland',
+    population: {kilopeople: 17.2, rank: 1000},
+    area: {sqkm: 523.3, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 59.0132, lng: -3.0721},
+    marker_position: {lat: 58.9934, lng: -3.1201},
+    country: 'United Kingdom',
+}); 
+
+var Isle_of_Skye =  new Place({ //
+    name: 'Isle of Skye',
+    population: {kilopeople: 10.0, rank: 1000},
+    area: {sqkm: 1656, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 57.3313, lng: -6.1496},
+    marker_position: {lat: 57.2857, lng: -6.1743},
+    country: 'United Kingdom',
+}); 
+
+var North_Uist =  new Place({ //
+    name: 'North Uist',
+    population: {kilopeople: 1.254, rank: 1000},
+    area: {sqkm: 303, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 57.5875, lng: -7.2839},
+ //   marker_position: {lat: 57.2857, lng: -6.1743},
+    country: 'United Kingdom',
+}); 
+
+var South_Uist =  new Place({ //
+    name: 'South Uist',
+    population: {kilopeople: 1.754, rank: 1000},
+    area: {sqkm: 320, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 57.2467, lng: -7.3402},
+ //   marker_position: {lat: 57.2857, lng: -6.1743},
+    country: 'United Kingdom',
+}); 
+
+var Lewis_and_Harris =  new Place({ //
+    name: 'Lewis and Harris',
+    population: {kilopeople: 21.0, rank: 1000},
+    area: {sqkm: 2179, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 58.1105, lng: -6.7017},
+ //   marker_position: {lat: 57.2857, lng: -6.1743},
+    country: 'United Kingdom',
+}); 
+
+var Isle_of_Mull =  new Place({ //
+    name: 'Isle of Mull',
+    population: {kilopeople: 2.8, rank: 1000},
+    area: {sqkm: 875, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 56.4414, lng: -6.0027},
+    marker_position: {lat: 56.4300, lng: -5.9258},
+    country: 'United Kingdom',
+}); 
+
+var Isle_of_Arran =  new Place({ //
+    name: 'Isle of Arran',
+    population: {kilopeople: 4.6, rank: 1000},
+    area: {sqkm: 432, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 55.5739, lng: -5.2487},
+    country: 'United Kingdom',
+}); 
+
+var Islay =  new Place({ //
+    name: 'Islay',
+    population: {kilopeople: 3.2, rank: 1000},
+    area: {sqkm: 620, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 55.7567, lng: -6.2375},
+//    marker_position: {lat: 56.4300, lng: -5.9258},
+    country: 'United Kingdom',
+}); 
+
+var Jura =  new Place({ //
+    name: 'Jura',
+    population: {kilopeople: 0.2, rank: 1000},
+    area: {sqkm: 367, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 55.9648, lng: -5.9175},
+    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+}); 
+
+var Guernsey =  new Place({ //
+    name: 'Guernsey',
+    population: {kilopeople: 65.3, rank: 1000},
+    area: {sqkm: 78, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 49.4544, lng: -2.5784},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'British crown dependency',
+});
+
+var Jersey =  new Place({ //
+    name: 'Jersey',
+    population: {kilopeople: 97.9, rank: 1000},
+    area: {sqkm: 118, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 49.2173, lng: -2.1313},
+ //   marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'British crown dependency',
+});
+
+var Isles_of_Scilly =  new Place({ //
+    name: 'Isles of Scilly',
+    population: {kilopeople: 2.2, rank: 1000},
+    area: {sqkm: 16.0, rank: 1000},
+    zoom: 11.0,
+    frame_center: {lat: 49.9369, lng: -6.3254},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+});
+
+var Portsea_Island =  new Place({ //
+    name: 'Portsea Island',
+    population: {kilopeople: 147.1, rank: 148},
+    area: {sqkm: 24.3, rank: 1000}, // 
+    zoom: 13.0,
+    frame_center: {lat: 50.8047, lng: -1.0695},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+});
+
+var Hayling_Island =  new Place({ //
+    name: 'Hayling Island',
+    population: {kilopeople: 16.9, rank: 1000},
+    area: {sqkm: 27.0, rank: 1000},
+    zoom: 13.0,
+    frame_center: {lat: 50.7990, lng: -0.9771},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+});
+
+var Canvey_Island =  new Place({ //
+    name: 'Canvey Island',
+    population: {kilopeople: 38.2, rank: 1000},
+    area: {sqkm: 19, rank: 1000},
+    zoom: 13.0,
+    frame_center: {lat: 51.5261, lng: 0.5715},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+});
+
+var Isle_of_Sheppey =  new Place({ //
+    name: 'Isle of Sheppey',
+    population: {kilopeople: 37.85, rank: 1000},
+    area: {sqkm: 93, rank: 1000},
+    zoom: 12.0,
+    frame_center: {lat: 51.3993, lng: 0.83496},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+});
+
+var Isle_of_Walney =  new Place({ //
+    name: 'Isle of Walney',
+    population: {kilopeople: 10.6, rank: 1000},
+    area: {sqkm: 13, rank: 1000},
+    zoom: 12.0,
+    frame_center: {lat: 54.0941, lng: -3.2423},
+//    marker_position: {lat: 55.9471, lng: -5.9422},
+    country: 'United Kingdom',
+});
+
+var Holy_Island_Anglesey =  new Place({ //
+    name: 'Holy Island, Anglesey',
+    population: {kilopeople: 13.7, rank: 1000},
+    area: {sqkm: 15.2, rank: 1000},
+    zoom: 12.0,
+    frame_center: {lat: 53.2800, lng: -4.6232},
+    marker_position: {lat: 53.2846, lng: -4.6122},
+    country: 'United Kingdom',
+});
+
+var Shetland_Mainland =  new Place({ //
+    name: 'Shetland Mainland',
+    population: {kilopeople: 18.8, rank: 1000},
+    area: {sqkm: 968.8, rank: 1000},
+    zoom: 10.0,
+    frame_center: {lat: 60.2895, lng: -1.3403},
+ //   marker_position: {lat: 53.2846, lng: -4.6122},
+    country: 'United Kingdom',
+});
+
+
+var GBislands = [ // area > 300 km^2, or population > 10,000
+    Isle_of_Wight, Isle_of_Man, Orkney_Mainland, Isle_of_Skye, Anglesey, 
+    North_Uist, South_Uist, Lewis_and_Harris, Isle_of_Mull, Isle_of_Arran, 
+    Islay, Jura, Guernsey, Jersey, Isles_of_Scilly, 
+    Portsea_Island, Hayling_Island, Canvey_Island, Isle_of_Sheppey, Isle_of_Walney,
+    Shetland_Mainland, Holy_Island_Anglesey
 ];
+// 'Lewis and Harris', 'Isle of Arran', 'Isle of Mull', '', 'Portsea Island', 'Canvey Island', 
+// 'Isle of Sheppey', 'Jersey', 'Guernsey', 'Scilly Isles', 'North Uist', 'South Uist', 'Shetland Mainland', 
+// 'Islay', 'Jura', 'Isle of Walney', 'Hayling Island', 'Holy Island, Anglesey'
+//];
+
+var Baltic_Islands = [
+    Zealand, Funen, Gotland, Hiumaa, Saaremaa, Fasta_Aland, 
+    Ruegen, Oeland, Bornholm, Hailuoto, Lolland, Falster
+];
+    
 
 var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
     'Hispaniola', 'Sakhalin',
@@ -1090,14 +1434,17 @@ var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
     'Sardinia' // 23,848 km^2, next biggest is 19,162
 ];
 
-var MediterraneanIslands = ['Sicily', 'Sardinia', 'Corsica', 'Cyprus', 'Crete', 'Euboea', 'Malta', 'Rhodes', 'Majorca', 'Lesbos', 'Elba', 'Ibiza', 'Minorca'
+var MediterraneanIslands = [
+
+'Sicily', 'Sardinia', 'Corsica', 'Cyprus', 'Crete', 'Euboea', 'Malta', 'Rhodes', 'Majorca', 'Lesbos', 'Elba', 'Ibiza', 'Minorca'
 
     //	 'Cyclades, Greece',
     //	'Dodecanese, Greece',
     //	'Balearic Islands',
+//			    Sicily, Sardinia, Corsica, Cyprus, Crete, Euboea, Malta, Rhodes, Majorca, Lesbos, Elba, Ibiza, Minorca
 ];
 
-var WorldBigIslands_top38 = [ // everything over 35000 sqkm.
+var WorldBigIslands_top47 = [ // everything over 20000 sqkm.
     // 1-10
     Greenland, New_Guinea, Borneo, Madagascar,
     Baffin_Island, Sumatra, Honshu, Victoria_Island,
@@ -1113,9 +1460,14 @@ var WorldBigIslands_top38 = [ // everything over 35000 sqkm.
     Sri_Lanka, Tasmania, Devon_Island, Alexander_Island,
     Tierra_del_Fuego, Severny_Island, 
     
-// 31-38
+// 31-38  > 35000 sqkm
     Axel_Heiberg_Island, Melville_Island, Southampton_Island, Marajo,
-    Spitsbergen, Kyushu, Taiwan, New_Britain
+    Spitsbergen, Kyushu, Taiwan, New_Britain,
+
+// 20000 < area < 35000 (sqkm)
+    Prince_of_Wales_Island, Yuzhny_Island, Hainan, 
+    Vancouver_Island, Timor, Sicily,
+    Somerset_Island, Kotelny_Island, Sardinia
 ];
 
 var PopulousIslands = [ // top 35 by population - everything over 2 million population, except Zhongshan Dao - or doubtful insularity.
@@ -1161,6 +1513,24 @@ var Indonesia_Populous = [ // ranked by population on whole island, not Indonesi
     Bintan, // Bintan: 
 ];
 
+var Indonesia_BOP = [
+// > 100000 km^2
+    New_Guinea, Borneo, Sumatra, Sulawesi, Java,
+// 20000 - 100000
+    Timor,
+//  10000 - 20000 km^2
+    Halmahera, Seram, Sumbawa, Flores, Yos_Sudarso,
+    Bangka, Sumba,
+//  5000 - 10000 km^2
+    Buru, // 8.5 thousand km^2
+    Bali, // 5.4 thousand km^2
+// 2500 - 5000 km^2
+    Lombok, Belitung, Madura, Buton, Nias,
+    Siberut, Wetar, // Wetar: 3600 km^2
+// Now populous islands not found in the above
+    Ambon, Batam, Bintan
+];
+
 var Canadian_Arctic_Islands = [
     Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island,
     Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
@@ -1177,8 +1547,8 @@ var Arctic_Islands =  [
 ];
 
  var BigOrPopulous = {'Greenland': Greenland};
- for (var i = 0; i < WorldBigIslands_top38.length; i++) {
-     var an_island = WorldBigIslands_top38[i];
+ for (var i = 0; i < WorldBigIslands_top47.length; i++) {
+     var an_island = WorldBigIslands_top47[i];
      var name = an_island.name;
      BigOrPopulous[name] = an_island;
  }
