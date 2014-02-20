@@ -32,7 +32,7 @@ var the_lng = x*ne_lng + (1-x)*sw_lng;
 function zoom_out_game(places) { // function zoom_out_game is a constructor, so 'this' keyword
     // refers to the object contructed
     initialize_places(places);
-    var zoom_offset = -2;
+    var zoom_offset = -1;
     var max_place_score = 10;
     var the_place = random_place(places);
 
@@ -326,13 +326,14 @@ function relprob(places, i) {
     var size = places.length;
     var grow_factor = 1.2;
     var reask_delay = 2;
-    var relprob = Math.pow(grow_factor, age);
+    var power = (last_answer_correct || (age < reask_delay))? age : age + (age - reask_delay) + size - reask_delay;
+    var relprob = Math.pow(grow_factor, power);
     console.log("last_answer_correct: " + last_answer_correct + "  age: " + age + "  reask_delay: " + reask_delay);
-    if (!last_answer_correct && age >= reask_delay) {
-        relprob *= Math.pow(grow_factor, size - reask_delay + 0.5 * age);
-
-    }
-    console.log("i, age, relprob: " + i + "  " + age + "  " + relprob);
+ //   if (!last_answer_correct && age >= reask_delay) {
+     //   relprob *= Math.pow(grow_factor, size - reask_delay + 0.5 * age);
+//  relprob *= Math.pow(grow_factor, size - 1.5*reask_delay + age);
+ //   }
+    console.log("i, grow_factor, age, relprob: " + i + "  "  + grow_factor +  "  " + age + "  " + relprob);
     relprob -= 1;
     relprob = (relprob > 0) ? relprob : 0;
     return relprob;
