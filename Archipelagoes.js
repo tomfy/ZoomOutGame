@@ -6,4 +6,5 @@ var Archipelagoes = ['Alexander', // Alaska panhandle
     'Queen Adelaide Archipelago', // Chile
     //
     'Belcher Islands', // in Hudsons' bay - crazy looking
+		     'Banda Islands', // Indonesia - origin of nutmeg.
 ];
