@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Click Game</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100%; width: 80%; float: left}
+/*      #buttons {float: right; display: inline-block; text-align: right}*/
+      #question_buttons a {display: block; margin-left: 20px} 
+
+ .labels {
+   color: red;
+   background-color: white;
+   font-family: "Lucida Grande", "Arial", sans-serif;
+   font-size: 12px;
+   font-weight: bold;
+   text-align: center;
+   width: 60px;     
+   border: 1px solid black;
+   white-space: wrap;
+ }
+
+    </style>
+
+    <script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3v79mr8qBDYk_FpYKSIpx4HE9237hSuY&sensor=false">
+    </script> 
+
+    <script src="../js_lib/hashtable.js"></script>
+    <script src="../js_lib/tly_util.js"></script>
+ <script src="text_overlay.js"></script>
+<!-- <script src="maplabel.js"></script> -->
+<script src="markerwithlabel.js"></script>
+  <script src="places.js"></script>
+ <script src="Islands.js"></script>
+ <script src="Cities.js"></script>
+ <script src="Peninsulas.js"></script>	
+<script src="Archipelagoes.js"></script>
+<script src="Countries.js"></script>	
+    <script src="click_init.js"></script>	
+    <script src="click_game.js"></script>
+  </head>
+  <body onload="initialize()">
+
+
+   <div id="map_canvas" ></div>
+ <div id="score_div"></div>
+  <div id="zoom_buttons" ></div>
+   <div id="question_buttons"></div>
+ 
+  </body>
+</html>
