@@ -1,6 +1,6 @@
 var puzzle_obj;
-
-
+var uniform_radius = 3500;
+var close_enough_distance = 0.2;
  //   this.Peninsulas = Peninsulas;
  //   this.PopulousIslands = PopulousIslands;
  //   this.WorldBigIslands_top20 = WorldBigIslands_top20;
@@ -18,10 +18,10 @@ function initialize() {
 
 
     //   places = Peninsulas.slice(0); 
-//    places = GBcities.slice(0);
+    places = GBcities.slice(0,5);
   //  places = PopulousIslands.slice(0);
  // places = WorldBigIslands_top32.slice(20,32);
- places = Philippines_Big11.slice(0);
+// places = Philippines_Big11.slice(0);
 //    places = StrangePlaces.slice(0);
 
     var cropped_places = [];
@@ -49,6 +49,10 @@ function initialize() {
     //    } else {
     //        localStorage.counter = 0;
     //    }
+
+    for(var i = 0; i<places.length; i++){
+	places[i].radius = uniform_radius;
+    }
 
     puzzle_obj = new drag_game(places);
     console.log("XXXXXXXXXXXXXXXXXXXXXXXX");
