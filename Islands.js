@@ -452,10 +452,9 @@ var Spitsbergen = new Place({
 });
 var Kyushu = new Place({
     name: 'Kyushu',
-    population: {kilopeople: 13.200, rank: 14},
+    population: {kilopeople: 13200, rank: 14},
     area: {sqkm: 37437, rank: 37},
     zoom: 9.0,
-
     frame_center: {
         lat: 32.6,
         lng: 130.77
@@ -1017,7 +1016,7 @@ var Nordaustlandet = new Place({
     name: 'Nordaustlandet', // 'North East Land' - part of Svalbard
     population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 14467, rank: 57},
-    zoom: 9.0,
+    zoom: 8.0,
     frame_center: {lat: 79.8549, lng: 22.7629},
     marker_position: {lat: 79.789, lng: 22.7637},
 });
@@ -1025,15 +1024,15 @@ var October_Revolution_Island = new Place({
     name: 'October Revolution Island',
     population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 14204, rank: 59},
-    zoom: 9.0,
-    frame_center: {lat: 79.5097, lng: -261.633},
-    marker_position: {lat: 79.4605, lng: 97.207},
+    zoom: 8.0,
+    frame_center: {lat: 79.4435, lng: 97.3123}, // {lat: 79.5097, lng: -261.633},
+    marker_position: {lat: 79.394, lng: 97.7673}  // {lat: 79.4605, lng: 97.207},
 });
 var Bolshevik_Island = new Place({
     name: 'Bolshevik Island',
     population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 11206, rank: 70},
-    zoom: 9.0,
+    zoom: 8.0,
     frame_center: {lat: 78.6959, lng: 102.5857},
     marker_position: {lat: 78.6192, lng: 102.6013},
 });
@@ -1045,16 +1044,37 @@ var Thurston_Island = new Place({ // Completely snow/ice covered
     population: {kilopeople: 0, rank: 1000},
     area: {sqkm: 15700, rank: 56},
     zoom: 9.0,
-    frame_center: {lat: -72.1641, lng: -98.6118},
+    frame_center: {lat: -72.1658, lng: -98.8425}, // {lat: -72.1641, lng: -98.6118},
     marker_position: {lat: -72.2523, lng: -98.8},
 }); 
 
 // Other islands > 10000 sq km:
-/*
-var New_Caledonia
-var Viti_Levu   // Fiji main island
-var Hawaii     // 'Big Island'
-*/
+
+var New_Caledonia = new Place({
+ name: 'New Caledonia', // 'Grande Terre' 
+    population: {kilopeople: 228, rank: 120},
+    area: {sqkm: 16648, rank: 53},
+    zoom: 9.0,
+    frame_center: {lat: -20.9997, lng: 165.5208},
+    marker_position:  {lat: -21.315, lng: 165.3662},
+});
+
+var Viti_Levu = new Place({ // Fiji main island
+ name: 'Viti Levu', // 
+    population: {kilopeople: 662, rank: 71},
+    area: {sqkm: 10531, rank: 75},
+    zoom: 9.0,
+    frame_center: {lat: -17.7406, lng: 178.0562},
+    marker_position: {lat: -17.801, lng: 177.9456},
+});  
+var Hawaii = new Place({    // 'Big Island'
+    name: 'Hawaii',
+  population: {kilopeople: 189.2, rank: 130},
+    area: {sqkm: 10434, rank: 76},
+    zoom: 9.0,
+    frame_center: {lat: 19.5626, lng: 204.5964},
+    marker_position: {lat: 19.5779, lng: -155.4922},
+});  
 var Cape_Breton_Island = new Place({
     name: 'Cape Breton Island',
     population: {kilopeople: 147.45, rank: 150},
@@ -1206,7 +1226,7 @@ var Anglesey =  new Place({ //
 }); 
 
 var Orkney_Mainland =  new Place({ //
-    name: 'Orney Mainland',
+    name: 'Orkney Mainland',
     population: {kilopeople: 17.2, rank: 1000},
     area: {sqkm: 523.3, rank: 1000},
     zoom: 11.0,
@@ -1284,7 +1304,7 @@ var Islay =  new Place({ //
     country: 'United Kingdom',
 }); 
 
-var Jura =  new Place({ //
+var Jura = new Place({ //
     name: 'Jura',
     population: {kilopeople: 0.2, rank: 1000},
     area: {sqkm: 367, rank: 1000},
@@ -1298,7 +1318,7 @@ var Guernsey =  new Place({ //
     name: 'Guernsey',
     population: {kilopeople: 65.3, rank: 1000},
     area: {sqkm: 78, rank: 1000},
-    zoom: 11.0,
+    zoom: 12.0,
     frame_center: {lat: 49.4544, lng: -2.5784},
 //    marker_position: {lat: 55.9471, lng: -5.9422},
     country: 'British crown dependency',
@@ -1308,7 +1328,7 @@ var Jersey =  new Place({ //
     name: 'Jersey',
     population: {kilopeople: 97.9, rank: 1000},
     area: {sqkm: 118, rank: 1000},
-    zoom: 11.0,
+    zoom: 12.0,
     frame_center: {lat: 49.2173, lng: -2.1313},
  //   marker_position: {lat: 55.9471, lng: -5.9422},
     country: 'British crown dependency',
@@ -1369,7 +1389,7 @@ var Isle_of_Walney =  new Place({ //
     population: {kilopeople: 10.6, rank: 1000},
     area: {sqkm: 13, rank: 1000},
     zoom: 12.0,
-    frame_center: {lat: 54.0941, lng: -3.2423},
+    frame_center: {lat: 54.0941, lng: -3.2523},
 //    marker_position: {lat: 55.9471, lng: -5.9422},
     country: 'United Kingdom',
 });
@@ -1378,7 +1398,7 @@ var Holy_Island_Anglesey =  new Place({ //
     name: 'Holy Island, Anglesey',
     population: {kilopeople: 13.7, rank: 1000},
     area: {sqkm: 15.2, rank: 1000},
-    zoom: 12.0,
+    zoom: 13.0,
     frame_center: {lat: 53.2800, lng: -4.6232},
     marker_position: {lat: 53.2846, lng: -4.6122},
     country: 'United Kingdom',
@@ -1394,6 +1414,54 @@ var Shetland_Mainland =  new Place({ //
     country: 'United Kingdom',
 });
 
+// Islands of U.S.
+var US_Islands = [
+    // 14 with area > 2500 square km:
+    'Hawaii', 'Kodiak', 'Puerto Rico', 'Prince of Wales Island', 'Chichagof', 
+    'St. Lawrence', 'Admiralty', 'Nunivak', 'Unimak', 'Baranof', 
+    'Long Island', 'Revillagigedo', 'Kupreanof', 'Unalaska',
+// 8 with population > 100000
+    // 'Long Island', // 7449 kilopeople
+    // 'Puerto Rico', //3809 kp
+    'Manhattan', // 1537 kilopeople
+    'Oahu', // 876 kp
+    'Staten Island', // 444 kp
+    'Guam', // 155 kp
+  //  'Hawaii', // 149 kp
+    'Maui', // 118 kp
+// 50000 < Population < 100000 
+    'Saipan', // 62 kp (N. Marianas)
+    'Aquidneck Island, RI', // 61 kp 
+    'Kauai', // 58.3 kp
+    'Whidbey', // 58.2 kp
+    'Galveston Island', // 58.2 kp
+    'Tutuila', // 55.9 (Am. Samoa)
+    'St. Croix', // 53.2 kp
+    'St. Thomas', // 51.2 kp
+];
+
+// Islands of Canada
+var Canada_Islands = [
+// many arctic islands -- see above
+    'Prince Edward Island', 'Newfoundland', 'Cape Breton Island',
+    'Anticosti Island', 'Vancouver Island', 
+];
+    
+// various islands / archipelagoes
+var Various_Islands = [
+// Atlantic
+    'Bermuda', 'Tristan da Cunha', 'St. Helena', 'Ascension Island', 'Falkland Islands',
+    
+    'Faroe Islands', 'Azores', 'Canary Islands', 'Madeira',
+// Pacific
+    'Galapagoes Islands', 'Kuril Islands',
+// Indian
+    'Reunion', 'Mauritius', 'Comoros',
+    'Kerguelen', 'Crozet Island', 'Seychelles', 'Maldives',
+    'Andaman Islands',
+];
+
+// ********  Sets of islands: ************
 
 var GBislands = [ // area > 300 km^2, or population > 10,000
     Isle_of_Wight, Isle_of_Man, Orkney_Mainland, Isle_of_Skye, Anglesey, 
@@ -1409,7 +1477,9 @@ var GBislands = [ // area > 300 km^2, or population > 10,000
 
 var Baltic_Islands = [
     Zealand, Funen, Gotland, Hiumaa, Saaremaa, Fasta_Aland, 
-    Ruegen, Oeland, Bornholm, Hailuoto, Lolland, Falster
+    Ruegen, Oeland, Bornholm, 
+// Hailuoto, 
+Lolland, Falster
 ];
     
 
@@ -1467,10 +1537,40 @@ var WorldBigIslands_top47 = [ // everything over 20000 sqkm.
 // 20000 < area < 35000 (sqkm)
     Prince_of_Wales_Island, Yuzhny_Island, Hainan, 
     Vancouver_Island, Timor, Sicily,
-    Somerset_Island, Kotelny_Island, Sardinia
+    Somerset_Island, Kotelny_Island, Sardinia,
+// 10000 < area < 20000 (sqkm)
+    // Bananal, // Brazil (Tocantins) fluvial island
+    Shikoku,
+    Halmahera,
+    Seram,
+    New_Caledonia,
+    Bathurst_Island,
+    Prince_Patrick_Island,
+    Thurston_Island, // Antarctica
+    Nordaustlandet, // Svalbard
+    Sumbawa,
+    October_Revolution_Island,
+    Flores,
+    King_William_Island, 
+    Negros,
+    Samar,
+    Palawan,
+    Panay,
+    // Tupinambarana, // Brazil - 'now split into 4 islands'
+    Yos_Sudarso, // near New Guinea
+    Bangka,
+    Ellef_Ringnes_Island,
+    Bolshevik_Island,
+    Jamaica,
+    Bylot_Island,
+    Sumba,
+    Mindoro,
+    Viti_Levu, // Fiji main island
+    Hawaii, // Big island
+    Cape_Breton_Island,
 ];
 
-var PopulousIslands = [ // top 35 by population - everything over 2 million population, except Zhongshan Dao - or doubtful insularity.
+var PopulousIslands = [ // top 35 by population - everything over 2 million population, except Zhongshan Dao - of doubtful insularity.
     Java, Honshu, Great_Britain, Sumatra,
     Luzon, Taiwan, Sri_Lanka, Madagascar,
     Mindanao, Hispaniola, Borneo, Sulawesi,
