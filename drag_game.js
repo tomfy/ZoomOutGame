@@ -22,6 +22,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
     var maxlat = -1000;
     var minlng = 1000;
     var maxlng = -1000;
+    
     for (var i = 0; i < places.length; i++) {
         var a_place = places[i];
         var lat = a_place.marker_position.lat;
@@ -48,6 +49,8 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
     var zoom_offset = 0;
     //  var the_place = random_place(places);
 
+    var dragged_marker_name = 'No name yet!!';
+
     // get map, circle, info window:
     var mapOptions = {
         zoom: zoom,
@@ -67,6 +70,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
     var markers = [];
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
+    var circles_array = new Object;
 
     google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
         map_ll_bounds = this.getBounds();
@@ -102,6 +106,34 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
             google.maps.event.addListener(the_marker, 'mouseup', function() {
                 console.log("marker mouseup: " + this.labelContent + ". Position: " + this.position);
             });
+//	 /*    
+google.maps.event.addListener(the_marker, 'mousedown', function() {
+                console.log("marker mousedown: " + this.labelContent + ". Position: " + this.position);
+		 console.log("dragged_marker_name: " + dragged_marker_name);
+    dragged_marker_name = this.labelContent;
+             }); // */
+
+ google.maps.event.addListener(the_marker, 'dragend', function() {
+      // Get the Current position, where the pointer was dropped
+      var point = the_marker.getPosition();
+     console.log("dragend. point: " + point);
+      // Center the map at given point
+     var correct_circle = circles_array[the_marker.labelContent];
+     console.log("marker position: " + the_marker.position);
+ console.log("marker dest position: " + the_marker.destination_position);
+     var distance_from_destination = distance_between_latlngs(the_marker.position, the_marker.destination_position);
+     console.log("dist: " + distance_from_destination + "; dest circle: " + correct_circle.name);
+     if(distance_between_latlngs(the_marker.position, the_marker.destination_position) < close_enough_distance){
+	 score += 1;
+	 the_marker.placed = true;
+	 correct_circle.strokeColor = '40F040';
+	 
+     };
+   
+   });
+
+
+
     google.maps.event.addListener(the_marker, 'click', function() {
                 console.log("marker click: " + this.labelContent + ". Position: " + this.position);
 	animateMarker(this);
@@ -116,7 +148,6 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
             the_place = places[i];
             var circle = new google.maps.Circle({
                 strokeColor: 'B0E040',
-                // 0000',
                 strokeOpacity: 0.6,
                 strokeWeight: 2,
                 //   fillColor: '#FF0000',
@@ -130,7 +161,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
 //           /* 
 google.maps.event.addListener(circle, 'mouseup', function() {
      console.log("circle; mouseup.  Position: " + this.center);
- }); // */
+}); // */
 
             var info_window = new google.maps.InfoWindow({
                 content: the_place.name
@@ -140,6 +171,8 @@ google.maps.event.addListener(circle, 'mouseup', function() {
                 info_window.setPosition(circle.getCenter());
                 info_window.open(map);
             });
+	//    google.maps.event.addListener(circle, 'dragend', function(ev) {
+	//    });
 
             // */
             // handle clicking on the circle: (shows latitude and longitude in console.)
@@ -148,8 +181,11 @@ google.maps.event.addListener(circle, 'mouseup', function() {
                 console.log("circle click. place: " + info_window.content + ". location:  {lat: ", circle.getCenter().lat() + ", lng: " + circle.getCenter().lng() + "}  ");
             });
             // */
-        })();
-    }
+	circles_array[places[i].name] = circle;
+        })();	
+
+    } // end loop over circles being created
+	
 
     // var latlng = the_place.frame_center.latlng;
     //  var customTxt = "<div>Blah blah sdfsddddddddddddddd ddddddddddddddddddddd<ul><li>Blah 1<li>blah 2 </ul></div>"
@@ -280,13 +316,15 @@ google.maps.event.addListener(circle, 'mouseup', function() {
     function animateMarker(the_marker){
 	var count = 0;
 	var n_steps = 40;
+	console.log("marker start, dest position: " + the_marker.starting_position + "  " 
+		    + the_marker.destination_position + ";  position: " + the_marker.position); 
   var start_pos = the_marker.starting_position;
 	    var end_pos = the_marker.destination_position;
 	var start_lat = start_pos.lat();
 	var start_lng = start_pos.lng();
 	var delta_lat = end_pos.lat() - start_pos.lat();
 	var delta_lng = end_pos.lng() - start_pos.lng();
-	console.log("top of animateMarker. marker position: " + the_marker.postion);
+	console.log("top of animateMarker. marker position: " + the_marker.position);
 	offsetId = window.setInterval(function() {
 	    if(count < n_steps){ count++; }
 	  
@@ -296,9 +334,11 @@ google.maps.event.addListener(circle, 'mouseup', function() {
 	 var lng = //(start_pos.lng()*(n_steps - count) + end_pos.lng()*count)/n_steps;
 	    start_lng + delta_lng*count/n_steps;
 	    the_marker.setPosition(new google.maps.LatLng(lat, lng));
+	    console.log("position: " + the_marker.position);
 	    if(count == n_steps){ window.clearInterval(offsetId); }
 	}, 25);
-    }
+//	console.log("at end of animateMarker. marker position: " + the_marker.position);
+    } // end of animateMarker
 } // end of zoom_out_game (constructor)
 
 function random_place(places) {
@@ -390,7 +430,9 @@ function relprob(places, i) {
     return relprob;
 }
 
-
+function distance_between_latlngs(latlng1, latlng2){
+    return Math.sqrt( Math.pow(latlng1.lat() - latlng2.lat(), 2) +  Math.pow(latlng1.lng() - latlng2.lng(), 2) );
+}
 /*
     var next_button = document.createElement("button");
     next_button.appendChild(document.createTextNode("Next"));
