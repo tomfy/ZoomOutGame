@@ -22,10 +22,7 @@ var New_Guinea = new Place({
     // thousands of square kilometers
     zoom: 7.0,
     //   lat: -5.54,     // lng: 141.28},
-    frame_center: {
-        lat: -5.54,
-        lng: 141.28
-    },
+    frame_center: {lat: -5.2556, lng: 141.1701},
     marker_position: {
         lat: -5.54,
         lng: 141.28
