@@ -1,18 +1,6 @@
-var spot = {
-    path: // 'M -10,0 -8,6  -6,8 0,10 6,8 10,0 0,-10 z',
- //   'M -10,0 -8,6 -6,8  0,10 6,8 8,6  10,0 8,-6, 6,-8  0,-10 -6,-8  -8,-6  z', // dodecagon
-        google.maps.SymbolPath.CIRCLE,
-    fillColor: "black",
-    fillOpacity: 0.0001,
-    scale: 8,
-    strokeColor: "gold",
-    strokeWeight: 2
-};
-
-
 function drag_game(places) { // function zoom_out_game is a constructor, so 'this' keyword
     // refers to the object contructed
-    initialize_places(places);
+    initialize_places_latlng(places);
 
     // get center of map and zoom such that places will all be on the map.
     var zoom_0_dlng = 440;
@@ -72,6 +60,8 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
 
     var circles_array = new Object;
 
+ //   google.maps.event.addListener(map, 'mousemove'
+
     google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
         map_ll_bounds = this.getBounds();
         var sw_lat = map_ll_bounds.getSouthWest().lat();
@@ -84,7 +74,8 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
         for (var i = 0; i < places.length; i++) {
             var init_marker_position = // new google.maps.LatLng(0.95*sw_lat + 0.05*ne_lat, sw_lng + (i+0.5)*(ne_lng-sw_lng)/(places.length-1));
             new google.maps.LatLng(ne_lat + (i + 2) * (sw_lat - ne_lat) / (places.length + 3), 0.9 * sw_lng + 0.1 * ne_lng);
-            var the_marker = new MarkerWithLabel({
+            var the_marker = new // google.maps.Marker({ //  
+		                 MarkerWithLabel({
                 position: init_marker_position,
                 draggable: true,
                 raiseOnDrag: false,
@@ -92,7 +83,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
                 // labelAnchor: new google.maps.Point(40, -9),
                 labelContent: places[i].name,
                 //     labelAnchor: new google.maps.Point(50, -10),
-                labelAnchor: new google.maps.Point(72, 9),
+                labelAnchor: new google.maps.Point(90, 8),
                 labelClass: "labels", // the CSS class for the label
                 labelStyle: {
                     opacity: 1,
@@ -109,23 +100,26 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
 //	 /*    
 google.maps.event.addListener(the_marker, 'mousedown', function() {
                 console.log("marker mousedown: " + this.labelContent + ". Position: " + this.position);
-		 console.log("dragged_marker_name: " + dragged_marker_name);
+	
     dragged_marker_name = this.labelContent;
+	 console.log("dragged_marker_name: " + dragged_marker_name);
              }); // */
 
  google.maps.event.addListener(the_marker, 'dragend', function() {
       // Get the Current position, where the pointer was dropped
-      var point = the_marker.getPosition();
-     console.log("dragend. point: " + point);
+      var dragend_position = this.getPosition(); // LatLng (?)
+     console.log("dragend position: " + dragend_position);
+ //    the_marker.setPosition(dragend_position);
       // Center the map at given point
-     var correct_circle = circles_array[the_marker.labelContent];
-     console.log("marker position: " + the_marker.position);
- console.log("marker dest position: " + the_marker.destination_position);
-     var distance_from_destination = distance_between_latlngs(the_marker.position, the_marker.destination_position);
+
+     var correct_circle = circles_array[this.labelContent];
+     console.log("marker label: " + this.labelContent + " position: " + this.position);
+ console.log("marker dest position: " + this.destination_position);
+     var distance_from_destination = distance_between_latlngs(this.position, this.destination_position);
      console.log("dist: " + distance_from_destination + "; dest circle: " + correct_circle.name);
-     if(distance_between_latlngs(the_marker.position, the_marker.destination_position) < close_enough_distance){
+     if(distance_between_latlngs(this.position, this.destination_position) < close_enough_distance){
 	 score += 1;
-	 the_marker.placed = true;
+	 this.placed = true;
 	 correct_circle.strokeColor = '40F040';
 	 
      };
@@ -156,7 +150,8 @@ google.maps.event.addListener(the_marker, 'mousedown', function() {
                 clickable: true,
                 draggable: false, //true,
                 center: the_place.marker_position.latlng,
-                radius: the_place.radius * Math.pow(2, 8 - map.zoom)
+                radius: the_place.radius * Math.pow(2, 8 - map.zoom),
+		name: the_place.name,
             });
 //           /* 
 google.maps.event.addListener(circle, 'mouseup', function() {
@@ -182,14 +177,11 @@ google.maps.event.addListener(circle, 'mouseup', function() {
             });
             // */
 	circles_array[places[i].name] = circle;
+	    console.log("putting circle with name: " + name + " into circles_array. "); //this circle has name: " + circles_array[places[i].name].name
         })();	
 
     } // end loop over circles being created
 	
-
-    // var latlng = the_place.frame_center.latlng;
-    //  var customTxt = "<div>Blah blah sdfsddddddddddddddd ddddddddddddddddddddd<ul><li>Blah 1<li>blah 2 </ul></div>"
-    //              var txt = new TxtOverlay(latlng,customTxt,"customBox",map )
 
     var zoom_button_area = document.getElementById("zoom_buttons");
 
@@ -256,63 +248,16 @@ google.maps.event.addListener(circle, 'mouseup', function() {
     }, false);
     zoom_button_area.appendChild(animate_button); */
 
+   document.getElementById("score_div").innerText = 'Score: 0';
+    document.getElementById("zoom_info_div").innerText = " Zoom level: " + map.getZoom();
+    document.getElementById("map_center_info_div").innerText = "Map center: " + my_latlng_to_string(map.getCenter());
+    document.getElementById("click_position_info_div").innerText = "Click position: ";
+
 
 
 
     var score = 0; // number of question which were answered correctly on most recent asking.
-    var answer_buttons = new Array();
-    var answer_button_area = document.getElementById("answer_buttons");
-
-    for (var i = 0; i < places.length; i++) {
-        answer_buttons[i] = document.createElement("a"); // using a link, not button at present.
-        //      answer_buttons[i] = document.createElement("BUTTON"); // using a link, not button at present.
-        var t = document.createTextNode(places[i].name);
-        answer_buttons[i].appendChild(t);
-        //    answer_buttons[i].textContent = places[i].name;
-        answer_buttons[i].href = "#"; // what does this do??? - makes it a link
-        answer_buttons[i].addEventListener("click", function(event) {
-                the_place = handle_answer_button_click(event, the_place);
-            },
-            false);
-        answer_button_area.appendChild(answer_buttons[i]);
-    }
-
-    function handle_answer_button_click(event, the_place) {
-        var txtnode = event.target.childNodes[0];
-        var txt = txtnode.nodeValue;
-        console.log("text: " + txt + " the place name: " + the_place.name);
-        if (txt == the_place.name) {
-            console.log("Yes, it's " + the_place.name);
-            //    alert("Yes, it's " + the_place.name);
-            if (the_place.last_answer_correct !== true) score++;
-            the_place.last_answer_correct = true;
-        } else {
-            console.log("No, it's " + the_place.name + ", not " + txt);
-            alert("No, it's " + the_place.name + ", not " + txt);
-            if (the_place.last_answer_correct === true) score--;
-            the_place.last_answer_correct = false;
-        }
-        the_place = random_place(places);
-        the_place.age = 0;
-        console.log("handle_.... (next)place name: " + the_place.name);
-        move_map_to_place(map, circle, info_window, the_place, zoom_offset);
-        console.log("SCORE: " + score);
-        console.log("circle position:   {lat: ", circle.getCenter().lat() + ", lng: " + circle.getCenter().lng() + "}  ");
-        return the_place;
-    } // end of handle_answer_button_click
-
-  /*  function animateCircle() {
-    var count = 0;
-	console.log("top of animateCircle");
-    offsetId = window.setInterval(function() {
-      count = (count + 1) % 200;
-
-      var icons = line.get('icons');
-      icons[0].offset = (count / 2) + '%';
-      line.set('icons', icons);
-    }, 25);
-    } */
-
+ 
     function animateMarker(the_marker){
 	var count = 0;
 	var n_steps = 40;
@@ -370,47 +315,6 @@ function random_place(places) {
     }
 }
 
-function initialize_places(places) {
-    var indices = [];
-    for (var i = 0; i < places.length; i++) {
-        indices[i] = i;
-    }
-    indices.sort(function(a, b) {
-        return Math.random() > 0.5
-    });
-    for (var i = 0; i < places.length; i++) {
-        var the_place = places[i];
-        console.log("place: ", the_place.name);
-        the_place.age = indices[i];
-        // the frame_center and marker_position LatLng objects:
-        the_place.frame_center.latlng = new google.maps.LatLng(the_place.frame_center.lat, the_place.frame_center.lng);
-        the_place.marker_position.latlng = new google.maps.LatLng(the_place.marker_position.lat, the_place.marker_position.lng);
-    }
-}
-
-function move_map_to_place(map, circle, info_window, the_place, zoom_offset) {
-    // move map
-    map.setCenter(the_place.frame_center.latlng);
-    // adjust zoom level
-    map.setZoom(the_place.zoom + zoom_offset);
-    //move circle
-    circle.setCenter(the_place.marker_position.latlng);
-    circle.setRadius(the_place.radius * Math.pow(2, 10 - the_place.zoom));
-    /* var mapLabel = new MapLabel({
-           text: the_place.name,
-    position: the_place.marker_position.latlng, //new google.maps.LatLng(50,50),
-           map: map,
-           fontSize: 20,
-    align: 'center',
-    draggable: false, // true,
-         }); */
-
-
-    // adjust info window
-    info_window.setPosition(circle.getCenter());
-    info_window.setContent(the_place.name);
-
-} // end of map_of_place*/
 
 function relprob(places, i) {
     var age = places[i].age;
@@ -429,20 +333,5 @@ function relprob(places, i) {
     relprob = (relprob > 0) ? relprob : 0;
     return relprob;
 }
-
-function distance_between_latlngs(latlng1, latlng2){
-    return Math.sqrt( Math.pow(latlng1.lat() - latlng2.lat(), 2) +  Math.pow(latlng1.lng() - latlng2.lng(), 2) );
-}
-/*
-    var next_button = document.createElement("button");
-    next_button.appendChild(document.createTextNode("Next"));
-    next_button.addEventListener("click", function(event) {
-        console.log("next button clicked!!!!!");
-        the_place = random_place(places);
-        the_place.age = 0;
-	move_map_to_place(map, circle, info_window, the_place, zoom_offset);
-    }, false);
-    zoom_button_area.appendChild(next_button);
-*/
 
 
