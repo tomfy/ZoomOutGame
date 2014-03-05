@@ -1,6 +1,15 @@
 var puzzle_obj;
 var uniform_radius = 3500;
-var close_enough_distance = 0.2;
+var close_enough_distance = 0.1;
+var spot = {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: "black",
+    fillOpacity: 0.0001,
+    scale: 7,
+    strokeColor: "gold",
+    strokeWeight: 2,
+};
+
  //   this.Peninsulas = Peninsulas;
  //   this.PopulousIslands = PopulousIslands;
  //   this.WorldBigIslands_top20 = WorldBigIslands_top20;
