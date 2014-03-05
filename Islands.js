@@ -260,7 +260,7 @@ var Mindanao = new Place({
     name: 'Mindanao',
     population: {kilopeople: 20365, rank: 9},
     area: {sqkm: 97530, rank: 19},
-    zoom: 8.0,
+    zoom: 9.0,
     frame_center: {
         lat: 7.68,
         lng: 124.47
@@ -302,11 +302,9 @@ var Hispaniola = new Place({
     name: 'Hispaniola',
     population: {kilopeople: 19920, rank: 10},
     area: {sqkm: 73929, rank: 22},
-    zoom: 8.0,
-    frame_center: {
-        lat: 19.00,
-        lng: -71.54
-    },
+    zoom: 9.0,
+    frame_center:  {lat: 19, lng: -71.3862},
+  //  {lat: 18.9896, lng: -71.3642},
     marker_position: {
         lat: 19.00,
         lng: -71.54
@@ -344,7 +342,7 @@ var Sri_Lanka = new Place({
     name: 'Sri Lanka',
     population: {kilopeople: 20860, rank: 7},
     area: {sqkm: 65268, rank: 25},
-    zoom: 8.0,
+    zoom: 9.0,
     frame_center: {
         lat: 7.92,
         lng: 80.77
@@ -468,7 +466,7 @@ var Taiwan = new Place({
     name: 'Taiwan',
     population: {kilopeople: 23232, rank: 6},
     area: {sqkm: 35883, rank: 38},
-    zoom: 8.0,
+    zoom: 9.0,
     frame_center: {
         lat: 23.68491,
         lng: 120.90661
