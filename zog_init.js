@@ -1,8 +1,19 @@
 var puzzle_obj;
 var history_size = 5;
 var max_place_score = 30;
-var n_places_at_a_time = 8;
+var n_places_at_a_time = 6;
 var n_places_in_quiz = 50;
+var spot = { // the spot used in labeled markers.
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: "black",
+    fillOpacity: 0.0001,
+    scale: 7,
+    strokeColor: "gold",
+    strokeWeight: 3,
+};
+
+
+
 
  //   this.Peninsulas = Peninsulas;
  //   this.PopulousIslands = PopulousIslands;
@@ -34,11 +45,11 @@ function initialize() {
  //   places = GBcities.slice(0);
  //   places = StrangePlaces.slice(0);
 //   places = PopulousIslands.slice(0);
-    places = Islands; // 
+  //  places = Islands; // 
  //   places = WorldBigIslands_top47.slice(0); // ,10);
 //    places = Indonesia_Big.slice(0);
 //    places = Indonesia_Populous.slice(0);
-//    places = Indonesia_BOP.slice(0);
+    places = Indonesia_BOP.slice(0);
 //  places = Philippines_Big11.slice(0,11);
  //   places = Canadian_Arctic_Islands.slice(0,15);
  //   places = Arctic_Islands.slice(0);
@@ -49,9 +60,9 @@ function initialize() {
     }
    // places.sort(function(a,b){return b.area.sqkm - a.area.sqkm; }); // by area
  //   places.sort(function(a,b){return a.area.rank -b.area.rank; }); // by size rank
-places.sort(function(a,b){return b.population.kilopeople -a.population.kilopeople; }); // by population
+// places.sort(function(a,b){return b.population.kilopeople -a.population.kilopeople; }); // by population
  // 
-// places.sort(function(a,b){return Math.min(a.area.rank, a.population.rank) - Math.min(b.area.rank, b.population.rank)});
+ places.sort(function(a,b){return Math.min(a.area.rank, a.population.rank) - Math.min(b.area.rank, b.population.rank)});
 //    places.sort(function(a,b){return Math.max(a.area.rank, a.population.rank) - Math.max(b.area.rank, b.population.rank)});
 //    places.sort(function(a,b){return (a.area.rank + a.population.rank) - (b.area.rank + b.population.rank)});
 //  places.sort(function(a,b){return -(a.area.sqkm * a.population.kilopeople) + (b.area.sqkm * b.population.kilopeople)});
