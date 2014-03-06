@@ -6,6 +6,19 @@ var incorrect_cost = 1;
  //   this.PopulousIslands = PopulousIslands;
  //   this.WorldBigIslands_top20 = WorldBigIslands_top20;
  //   this.GBcities = GBcities;
+var history_size = 5;
+var max_place_score = 30;
+var n_places_at_a_time = 6;
+var n_places_in_quiz = 50;
+var spot = { // the spot used in labeled markers.
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: "black",
+    fillOpacity: 0.0001,
+    scale: 7,
+    strokeColor: "gold",
+    strokeWeight: 3,
+};
+
 function initialize() {
   
 
@@ -48,6 +61,14 @@ function initialize() {
 	    }
 	}
     }
+
+ for(var i=0; i<places.length; i++){
+     places[i].history = createArray(history_size,  new Object({correct: false, zoom_clicks: 0}) ); 
+   //  places[i].zoom_clicks = 0;
+     places[i].score = 0;
+     places[i].age = 0;
+     console.log("XXXX place, history: " + places[i].name + "  " + JSON.stringify(places[i].history));
+}
  //   }
   //  places = WorldBigIslands_top20.slice(0, 15);
     console.log('counter, places.length: ' + localStorage.counter + " " + places.length);
