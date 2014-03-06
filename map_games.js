@@ -80,6 +80,18 @@ function move_map_to_place(map, circle, info_window, the_place, zoom_offset) {
 
 } // end of move_map_to_place
 
+function place_rights_in_a_row(place) {
+    var rights_in_a_row = 0;
+    for (var i = 0; i < place.history.length; i++) { // just
+        if (place.history[i].correct != true) {
+            break;
+        }
+        rights_in_a_row++;
+    }
+    return rights_in_a_row;
+}
+
+
 function relprob(places, name) {
     var age = places[name].age;
     var size = Object.keys(places).length;
@@ -94,4 +106,103 @@ function relprob(places, name) {
     relprob -= 1;
     relprob = (relprob > 0) ? relprob : 0;
     return relprob;
+}
+
+function random_place_old(places, rnumb) { // places is assoc. array; keys are names
+// does it also work for regular array? 
+    var sum_prob = 0;
+        for (var name in places) { 
+            places[name].relprob = relprob(places, name);
+	    
+            sum_prob += places[name].relprob;
+        }
+
+    var rprob = sum_prob * rnumb; // Math.random();
+        sum_prob = 0;
+        var chosen_name = 'noplace';
+	for(var name in places){
+            sum_prob += places[name].relprob;
+            //    console.log('index: ' + i + '. sum_prob: ' + sum_prob + '. rprob: ' + rprob);
+            if (sum_prob >= rprob && chosen_name == 'noplace') {
+                chosen_name = name;
+                places[name].age = 0; // relprob = 1;
+            } else {
+                places[name].age++; // relprob *= grow_factor;
+              //  console.log('i: ' + i + '.  ' + places[i].relprob);
+            }
+        }
+        console.log('Next place: ' + chosen_name + ". place: " + places[chosen_name].name + " age: " + places[chosen_name].age);
+        return places[chosen_name];
+}
+
+function random_place(places, rnumb) { // places is assoc. array; keys are names
+// does it also work for regular array? 
+    var sum_prob = 0;
+    var cume_probs = new Object;
+        for (var name in places) { 
+            places[name].relprob = relprob(places, name);
+            sum_prob += places[name].relprob;
+	    cume_probs[name] = sum_prob;
+	    places[name].age++;
+        }
+    var rprob = sum_prob * rnumb; // Math.random();
+	for(var name in places){
+            if (cume_probs[name] >= rprob) {
+                places[name].age = 0; // relprob = 1;
+		return places[name];
+            } 
+        }   
+    return places[Object.keys(places)[0]]; // Shouldn't get here, if does return 0th element.
+}
+
+
+// the following doesn't seem to be used
+function place_markers_on_map(map, places) {
+    map_ll_bounds = map.getBounds();
+    var sw_lat = map_ll_bounds.getSouthWest().lat();
+    var sw_lng = map_ll_bounds.getSouthWest().lng();
+    var ne_lat = map_ll_bounds.getNorthEast().lat();
+    var ne_lng = map_ll_bounds.getNorthEast().lng();
+    console.log("this: " + this);
+    console.log("map ll bounds: " + map_ll_bounds.toString());
+    //	console.log("i place position: " + i + "  " + places[i].name + "  " + places[i].
+    for (var i = 0; i < places.length; i++) {
+        var side_marker_position = // new google.maps.LatLng(0.95*sw_lat + 0.05*ne_lat, sw_lng + (i+0.5)*(ne_lng-sw_lng)/(places.length-1));
+        new google.maps.LatLng(ne_lat + (i + 2) * (sw_lat - ne_lat) / (places.length + 3), 0.9 * sw_lng + 0.1 * ne_lng);
+
+        var the_place_position = places[i].marker_position.latlng;
+        // control directin of animation with the following two positions:
+        var init_marker_position = side_marker_position;
+        var dest_marker_position = the_place_position;
+        var the_marker = new MarkerWithLabel({
+            position: init_marker_position,
+            draggable: true,
+            raiseOnDrag: false,
+            map: map,
+            // labelAnchor: new google.maps.Point(40, -9),
+            labelContent: places[i].name,
+            //     labelAnchor: new google.maps.Point(50, -10),
+            labelAnchor: new google.maps.Point(72, 9),
+            labelClass: "labels",
+            // the CSS class for the label
+            labelStyle: {
+                opacity: 1,
+                fontSize: 20
+            },
+            icon: spot,
+            placed: false,
+            // true after the marker has been correctly placed.
+            side_position: side_marker_position,
+            place_position: the_place_position,
+            starting_position: init_marker_position,
+            destination_position: dest_marker_position,
+        });
+        google.maps.event.addListener(the_marker, 'mouseup', function() {
+            console.log("marker mouseup: " + this.labelContent + ". Position: " + this.position);
+        });
+        google.maps.event.addListener(the_marker, 'click', function() {
+            console.log("marker click: " + this.labelContent + ". Position: " + this.position);
+            animateMarker(this);
+        });
+    }
 }
