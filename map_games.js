@@ -36,7 +36,7 @@ function initialize_places_latlng(places) { // places is regular array
     }
 }
 
-function initialize_places_ages(places) { // places is assoc. array here
+function initialize_places_ages(places) { // places can be either reg. or  assoc. array here.
 // randomize the ages,
     var keys = Object.keys(places);
     keys.sort(function(a, b) {
@@ -95,6 +95,7 @@ function place_rights_in_a_row(place) {
 function relprob(places, name) {
     var age = places[name].age;
     var size = Object.keys(places).length;
+    console.log("age, size: " + age + "  " + size);
     var grow_factor = 1.2;
     var reask_delay = 2;
     var rights_in_a_row = place_rights_in_a_row(places[name]);
@@ -108,7 +109,7 @@ function relprob(places, name) {
     return relprob;
 }
 
-function random_place_old(places, rnumb) { // places is assoc. array; keys are names
+/* function random_place_old(places, rnumb) { // places is assoc. array; keys are names
 // does it also work for regular array? 
     var sum_prob = 0;
         for (var name in places) { 
@@ -133,26 +134,34 @@ function random_place_old(places, rnumb) { // places is assoc. array; keys are n
         }
         console.log('Next place: ' + chosen_name + ". place: " + places[chosen_name].name + " age: " + places[chosen_name].age);
         return places[chosen_name];
-}
+} */
 
 function random_place(places, rnumb) { // places is assoc. array; keys are names
 // does it also work for regular array? 
+console.log("Random number: " + rnumb);
+    if(arguments.length == 1){ rnumb = Math.random(); }
+    console.log("Random number: " + rnumb);
     var sum_prob = 0;
     var cume_probs = new Object;
         for (var name in places) { 
+	   
             places[name].relprob = relprob(places, name);
             sum_prob += places[name].relprob;
 	    cume_probs[name] = sum_prob;
 	    places[name].age++;
+	    console.log("relprob: " + places[name].relprob );
+ console.log("key, place: " + name + "  " + places[name].name + " sumprob: " + sum_prob);
         }
     var rprob = sum_prob * rnumb; // Math.random();
 	for(var name in places){
+	    console.log("key, placename: " + name + "  " + places[name].name + "; cumeprob: " + cume_probs[name] + " " + rprob);
             if (cume_probs[name] >= rprob) {
+ console.log("xxxkey, placename: " + name + "  " + places[name].name + "; cumeprob: " + cume_probs[name] + " " + rnumb);
                 places[name].age = 0; // relprob = 1;
-		return places[name];
+		return name; // places[name]; // return the place object
             } 
         }   
-    return places[Object.keys(places)[0]]; // Shouldn't get here, if does return 0th element.
+    return Object.keys(places)[0]; // Shouldn't get here, if does, return 0th element.
 }
 
 
