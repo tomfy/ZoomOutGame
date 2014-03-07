@@ -132,8 +132,14 @@ var Giant_Fingerprint = new Place({
     zoom: 13,
     frame_center: {lat: 46.993287, lng: -78.676529},
 });
+var Baffin_Island_Terrain_1 = new Place({
+    name: "SW Baffin Island terrain",
+    zoom: 11,
+    frame_center: {lat: 66.4931, lng: -72.7186},
+});
+
 var StrangePlaces = [
     Belcher_Islands, Yenisei_Meanders, Taz_Meanders, Lac_a_Leau_Claire, 
     Banks_Peninsula_NZ, Ganges_Delta, Volga_Delta, Rano_Kau_Crater_Easter_Island,
-    Sakhalin_Meanders,
+    Sakhalin_Meanders, Baffin_Island_Terrain_1
 ];
