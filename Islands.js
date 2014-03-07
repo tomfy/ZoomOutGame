@@ -1,5 +1,5 @@
 // Islands
-// Largest area islands:
+// Largest:
 var Greenland = new Place({
     name: 'Greenland',
     zoom: 5,
@@ -21,7 +21,6 @@ var New_Guinea = new Place({
     area: {sqkm: 785753, rank: 2},
     // thousands of square kilometers
     zoom: 7.0,
-    //   lat: -5.54,     // lng: 141.28},
     frame_center: {lat: -5.2556, lng: 141.1701},
     marker_position: {
         lat: -5.54,
@@ -565,37 +564,13 @@ var Sardinia = new Place({
     frame_center: {lat: 40.0938, lng: 9.049},
     marker_position: {lat: 40.1159, lng: 9.0802},
 });
+// end of largest islands
 
-var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
-    'Hispaniola', 'Sakhalin',
-    //	'Banks Island', // Canada
-    'Sri Lanka', 'Tasmania',
-    //	'Devon Island', // Canada
-    //	'Alexander Island', // Antarctica
-    'Tierra del Fuego', 'Severny Island', // Novaya Zemlya, N. Island
+// Most populous islands 
+// Java, Honshu, Great_Britain, Luzon, Sumatra,
+// Taiwan, Sri Lanka, Madagascar, Mindanao, Hispaniola,
+// Borneo, Sulawesi, 
 
-
-    //	'Berkner Island', // Antarctica
-    //	'Axel Heiberg Island', // Canada
-    //	'Melville Island', 'Southampton Island', // both Canada
-    'Marajo', // Brazil
-    'Spitsbergen', // Svalbard
-    'Kyushu', 'Taiwan', 'New Britain, Papua New Guinea',
-    //	'Prince of Wales Island, Canada', // Canada
-    //	'Yuzhny Island', // Novaya Zemlya S. Island
-    'Hainan', 'Vancouver Island', 'Timor', 'Sicily',
-    //	'Somerset Island', // Canada
-    //	'Kotelny Island', // Russia - are Kotelny and Faddeyevsky really connected??
-    'Sardinia' // 23,848 km^2, next biggest is 19,162
-];
-
-
-// end of Big islands
-
-// Populous islands not among the large islands listed above.
-// Taiwan
-// Sri Lanka
-// Hispaniola
 var Salsette = new Place({
     name: 'Salsette',
     population: {kilopeople: 15112, rank: 13},
@@ -610,7 +585,9 @@ var Salsette = new Place({
         lng: 72.90
     },
 });
-//Hainan
+
+//Kyushu, Cuba, New_Guinea, Hainan,
+
 var Long_Island = new Place({
     name: 'Long Island',
     population: {kilopeople: 7687, rank: 18},
@@ -626,8 +603,9 @@ var Long_Island = new Place({
         lng: -73.05
     },
 });
-// Ireland
-// Hokkaido
+
+// Ireland, Hokkaido,
+
 var Singapore = new Place({
     name: 'Singapore',
     population: {kilopeople: 5312, rank: 21},
@@ -642,7 +620,9 @@ var Singapore = new Place({
         lng: 103.82
     },
 });
+
 // Sicily
+
 var Bali = new Place({
     name: 'Bali',
     population: {kilopeople: 4220, rank: 23},
@@ -721,7 +701,9 @@ var Madura = new Place({
         lng: 113.39644
     },
 });
-// var North_Island_New_Zealand = new Place
+
+// North_Island_New_Zealand
+
 var Lombok = new Place({
     name: 'Lombok',
     population: {kilopeople: 3160, rank: 31},
@@ -732,7 +714,9 @@ var Lombok = new Place({
         lng: 116.340400
     },
 });
+
 // Timor
+
 var Jamaica = new Place({
     name: 'Jamaica',
     population: {kilopeople: 2741, rank: 33},
@@ -752,6 +736,75 @@ var Zealand = new Place({
     frame_center: {lat: 55.569, lng: 11.8542},
 });
 
+// Leyte, // end of islands with > 2 million population.
+// Islands not found elsewhere with population > 1 million:
+
+var Island_of_Montreal = new Place({
+    name: 'Island of Montreal',
+    population: {kilopeople:  1886, rank: 37},
+    area: {sqkm: 499.2, rank:  1000},
+    zoom: 11,
+ frame_center: {lat: 45.5293, lng: -73.6713},
+    marker_position: {lat: 45.5063, lng: -73.6455},
+});
+var Xiamen_Island = new Place({
+  name: 'Xiamen Island',
+    population: {kilopeople:  1837, rank: 38},
+    area: {sqkm: 1699, rank:  1000},
+    zoom: 11,
+ frame_center: {lat: 24.4939, lng: -241.8703},
+    marker_position: {lat: 24.4943, lng: 118.131},
+});
+
+// Flores, Samar,
+
+var Bhola_Island = new Place({
+  name: 'Bhola Island',
+    population: {kilopeople:  1758, rank: 41},
+    area: {sqkm: 1441, rank:  1000},
+    zoom: 11,
+ frame_center: {lat: 22.4382, lng: -269.2908},
+    marker_position: {lat: 22.3958, lng: 90.7526},
+});
+
+// Sardinia, 
+
+var Manhattan = new Place({
+ name: 'Manhattan',
+    population: {kilopeople:  1619, rank: 43},
+    area: {sqkm: 59, rank:  1000},
+    zoom: 12,
+ frame_center: {lat: 40.7885, lng: -473.9494},
+    marker_position: {lat: 40.7766, lng: -73.9699},
+});
+
+var Haizhu = new Place({
+ name: 'Haizhu',
+    population: {kilopeople:  1558, rank: 44},
+    area: {sqkm: 90.4, rank:  1000},
+    zoom: 12,
+    frame_center:{lat: 23.0823, lng: -246.6734},
+    marker_position: {lat: 23.0829, lng: 113.3207},
+});
+
+var Sao_Luis = new Place({
+ name: 'Sao Luis',
+    population: {kilopeople:  1366, rank: 45},
+    area: {sqkm: 827, rank:  1000},
+    zoom: 11,
+    frame_center: {lat: -2.5781, lng: -44.2187},
+    marker_position: {lat: -2.5933, lng: -44.231},
+});
+
+//    Sumbawa, Mauritius, 
+/* Trinidad, Okinawa, */
+    /* Hong_Kong, */ 
+// Mindoro, 
+/* Bahrain, */
+// Bohol, Batam, 
+/* Cyprus */
+//South_Island_New_Zealand
+// End of populous (> 1 million) islands
 // Philippine Islands  (Luzon, Mindanao, Negros, Panay, Cebu already found above)
 // These are the other 6 largest (and most populous) Philippine islands.
 var Samar = new Place({
@@ -903,7 +956,6 @@ var Buru = new Place ({
     zoom: 9,
     frame_center:  {lat: -3.4202, lng: 126.6449},
 });
-//Belitung, Madura, Buton, Nias, Siberut, Wetar, 
 var Belitung = new Place ({
     name: 'Belitung',
     population: {kilopeople: 262.4, rank: 116},
@@ -911,6 +963,7 @@ var Belitung = new Place ({
     zoom: 10,
     frame_center: {lat: -2.869, lng: 107.916},
 });
+// Madura
 var Buton = new Place ({
     name: 'Buton',
     population: {kilopeople: 447.4, rank: 86},
@@ -939,7 +992,7 @@ var Wetar = new Place ({
     zoom: 10,
     frame_center: {lat: -7.7716, lng: 126.275},
 });
-//  among top 20 most populous not found above:
+//  among top 20 most populous in Indonesia but not found above:
 var  Batam = new Place({
     name: 'Batam',
     population: {kilopeople: 1154, rank: 54},
@@ -1033,7 +1086,9 @@ var Bolshevik_Island = new Place({
 });
 
 
-
+// Antarctic 
+// Alexander_Island
+// Berkner Island (Ice rise)
 var Thurston_Island = new Place({ // Completely snow/ice covered
     name: 'Thurston Island',
     population: {kilopeople: 0, rank: 1000},
@@ -1080,9 +1135,7 @@ var Cape_Breton_Island = new Place({
 });
 
 
-// Islands of Baltic sea (broadly defined)
-
-
+// Islands of Baltic sea (broadly defined, i.e. including Zealand, etc.)
 var Gotland = new Place({ // Sweden
     name: 'Gotland',
     population: {kilopeople: 57.4, rank: 1000},
@@ -1193,7 +1246,8 @@ var Falster =  new Place({ //
 
 
 // --------------------------------------------
-//   var gc = new google.maps.Geocoder();
+//  Islands near Great Britain
+// or not quite so near, but politically connected (Jersey, Guernsey, Shetlands)
 var Isle_of_Wight =  new Place({ //
     name: 'Isle of Wight',
     population: {kilopeople: 138.4, rank: 157},
@@ -1409,6 +1463,190 @@ var Shetland_Mainland =  new Place({ //
     country: 'United Kingdom',
 });
 
+// **************************************************************************
+// ****** end of Place objects, now comes various arrays of islands. ********
+// **************************************************************************
+
+// ********  Sets of islands: (arrays of objects) ************
+
+var GB_Islands = [ // area > 300 km^2, or population > 10,000
+    Isle_of_Wight, Isle_of_Man, Orkney_Mainland, Isle_of_Skye, Anglesey, 
+    North_Uist, South_Uist, Lewis_and_Harris, Isle_of_Mull, Isle_of_Arran, 
+    Islay, Jura, Guernsey, Jersey, Isles_of_Scilly, 
+    Portsea_Island, Hayling_Island, Canvey_Island, Isle_of_Sheppey, Isle_of_Walney,
+    Shetland_Mainland, Holy_Island_Anglesey
+];
+
+var Baltic_Islands = [
+    Zealand, Funen, Gotland, Hiumaa, Saaremaa, Fasta_Aland, 
+    Ruegen, Oeland, Bornholm, 
+// Hailuoto, 
+Lolland, Falster
+];
+
+var World_Islands_Big = [ // everything over 20000 sqkm.
+    // 1-10
+    Greenland, New_Guinea, Borneo, Madagascar,
+    Baffin_Island, Sumatra, Honshu, Victoria_Island,
+    Great_Britain, Ellesmere_Island, 
+
+    // 11-20
+    Sulawesi, South_Island_New_Zealand,
+    Java, North_Island_New_Zealand, Luzon, Newfoundland,
+    Cuba, Iceland, Mindanao, Ireland,
+ 
+    //21-30
+    Hokkaido, Hispaniola, Sakhalin, Banks_Island, 
+    Sri_Lanka, Tasmania, Devon_Island, Alexander_Island,
+    Tierra_del_Fuego, Severny_Island, 
+    
+// 31-38  > 35000 sqkm
+    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Marajo,
+    Spitsbergen, Kyushu, Taiwan, New_Britain,
+
+// 20000 < area < 35000 (sqkm) 39-47
+    Prince_of_Wales_Island, Yuzhny_Island, Hainan, 
+    Vancouver_Island, Timor, Sicily,
+    Somerset_Island, Kotelny_Island, Sardinia,
+// 10000 < area < 20000 (sqkm) 48-74
+    // Bananal, // Brazil (Tocantins) fluvial island
+    Shikoku, Halmahera, Seram, New_Caledonia,
+    Bathurst_Island, Prince_Patrick_Island, Thurston_Island, // Antarctica
+    Nordaustlandet, // Svalbard
+    Sumbawa, October_Revolution_Island, Flores, King_William_Island, 
+    Negros, Samar, Palawan, Panay,
+    // Tupinambarana, // Brazil - 'now split into 4 islands'
+    Yos_Sudarso, // near New Guinea
+    Bangka, Ellef_Ringnes_Island, Bolshevik_Island, Jamaica,
+    Bylot_Island, Sumba, Mindoro, Viti_Levu, // Fiji main island
+    Hawaii, // Big island
+    Cape_Breton_Island,
+];
+
+var World_Islands_Populous = [ // Everything over 2 million population, (except Zhongshan Dao - of doubtful insularity)
+    // 1-35
+    Java, Honshu, Great_Britain, Sumatra,
+    Luzon, Taiwan, Sri_Lanka, Madagascar,
+    Mindanao, Hispaniola, Borneo, Sulawesi,
+    Salsette, Kyushu, Cuba, Hainan,
+    Long_Island, New_Guinea, Ireland, Hokkaido,
+    Singapore, Sicily, Bali, Negros,
+    Panay, Shikoku, Puerto_Rico, Cebu,
+    Madura, North_Island_New_Zealand, Lombok, Timor,
+    Jamaica, /* Zhongshan_Dao, */ Zealand, Leyte,
+
+    // 1 million < population < 2 million
+    // 36 - 55
+    Island_of_Montreal, Xiamen_Island, Flores, Samar,
+    Bhola_Island, Sardinia, Manhattan, Haizhu, 
+    Sao_Luis, Sumbawa, 
+/* Mauritius, Trinidad, Okinawa, */
+    /* Hong_Kong, */ Mindoro, /* Bahrain, */, Bohol,
+    Batam, /* Cyprus */, South_Island_New_Zealand
+
+];
+
+var Philippines_Islands_Big11 = [
+    Luzon, Mindanao, Negros, Samar,
+    Palawan, Panay, Mindoro, Leyte,
+    Cebu, Bohol, Masbate
+];
+
+var Indonesia_Islands_Big = [ // these are ranked by total island area, not by area of Indonesian part. (area > 3500 km^2. 
+// > 100000 km^2   1-5
+    New_Guinea, Borneo, Sumatra, Sulawesi, Java,
+// 20000 - 100000  6
+    Timor,  
+//  10000 - 20000 km^2  7-13
+    Halmahera, Seram, Sumbawa, Flores, Yos_Sudarso,
+    Bangka, Sumba,
+//  5000 - 10000 km^2 14-15
+    Buru, // 8.5 thousand km^2
+    Bali, // 5.4 thousand km^2
+// 2500 - 5000 km^2  16-22
+    Lombok, Belitung, Madura, Buton, Nias,
+    Siberut, Wetar, // Wetar: 3600 km^2
+    // Waigeo, Yamdena, Taliabu, Muna, 
+    // Obira,
+];
+
+// population > 400,000  -  20 islands.
+var Indonesia_Islands_Populous = [ // ranked by population on whole island, not Indonesian part. (population > 1 million. 12 islands. )
+    Java, Sumatra, Borneo, Sulawesi, New_Guinea,
+    Bali, Madura, Lombok, Timor, Flores, 
+    Sumbawa, 
+    // 300,000 < population < 1 million
+    Batam, Bangka, Nias, Sumba,
+    Halmahera, Buton, Ambon, Seram,  // Seram: 434 thousand
+    Bintan, // Bintan: 330 thousand
+];
+
+var Indonesia_BOP = [
+// > 100000 km^2
+    New_Guinea, Borneo, Sumatra, Sulawesi, Java,
+// 20000 - 100000
+    Timor,
+//  10000 - 20000 km^2
+    Halmahera, Seram, Sumbawa, Flores, Yos_Sudarso,
+    Bangka, Sumba,
+//  5000 - 10000 km^2
+    Buru, // 8.5 thousand km^2
+    Bali, // 5.4 thousand km^2
+// 2500 - 5000 km^2
+    Lombok, Belitung, Madura, Buton, Nias,
+    Siberut, Wetar, // Wetar: 3600 km^2
+// Populous islands not found in the above
+    Ambon, Batam, Bintan
+];
+
+var Canada_Islands_Arctic = [
+    Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island,
+    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
+    Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island,
+];
+
+var Arctic_Islands =  [
+    Greenland,
+    Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island, Iceland,
+    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
+    Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island,
+    Spitsbergen, Nordaustlandet, 
+    Yuzhny_Island, Severny_Island, Kotelny_Island, October_Revolution_Island, Bolshevik_Island
+];
+
+/*
+ var BigOrPopulous = {'Greenland': Greenland};
+ for (var i = 0; i < WorldBigIslands_top47.length; i++) {
+     var an_island = WorldBigIslands_top47[i];
+     var name = an_island.name;
+     BigOrPopulous[name] = an_island;
+ }
+ for (var i = 0; i < PopulousIslands.length; i++) {
+     var an_island = PopulousIslands[i];
+     var name = an_island.name;
+     BigOrPopulous[name] = an_island;
+ }
+var BOP_Islands = [];
+for (var island_name in BigOrPopulous){
+    console.log("name: " + island_name);
+    var island = BigOrPopulous[island_name];
+    console.log("name, islandname: " + island_name + " " + island.name );
+    BOP_Islands.push(island);
+} // */
+
+// assoc. arrays.
+var World_Islands_Big_or_Populous = new Object;
+for(var i in World_Islands_Big){
+    var the_island = World_Islands_Big[i];
+    World_Islands_Big_or_Populous[the_island.name] =the_island;
+}
+for(var i in World_Islands_Populous){
+    var the_island = World_Islands_Populous[i];
+    World_Islands_Big_or_Populous[the_island.name] = the_island;
+}
+    
+// Arrays of island names
+
 // Islands of U.S.
 var US_Islands = [
     // 14 with area > 2500 square km:
@@ -1439,7 +1677,7 @@ var US_Islands = [
 var Canada_Islands = [
 // many arctic islands -- see above
     'Prince Edward Island', 'Newfoundland', 'Cape Breton Island',
-    'Anticosti Island', 'Vancouver Island', 
+    'Anticosti Island', 'Vancouver Island', 'Manitoulin Island'
 ];
     
 // various islands / archipelagoes
@@ -1449,34 +1687,13 @@ var Various_Islands = [
     
     'Faroe Islands', 'Azores', 'Canary Islands', 'Madeira',
 // Pacific
-    'Galapagoes Islands', 'Kuril Islands',
+    'Galapagoes Islands', 'Kuril Islands', 'Ryukyu Islands',
+    'Easter Island',
 // Indian
     'Reunion', 'Mauritius', 'Comoros',
     'Kerguelen', 'Crozet Island', 'Seychelles', 'Maldives',
     'Andaman Islands',
 ];
-
-// ********  Sets of islands: ************
-
-var GBislands = [ // area > 300 km^2, or population > 10,000
-    Isle_of_Wight, Isle_of_Man, Orkney_Mainland, Isle_of_Skye, Anglesey, 
-    North_Uist, South_Uist, Lewis_and_Harris, Isle_of_Mull, Isle_of_Arran, 
-    Islay, Jura, Guernsey, Jersey, Isles_of_Scilly, 
-    Portsea_Island, Hayling_Island, Canvey_Island, Isle_of_Sheppey, Isle_of_Walney,
-    Shetland_Mainland, Holy_Island_Anglesey
-];
-// 'Lewis and Harris', 'Isle of Arran', 'Isle of Mull', '', 'Portsea Island', 'Canvey Island', 
-// 'Isle of Sheppey', 'Jersey', 'Guernsey', 'Scilly Isles', 'North Uist', 'South Uist', 'Shetland Mainland', 
-// 'Islay', 'Jura', 'Isle of Walney', 'Hayling Island', 'Holy Island, Anglesey'
-//];
-
-var Baltic_Islands = [
-    Zealand, Funen, Gotland, Hiumaa, Saaremaa, Fasta_Aland, 
-    Ruegen, Oeland, Bornholm, 
-// Hailuoto, 
-Lolland, Falster
-];
-    
 
 var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
     'Hispaniola', 'Sakhalin',
@@ -1509,153 +1726,26 @@ var MediterraneanIslands = [
 //			    Sicily, Sardinia, Corsica, Cyprus, Crete, Euboea, Malta, Rhodes, Majorca, Lesbos, Elba, Ibiza, Minorca
 ];
 
-var WorldBigIslands_top47 = [ // everything over 20000 sqkm.
-    // 1-10
-    Greenland, New_Guinea, Borneo, Madagascar,
-    Baffin_Island, Sumatra, Honshu, Victoria_Island,
-    Great_Britain, Ellesmere_Island, 
 
-    // 11-20
-    Sulawesi, South_Island_New_Zealand,
-    Java, North_Island_New_Zealand, Luzon, Newfoundland,
-    Cuba, Iceland, Mindanao, Ireland,
- 
-    //21-30
-    Hokkaido, Hispaniola, Sakhalin, Banks_Island, 
-    Sri_Lanka, Tasmania, Devon_Island, Alexander_Island,
-    Tierra_del_Fuego, Severny_Island, 
-    
-// 31-38  > 35000 sqkm
-    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Marajo,
-    Spitsbergen, Kyushu, Taiwan, New_Britain,
+var WorldBigIslands_21_48 = ['Hokkaido', // 78,719 sq. km.
+    'Hispaniola', 'Sakhalin',
+    //	'Banks Island', // Canada
+    'Sri Lanka', 'Tasmania',
+    //	'Devon Island', // Canada
+    //	'Alexander Island', // Antarctica
+    'Tierra del Fuego', 'Severny Island', // Novaya Zemlya, N. Island
 
-// 20000 < area < 35000 (sqkm)
-    Prince_of_Wales_Island, Yuzhny_Island, Hainan, 
-    Vancouver_Island, Timor, Sicily,
-    Somerset_Island, Kotelny_Island, Sardinia,
-// 10000 < area < 20000 (sqkm)
-    // Bananal, // Brazil (Tocantins) fluvial island
-    Shikoku,
-    Halmahera,
-    Seram,
-    New_Caledonia,
-    Bathurst_Island,
-    Prince_Patrick_Island,
-    Thurston_Island, // Antarctica
-    Nordaustlandet, // Svalbard
-    Sumbawa,
-    October_Revolution_Island,
-    Flores,
-    King_William_Island, 
-    Negros,
-    Samar,
-    Palawan,
-    Panay,
-    // Tupinambarana, // Brazil - 'now split into 4 islands'
-    Yos_Sudarso, // near New Guinea
-    Bangka,
-    Ellef_Ringnes_Island,
-    Bolshevik_Island,
-    Jamaica,
-    Bylot_Island,
-    Sumba,
-    Mindoro,
-    Viti_Levu, // Fiji main island
-    Hawaii, // Big island
-    Cape_Breton_Island,
+
+    //	'Berkner Island', // Antarctica
+    //	'Axel Heiberg Island', // Canada
+    //	'Melville Island', 'Southampton Island', // both Canada
+    'Marajo', // Brazil
+    'Spitsbergen', // Svalbard
+    'Kyushu', 'Taiwan', 'New Britain, Papua New Guinea',
+    //	'Prince of Wales Island, Canada', // Canada
+    //	'Yuzhny Island', // Novaya Zemlya S. Island
+    'Hainan', 'Vancouver Island', 'Timor', 'Sicily',
+    //	'Somerset Island', // Canada
+    //	'Kotelny Island', // Russia - are Kotelny and Faddeyevsky really connected??
+    'Sardinia' // 23,848 km^2, next biggest is 19,162
 ];
-
-var PopulousIslands = [ // top 35 by population - everything over 2 million population, except Zhongshan Dao - of doubtful insularity.
-    Java, Honshu, Great_Britain, Sumatra,
-    Luzon, Taiwan, Sri_Lanka, Madagascar,
-    Mindanao, Hispaniola, Borneo, Sulawesi,
-    Salsette, Kyushu, Cuba, Hainan,
-    Long_Island, New_Guinea, Ireland, Hokkaido,
-    Singapore, Sicily, Bali, Negros,
-    Panay, Shikoku, Puerto_Rico, Cebu,
-    Madura, North_Island_New_Zealand, Lombok, Timor,
-    Jamaica, Zealand, Leyte,
-];
-
-var Philippines_Big11 = [
-    Luzon, Mindanao, Negros, Samar,
-    Palawan, Panay, Mindoro, Leyte,
-    Cebu, Bohol, Masbate
-];
-
-var Indonesia_Big = [ // these are ranked by total island area, not by area of Indonesian part. (area > 3500 km^2. 
-// > 100000 km^2
-    New_Guinea, Borneo, Sumatra, Sulawesi, Java,
-// 20000 - 100000
-    Timor,
-//  10000 - 20000 km^2
-    Halmahera, Seram, Sumbawa, Flores, Yos_Sudarso,
-    Bangka, Sumba,
-//  5000 - 10000 km^2
-    Buru, // 8.5 thousand km^2
-    Bali, // 5.4 thousand km^2
-// 2500 - 5000 km^2
-    Lombok, Belitung, Madura, Buton, Nias,
-    Siberut, Wetar, // Wetar: 3600 km^2
-];
-
-// population > 400,000  -  20 islands.
-var Indonesia_Populous = [ // ranked by population on whole island, not Indonesian part. (population > 1 million. 12 islands. )
-    Java, Sumatra, Borneo, Sulawesi, New_Guinea,
-    Bali, Madura, Lombok, Timor, Flores, 
-    Sumbawa, Batam, Bangka, Nias, Sumba,
-    Halmahera, Buton, Ambon, Seram,  // Seram: 0.4341 million
-    Bintan, // Bintan: 
-];
-
-var Indonesia_BOP = [
-// > 100000 km^2
-    New_Guinea, Borneo, Sumatra, Sulawesi, Java,
-// 20000 - 100000
-    Timor,
-//  10000 - 20000 km^2
-    Halmahera, Seram, Sumbawa, Flores, Yos_Sudarso,
-    Bangka, Sumba,
-//  5000 - 10000 km^2
-    Buru, // 8.5 thousand km^2
-    Bali, // 5.4 thousand km^2
-// 2500 - 5000 km^2
-    Lombok, Belitung, Madura, Buton, Nias,
-    Siberut, Wetar, // Wetar: 3600 km^2
-// Now populous islands not found in the above
-    Ambon, Batam, Bintan
-];
-
-var Canadian_Arctic_Islands = [
-    Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island,
-    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
-    Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island,
-];
-
-var Arctic_Islands =  [
-    Greenland,
-    Baffin_Island, Victoria_Island, Ellesmere_Island, Banks_Island, Devon_Island, Iceland,
-    Axel_Heiberg_Island, Melville_Island, Southampton_Island, Prince_of_Wales_Island, Somerset_Island,
-    Bathurst_Island, Prince_Patrick_Island, King_William_Island, Ellef_Ringnes_Island, Bylot_Island,
-    Spitsbergen, Nordaustlandet, 
-    Yuzhny_Island, Severny_Island, Kotelny_Island, October_Revolution_Island, Bolshevik_Island
-];
-
- var BigOrPopulous = {'Greenland': Greenland};
- for (var i = 0; i < WorldBigIslands_top47.length; i++) {
-     var an_island = WorldBigIslands_top47[i];
-     var name = an_island.name;
-     BigOrPopulous[name] = an_island;
- }
- for (var i = 0; i < PopulousIslands.length; i++) {
-     var an_island = PopulousIslands[i];
-     var name = an_island.name;
-     BigOrPopulous[name] = an_island;
- }
-var BOP_Islands = [];
-for (var island_name in BigOrPopulous){
-    console.log("name: " + island_name);
-    var island = BigOrPopulous[island_name];
-    console.log("name, islandname: " + island_name + " " + island.name );
-    BOP_Islands.push(island);
-}
