@@ -10,7 +10,8 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     var done_places = new Object;
     var current_places = new Object; // places.slice(0, n_places_at_a_time);
     var future_places = new Object; // places.slice(n_places_at_a_time, n_places_in_quiz);
-    for (var i = 0; i < n_places_at_a_time; i++) { // current_places
+   // for (var i = 0; i < n_places_at_a_time; i++) { // current_places
+	for(var i in places){
         var the_place = places[i];
         current_places[the_place.name] = the_place;
         console.log("In current_places initialization. name, age: " + the_place.name + " ,  " + current_places[the_place.name].age);
@@ -21,7 +22,8 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     }
     initialize_places_ages(current_places); // initialize ages of current places to random order.
     // *************** CHOOSE INITIAL PLACE AT RANDOM *******************
-    var the_place = random_place(current_places, Math.random());
+    var the_place_name = random_place(current_places, Math.random());
+    var the_place = current_places[the_place_name];
 
     // ********************* CONSTRUCT MAP *****************************
     var mapOptions = {
@@ -197,8 +199,8 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
         zooms = 0;
 
         // **************** GET NEXT PLACE **********************
-	var the_random_number = Math.random();
-        the_place = random_place(current_places, the_random_number);
+        the_place_name = random_place(current_places);
+	the_place = current_places[the_place_name];
 
         the_place.age = 0;
         setTimeout(function() { // do some stuff after timeout of delay ms.
