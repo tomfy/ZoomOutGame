@@ -1,7 +1,7 @@
 var puzzle_obj;
 var history_size = 6;
 var max_place_score = 30;
-var n_places_at_a_time = 12;
+var n_places_at_a_time = 112;
 var n_places_in_quiz = 50;
 var radius_factor = 1.5;
 var correct_points = 3;
@@ -45,38 +45,30 @@ var spot = {
     //   places = GBcities.slice(0);
     //   places = StrangePlaces.slice(0);
 
-function zog_initialize() {
-
-    var places = places_initialize(World_Islands_Big);
+function initialize_zoom_out_game() {
+    var places = initialize_places(World_Islands_Big.slice(0,20));
+    sort_places(places, 'Area');
     //    puzzle_obj = new drag_game(places);
     puzzle_obj = new zoom_out_game(places);
-
 }
-function click_game_initialize() {
 
-    var places = places_initialize(Philippines_Islands_Big11, 'Area');
-    //    puzzle_obj = new drag_game(places);
+function initialize_click_game() {
+    var which_places = Indonesia_Islands_Big.slice(0,12);
+    var places = initialize_places(which_places);
+    sort_places(places, 'Area');
     console.log("In click_game_initialize(). places.length: " + places.length);
     puzzle_obj = new click_game(places);
-
 }
 
-function drag_game_initialize() {
-
-    var places = places_initialize(Philippines_Islands_Big11, 'Area');
-    //    puzzle_obj = new drag_game(places);
+function initialize_drag_game() {
+    var places = initialize_places(Philippines_Islands_Big11);
+    sort_places(places, 'Area');
     console.log("In drag_game_initialize(). places.length: " + places.length);
     puzzle_obj = new drag_game(places);
-
 }
 
-function places_initialize(places, sort) {
-   
-    for (var i = 0; i < places.length; i++) {
-        console.log("i, name: " + i + "  " + places[i].name);
-    }
-
-    if (sort == 'Area') {
+function sort_places(places, sort){
+  if (sort == 'Area') {
         places.sort(function(a, b) {
             return b.area.sqkm - a.area.sqkm;
         }); // by area
@@ -105,7 +97,14 @@ function places_initialize(places, sort) {
             return b.area.sqkm - a.area.sqkm;
         }); // by area
     }
+}
 
+function initialize_places(places) { // initialize, history, score, age, 
+   
+    for (var i = 0; i < places.length; i++) {
+        console.log("i, name: " + i + "  " + places[i].name);
+    }
+  
 // slice to first n_places_in_quiz  
     places = places.slice(0, n_places_in_quiz);
 
