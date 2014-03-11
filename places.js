@@ -137,9 +137,15 @@ var Baffin_Island_Terrain_1 = new Place({
     zoom: 11,
     frame_center: {lat: 66.4931, lng: -72.7186},
 });
+var Greenland_Glaciers = new Place({
+    name: "Greenland Glaciers",
+    zoom: 10,
+    frame_center: {lat: 69.6323, lng: -25.7857},
+});
+
 
 var StrangePlaces = [
     Belcher_Islands, Yenisei_Meanders, Taz_Meanders, Lac_a_Leau_Claire, 
     Banks_Peninsula_NZ, Ganges_Delta, Volga_Delta, Rano_Kau_Crater_Easter_Island,
-    Sakhalin_Meanders, Baffin_Island_Terrain_1
+    Sakhalin_Meanders, Baffin_Island_Terrain_1, Greenland_Glaciers
 ];
