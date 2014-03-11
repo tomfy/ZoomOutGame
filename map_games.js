@@ -1,4 +1,4 @@
-	    function my_latlng_to_string() {
+function my_latlng_to_string() {
     var latlng = arguments[0];
     var n_places = arguments[1] || 4;
     var lat = latlng.lat();
@@ -20,7 +20,10 @@ var the_lng = x*ne_lng + (1-x)*sw_lng;
 }
 
 function distance_between_latlngs(latlng1, latlng2){
-    return Math.sqrt( Math.pow(latlng1.lat() - latlng2.lat(), 2) +  Math.pow(latlng1.lng() - latlng2.lng(), 2) );
+
+    return google.maps.geometry.spherical.computeDistanceBetween(latlng1, latlng2);
+
+  //  return Math.sqrt( Math.pow(latlng1.lat() - latlng2.lat(), 2) +  Math.pow(latlng1.lng() - latlng2.lng(), 2) );
 }
 
 
@@ -82,6 +85,9 @@ function move_map_to_place(map, circle, info_window, the_place, zoom_offset) {
 
 function place_rights_in_a_row(place) {
     var rights_in_a_row = 0;
+    console.log("ZZZ Place: " + JSON.stringify(place));
+    console.log("Place: " + place);
+  
     for (var i = 0; i < place.history.length; i++) { // just
         if (place.history[i].correct != true) {
             break;
@@ -93,11 +99,13 @@ function place_rights_in_a_row(place) {
 
 
 function relprob(places, name) {
+    console.log("YYY: " + JSON.stringify(places[name]) );
     var age = places[name].age;
     var size = Object.keys(places).length;
     console.log("age, size: " + age + "  " + size);
     var grow_factor = 1.2;
     var reask_delay = 2;
+  console.log("YYYa: " + JSON.stringify(places[name]) );
     var rights_in_a_row = place_rights_in_a_row(places[name]);
  //   console.log("In relprob. age, size, reask_delay:  " + age + "  " + size + "  " + reask_delay);
     var power = ((rights_in_a_row > 0) || (age < reask_delay))? age : age + (age - reask_delay) + size - reask_delay;
@@ -139,7 +147,7 @@ function relprob(places, name) {
 function random_place(places, rnumb) { // places is assoc. array; keys are names
 // does it also work for regular array? 
 console.log("Random number: " + rnumb);
-    if(arguments.length == 1){ rnumb = Math.random(); }
+    if(arguments.length == 1){ rnumb = Math.random(); } 
     console.log("Random number: " + rnumb);
     var sum_prob = 0;
     var cume_probs = new Object;
