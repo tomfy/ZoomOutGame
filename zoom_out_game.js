@@ -44,14 +44,14 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
 
     // *************************  CONSTRUCT CIRCLE TO MARK PLACE (OPTIONAL)  ****************************
     var circle = new google.maps.Circle({
-        strokeColor: 'B0D000',
-        strokeOpacity: 0.01,
+        strokeColor: 'B0B000',
+        strokeOpacity: 0.75,
         strokeWeight: 2,
         //   fillColor: '#FF0000',
         fillOpacity: 0.0,
         map: map,
         clickable: true,
-        draggable: true,
+        draggable: false,
         center: the_place.marker_position.latlng,
         radius: the_place.radius * Math.pow(2, 10 - the_place.zoom)
     });
@@ -167,8 +167,8 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
             raiseOnDrag: false,
             map: map,
             labelContent: the_place.name,
-            labelAnchor: new google.maps.Point(150, 11),
-            labelClass: "marker_labels",
+            labelAnchor: new google.maps.Point(110, 10),
+            labelClass: "labels",
             // the CSS class for the label
             labelStyle: {
                 opacity: 1,
@@ -199,7 +199,7 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
         zooms = 0;
 
         // **************** GET NEXT PLACE **********************
-        the_place_name = random_place(current_places);
+        the_place_name = random_place(current_places); 
 	the_place = current_places[the_place_name];
 
         the_place.age = 0;
