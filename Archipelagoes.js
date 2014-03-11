@@ -7,4 +7,5 @@ var Archipelagoes = ['Alexander', // Alaska panhandle
     //
     'Belcher Islands', // in Hudsons' bay - crazy looking
 		     'Banda Islands', // Indonesia - origin of nutmeg.
+'Diomede Islands' // In Bering straight. Big Diomede is Russian, Little Diomede American.
 ];
