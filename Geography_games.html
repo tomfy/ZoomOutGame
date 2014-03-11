@@ -29,27 +29,38 @@
     <script type="text/javascript"
 	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3v79mr8qBDYk_FpYKSIpx4HE9237hSuY&sensor=false">
     </script> 
-
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
  <!--   <script src="../js_lib/hashtable.js"></script>
-    <script src="../js_lib/tly_util.js"></script>
- <script src="text_overlay.js"></script>
-<script src="maplabel.js"></script>  -->
-
+  
+ <script src="text_overlay.js"></script> -->
+<script src="maplabel.js"></script> 
+  <script src="../js_lib/tly_util.js"></script>
 <script src="markerwithlabel.js"></script>
   <script src="places.js"></script>
  <script src="Islands.js"></script>
  <script src="Cities.js"></script>
  <script src="Peninsulas.js"></script>	
-<script src="Archipelagoes.js"></script>	
-    <script src="zog_init.js"></script>	
-    <script src="zoom_out_game.js"></script>
+<script src="Archipelagoes.js"></script>
+	
+<!--    <script src="zog_init.js"></script> -->	
+  <script src="map_games.js"></script> 
+  <script src="click_game.js"></script> 
+  <script src="drag_game.js"></script> 
+    <script src="zoom_out_game.js"></script> 
+<script src="map_games_init.js"></script>
   </head>
   <body onload="initialize()">
 
 
    <div id="map_canvas" ></div>
 
+ <div id="score_div"></div>
+ <div id="map_info_div">
+   <div id="zoom_info_div"></div>
+   <div id="map_center_info_div"></div>
+   <div id="click_position_info_div"></div>
   <div id="zoom_buttons" ></div>
+   <div id="question_buttons"></div>
    <div id="answer_buttons"></div>
  
   </body>
