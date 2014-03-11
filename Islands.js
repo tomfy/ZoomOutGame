@@ -1581,7 +1581,7 @@ var Indonesia_Islands_Populous = [ // ranked by population on whole island, not 
     Bintan, // Bintan: 330 thousand
 ];
 
-var Indonesia_BOP = [
+var Indonesia_Islands_Big_or_Populous = [ // 25 islands.
 // > 100000 km^2
     New_Guinea, Borneo, Sumatra, Sulawesi, Java,
 // 20000 - 100000
@@ -1633,17 +1633,26 @@ for (var island_name in BigOrPopulous){
     console.log("name, islandname: " + island_name + " " + island.name );
     BOP_Islands.push(island);
 } // */
-
 // assoc. arrays.
-var World_Islands_Big_or_Populous = new Object;
+var World_Islands_Big_or_Populous_hash = new Object;
+var World_Islands_Big_or_Populous = [];
 for(var i in World_Islands_Big){
     var the_island = World_Islands_Big[i];
-    World_Islands_Big_or_Populous[the_island.name] =the_island;
+    World_Islands_Big_or_Populous_hash[the_island.name] =the_island;
 }
 for(var i in World_Islands_Populous){
     var the_island = World_Islands_Populous[i];
-    World_Islands_Big_or_Populous[the_island.name] = the_island;
+    World_Islands_Big_or_Populous_hash[the_island.name] = the_island;
 }
+for(var name in World_Islands_Big_or_Populous_hash){
+    World_Islands_Big_or_Populous.push(World_Islands_Big_or_Populous_hash[name]);
+    console.log("an island: " + name);
+}
+
+// Island arrays:
+// World_Islands_Big_or_Populous, GB_Islands, Baltic_Islands,
+// Indonesia_Islands_Big_or_Populous, Canada_Islands_Arctic, Artic_Islands.
+
     
 // Arrays of island names
 
