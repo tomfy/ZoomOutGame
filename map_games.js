@@ -32,7 +32,7 @@ function initialize_places_latlng(places) { // places is regular array
 // put lat and lng into a LatLng object and store this in the place obj. 
     for (var i = 0; i < places.length; i++) {
         var the_place = places[i];
-        console.log("In initialize_places_latlng. place: ", the_place.name);
+   //     console.log("In initialize_places_latlng. place: ", the_place.name);
         // the frame_center and marker_position LatLng objects:
         the_place.frame_center.latlng = new google.maps.LatLng(the_place.frame_center.lat, the_place.frame_center.lng);
         the_place.marker_position.latlng = new google.maps.LatLng(the_place.marker_position.lat, the_place.marker_position.lng);
@@ -51,12 +51,8 @@ function initialize_places_ages(places) { // places can be either reg. or  assoc
 	var name = keys[i];
 //	for(var name in places){ 
         var the_place = places[name];
-     
         the_place.age = i;
-	console.log("In Initialize_places_ages. place: ", the_place.name + ". age: " + the_place.age);
-        // the frame_center and marker_position LatLng objects:
-  //      the_place.frame_center.latlng = new google.maps.LatLng(the_place.frame_center.lat, the_place.frame_center.lng);
-  //      the_place.marker_position.latlng = new google.maps.LatLng(the_place.marker_position.lat, the_place.marker_position.lng);
+//	console.log("In Initialize_places_ages. place: ", the_place.name + ". age: " + the_place.age);
     }
 }
 
@@ -85,11 +81,8 @@ function move_map_to_place(map, circle, info_window, the_place, zoom_offset) {
 
 function place_rights_in_a_row(place) {
     var rights_in_a_row = 0;
-    console.log("ZZZ Place: " + JSON.stringify(place));
-    console.log("Place: " + place);
-  
     for (var i = 0; i < place.history.length; i++) { // just
-        if (place.history[i].correct != true) {
+        if (place.history[i].correct !== true) {
             break;
         }
         rights_in_a_row++;
@@ -97,15 +90,14 @@ function place_rights_in_a_row(place) {
     return rights_in_a_row;
 }
 
-
 function relprob(places, name) {
-    console.log("YYY: " + JSON.stringify(places[name]) );
+ //   console.log("YYY: " + JSON.stringify(places[name]) );
     var age = places[name].age;
     var size = Object.keys(places).length;
-    console.log("age, size: " + age + "  " + size);
+ //   console.log("age, size: " + age + "  " + size);
     var grow_factor = 1.2;
     var reask_delay = 2;
-  console.log("YYYa: " + JSON.stringify(places[name]) );
+ // console.log("YYYa: " + JSON.stringify(places[name]) );
     var rights_in_a_row = place_rights_in_a_row(places[name]);
  //   console.log("In relprob. age, size, reask_delay:  " + age + "  " + size + "  " + reask_delay);
     var power = ((rights_in_a_row > 0) || (age < reask_delay))? age : age + (age - reask_delay) + size - reask_delay;
@@ -117,38 +109,14 @@ function relprob(places, name) {
     return relprob;
 }
 
-/* function random_place_old(places, rnumb) { // places is assoc. array; keys are names
-// does it also work for regular array? 
-    var sum_prob = 0;
-        for (var name in places) { 
-            places[name].relprob = relprob(places, name);
-	    
-            sum_prob += places[name].relprob;
-        }
-
-    var rprob = sum_prob * rnumb; // Math.random();
-        sum_prob = 0;
-        var chosen_name = 'noplace';
-	for(var name in places){
-            sum_prob += places[name].relprob;
-            //    console.log('index: ' + i + '. sum_prob: ' + sum_prob + '. rprob: ' + rprob);
-            if (sum_prob >= rprob && chosen_name == 'noplace') {
-                chosen_name = name;
-                places[name].age = 0; // relprob = 1;
-            } else {
-                places[name].age++; // relprob *= grow_factor;
-              //  console.log('i: ' + i + '.  ' + places[i].relprob);
-            }
-        }
-        console.log('Next place: ' + chosen_name + ". place: " + places[chosen_name].name + " age: " + places[chosen_name].age);
-        return places[chosen_name];
-} */
-
 function random_place(places, rnumb) { // places is assoc. array; keys are names
 // does it also work for regular array? 
-console.log("Random number: " + rnumb);
-    if(arguments.length == 1){ rnumb = Math.random(); } 
-    console.log("Random number: " + rnumb);
+// console.log("Random number: " + rnumb);
+    if(arguments.length === 1){ rnumb = Math.random(); } 
+/*    console.log("Random number: " + rnumb);
+    for(var nom in places){
+	console.log("AAAA nom: " + nom + "; " + places[nom].name);
+    } */
     var sum_prob = 0;
     var cume_probs = new Object;
         for (var name in places) { 
@@ -157,14 +125,14 @@ console.log("Random number: " + rnumb);
             sum_prob += places[name].relprob;
 	    cume_probs[name] = sum_prob;
 	    places[name].age++;
-	    console.log("relprob: " + places[name].relprob );
- console.log("key, place: " + name + "  " + places[name].name + " sumprob: " + sum_prob);
+//	    console.log("relprob: " + places[name].relprob );
+//  console.log("key, place: " + name + "  " + places[name].name + " sumprob: " + sum_prob);
         }
     var rprob = sum_prob * rnumb; // Math.random();
 	for(var name in places){
-	    console.log("key, placename: " + name + "  " + places[name].name + "; cumeprob: " + cume_probs[name] + " " + rprob);
+//	    console.log("key, placename: " + name + "  " + places[name].name + "; cumeprob: " + cume_probs[name] + " " + rprob);
             if (cume_probs[name] >= rprob) {
- console.log("xxxkey, placename: " + name + "  " + places[name].name + "; cumeprob: " + cume_probs[name] + " " + rnumb);
+// console.log("xxxkey, placename: " + name + "  " + places[name].name + "; cumeprob: " + cume_probs[name] + " " + rnumb);
                 places[name].age = 0; // relprob = 1;
 		return name; // places[name]; // return the place object
             } 
@@ -180,8 +148,8 @@ function place_markers_on_map(map, places) {
     var sw_lng = map_ll_bounds.getSouthWest().lng();
     var ne_lat = map_ll_bounds.getNorthEast().lat();
     var ne_lng = map_ll_bounds.getNorthEast().lng();
-    console.log("this: " + this);
-    console.log("map ll bounds: " + map_ll_bounds.toString());
+ //   console.log("this: " + this);
+ //   console.log("map ll bounds: " + map_ll_bounds.toString());
     //	console.log("i place position: " + i + "  " + places[i].name + "  " + places[i].
     for (var i = 0; i < places.length; i++) {
         var side_marker_position = // new google.maps.LatLng(0.95*sw_lat + 0.05*ne_lat, sw_lng + (i+0.5)*(ne_lng-sw_lng)/(places.length-1));
