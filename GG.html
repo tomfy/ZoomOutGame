@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geography_Games</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100%; width: 80%; float: left}
+      #answer_buttons {display: inline-block; margin-left: 15px}
+/*      #buttons {float: right; display: inline-block; text-align: right}*/
+
+ .labels {
+   color: red;
+   background-color: white;
+   font-family: "Lucida Grande", "Arial", sans-serif;
+   font-size: 16px;
+   font-weight: bold;
+   text-align: center;
+   width: 100px;     
+   border: 1px solid black;
+   white-space: wrap;
+ }
+
+      #answer_buttons a {display: block}
+    </style>
+
+
+    <script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3v79mr8qBDYk_FpYKSIpx4HE9237hSuY&sensor=false">
+    </script> 
+
+ <!--   <script src="../js_lib/hashtable.js"></script>
+    <script src="../js_lib/tly_util.js"></script>
+ <script src="text_overlay.js"></script>
+<script src="maplabel.js"></script>  -->
+
+<script src="markerwithlabel.js"></script>
+
+<!-- scripts containing place objects -->
+  <script src="places.js"></script>
+ <script src="Islands.js"></script>
+ <script src="Cities.js"></script>
+ <script src="Peninsulas.js"></script>	
+<script src="Archipelagoes.js"></script>
+
+<!--    <script src="zoom_out_game.js"></script> -->
+  </head>
+  <body>
+<form action="Geography_games.html" autocomplete="off">
+<fieldset>
+<legend>Select a type of game:</legend>
+<input type="radio" name="game_type" value="Click_Game" checked="checked">Click Game<br>
+<input type="radio" name="game_type" value="Drag_Game" checked="checked">Drag Game<br>
+<input type="radio" name="game_type" value="Zoom_Out_Game">Zoom Out Game<br>
+</fieldset>
+<fieldset>
+<legend>Select a set of places to be quizzed on:</legend>
+<select name="place_set_name">
+<option value="Islands_Philippines">Islands (Philippines)</option>
+<option value="World_Islands">World Islands</option>
+<option value="Islands_Indonesia">Islands (Indonesia)</option>
+<option value="Islands_GB">Islands (Great Britain)</option>
+<option value="Islands_Baltic">Islands (Baltic)</option>
+<option value="Islands_Arctic">Islands (Arctic)</option>
+</select>
+</fieldset>
+<fieldset>
+<legend>Select how to sort the places:</legend>
+<select name="sort_type">
+<option value="Area">Area</option>
+<option value="Population">Population</option>
+<option value="Min_AP_Ranks">Min AP Ranks</option>
+<option value="Max_AP_Ranks">Max AP Ranks</option>
+<option value="Sum_AP_Ranks">Sum AP Ranks</option>
+<option value="Area_times_Population">Area times Population</option>
+</select>
+</fieldset>
+<fieldset>
+<input type="submit" value="Play">
+</fieldset>
+</form>
+
+
+   <div id="map_canvas" ></div>
+  <div id="zoom_buttons" ></div>
+   <div id="answer_buttons"></div>
+ 
+  </body>
+</html>
