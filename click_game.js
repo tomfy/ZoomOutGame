@@ -11,6 +11,7 @@ function click_game(places) { // function zoom_out_game is a constructor, so 'th
     var llbounds = zoom_llbounds[2];
 
     var zoom_offset = 0;
+    console.log("places length: " + places.length);
     var the_index = random_place(places);
     var the_place = places[the_index];
     console.log("index, place: " + the_index + "  " + the_place.name);
@@ -149,7 +150,7 @@ function click_game(places) { // function zoom_out_game is a constructor, so 'th
 
                     console.log("circle; click.  place: " + this.place_name);
                     console.log("the_place.name: " + the_place.name);
-                    var correct_answer = (this.place_name == the_place.name);;
+                    var correct_answer = (this.place_name === the_place.name);; // the_place : place asked, this: circle.
                     if (correct_answer) {
                         console.log("CORRECT! " + this.place_name + "  " + the_place.name);
                         this.setOptions({
@@ -161,12 +162,16 @@ function click_game(places) { // function zoom_out_game is a constructor, so 'th
                         question_button_area.removeChild(question_buttons[the_index]);
                         score += correct_points;
 
+			update_array(the_place.history, new Object({correct: true, zoom_clicks: 0 })); // unshift and pop	
+
                         the_index = random_place(places)
                         the_place = places[the_index];
                         question_button_area.appendChild(question_buttons[the_index]);
                     } else {
                         score -= incorrect_cost;
                         console.log("Nope. You clicked: " + this.place_name);
+
+			update_array(the_place.history, new Object({ correct: false, zoom_clicks: 0 })); // unshift and pop	
                     };
                     document.getElementById("score_div").innerText = 'Score: ' + score;
 

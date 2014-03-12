@@ -1646,7 +1646,7 @@ for(var i in World_Islands_Populous){
 }
 for(var name in World_Islands_Big_or_Populous_hash){
     World_Islands_Big_or_Populous.push(World_Islands_Big_or_Populous_hash[name]);
-    console.log("an island: " + name);
+  //  console.log("an island: " + name);
 }
 
 // Island arrays:
