@@ -1,5 +1,6 @@
 function drag_game(places) { // function zoom_out_game is a constructor, so 'this' keyword
     // refers to the object contructed
+    var score = 0;
     initialize_places_latlng(places); // takes the lat and lng number in each place and creates LatLng objects.
     // get center of map and zoom such that places will all be on the map.
     var zoom_0_dlng = 440; // 
@@ -59,7 +60,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
     var circles_array = new Object;
-
+    console.log("SPOT: " + JSON.stringify(spot) );
     google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
         map_ll_bounds = this.getBounds();
         var sw_lat = map_ll_bounds.getSouthWest().lat();
@@ -81,11 +82,11 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
                 // labelAnchor: new google.maps.Point(40, -9),
                 labelContent: places[i].name,
                 //     labelAnchor: new google.maps.Point(50, -10),
-                labelAnchor: new google.maps.Point(90, 8),
+                labelAnchor: new google.maps.Point(110, 10),
                 labelClass: "labels",
                 // the CSS class for the label
                 labelStyle: {
-                    opacity: 1,
+                    strokeOpacity: 1, // or just 'opacity' ?
                     fontSize: 20
                 },
                 icon: spot,
@@ -110,26 +111,36 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
                 console.log("dragend position: " + dragend_position);
                 //    the_marker.setPosition(dragend_position);
                 // Center the map at given point
-                var correct_circle = circles_array[this.labelContent];
+                var correct_circle = circles_array[this.labelContent]; // the correct circle is the one with the same name 
                 console.log("marker label: " + this.labelContent + " position: " + this.position);
                 console.log("marker dest position: " + this.destination_position);
                 var distance_from_destination = distance_between_latlngs(this.position, this.destination_position);
                 console.log("dist: " + distance_from_destination + "; dest circle: " + correct_circle.name);
-                if (distance_between_latlngs(this.position, this.destination_position) < close_enough_distance) {
+		if(! this.placed){
+                if (distance_between_latlngs(this.position, this.destination_position) < correct_circle.radius ) {
                     score += 1;
                     this.placed = true;
-                    correct_circle.strokeColor = '40F040';
-
-                };
-
+correct_circle.setOptions({
+    strokeColor: 'E0B040',
+    strokeOpacity: 0
+                        }); 	
+		    animateMarker(this, this.destination_position);
+		    this.setOptions({draggable: false});
+                }else{
+		    score -= 1;
+		    this.setOptions({placed: false});
+		     animateMarker(this, this.starting_position);
+		}
+        document.getElementById("score_div").innerText = 'Score: ' + score;
+		}
             });
 
             google.maps.event.addListener(the_marker, 'click', function() {
                 console.log("marker click: " + this.labelContent + ". Position: " + this.position);
-                animateMarker(this);
+                animateMarker(this, this.destination_position);
             });
-
-        }
+	   // console.log("Marker: " + JSON.stringify(the_marker) ); // can't JSON.stringify - 'circular structure' ??
+        } // loop over places (to create markers for each)
     });
     map.fitBounds(llbounds);
 
@@ -147,7 +158,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
                 draggable: false,
                 //true,
                 center: the_place.marker_position.latlng,
-                radius: the_place.radius * Math.pow(2, 8 - map.zoom),
+                radius: the_place.radius * Math.pow(2, 7.5 - map.zoom),
                 name: the_place.name,
             });
             //           /* 
@@ -239,18 +250,33 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
     document.getElementById("map_center_info_div").innerText = "Map center: " + my_latlng_to_string(map.getCenter());
     document.getElementById("click_position_info_div").innerText = "Click position: ";
 
-    var score = 0; // number of question which were answered correctly on most recent asking.
-    function animateMarker(the_marker) {
+  //  var score = 0; // number of question which were answered correctly on most recent asking.
+    function animateMarker(the_marker, to_position) {
         var count = 0;
-        var n_steps = 40;
+	var step_size_in_pixels = 10;
+	var map_scale = Math.pow(2, map.getZoom());
         console.log("marker start, dest position: " + the_marker.starting_position + "  " + the_marker.destination_position + ";  position: " + the_marker.position);
-        var start_pos = the_marker.starting_position;
-        var end_pos = the_marker.destination_position;
+        var start_pos = the_marker.position; // starting_position;
+        var end_pos = to_position; // the_marker.destination_position;
+	var the_map = the_marker.map;
+//	console.log("in animateMarker: " + start_pos);
+	var start_pixels = the_map.getProjection().fromLatLngToPoint(start_pos);
+	var end_pixels = the_map.getProjection().fromLatLngToPoint(end_pos);
+	var delta_x_pixels = end_pixels.x - start_pixels.x;
+	var delta_y_pixels = end_pixels.y - start_pixels.y;
+//	console.log("start_pixels: " + start_pixels + "; end_pixels: " + end_pixels);
+	if(delta_x_pixels === 0 && delta_y_pixels === 0){ return; }
+	var delta_pixels = map_scale * Math.sqrt(delta_x_pixels*delta_x_pixels + delta_y_pixels*delta_y_pixels);
+//	console.log("in animateMarker. delta_x/y pixels: " + delta_x_pixels + ", " + delta_y_pixels);
+	var n_steps = Math.ceil(delta_pixels / step_size_in_pixels);
+	if(n_steps > 40){ n_steps = 40; }
+//	console.log("in animateMarker. n_steps: " + n_steps);
+
         var start_lat = start_pos.lat();
         var start_lng = start_pos.lng();
         var delta_lat = end_pos.lat() - start_pos.lat();
         var delta_lng = end_pos.lng() - start_pos.lng();
-        console.log("top of animateMarker. marker position: " + the_marker.position);
+//        console.log("top of animateMarker. marker position: " + the_marker.position);
         offsetId = window.setInterval(function() {
             if (count < n_steps) {
                 count++;
@@ -263,7 +289,7 @@ function drag_game(places) { // function zoom_out_game is a constructor, so 'thi
             start_lng + delta_lng * count / n_steps;
             the_marker.setPosition(new google.maps.LatLng(lat, lng));
             console.log("position: " + the_marker.position);
-            if (count == n_steps) {
+            if (count === n_steps) {
                 window.clearInterval(offsetId);
             }
         },
