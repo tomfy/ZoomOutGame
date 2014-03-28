@@ -15,7 +15,10 @@ function Place(obj) {
     this.frame_center = obj.frame_center;
     this.marker_position = obj.marker_position || obj.frame_center;
     //    this.marker_position = obj.marker_position;
-    this.radius = obj.radius || default_radius
+    this.radius = obj.radius || default_radius;
+    this.iso3digit = obj.iso3digit;
+    this.border = obj.border;
+    
 };
 
 
