@@ -26,23 +26,23 @@
     </style>
 
 
-    <script type="text/javascript"
+<!--    <script type="text/javascript"
 	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3v79mr8qBDYk_FpYKSIpx4HE9237hSuY&sensor=false">
     </script> 
 
  <!--   <script src="../js_lib/hashtable.js"></script>
     <script src="../js_lib/tly_util.js"></script>
- <script src="text_overlay.js"></script>
 <script src="maplabel.js"></script>  -->
 
-<script src="markerwithlabel.js"></script>
+<!-- <script src="markerwithlabel.js"></script>
 
-<!-- scripts containing place objects -->
+<!-- scripts containing place objects 
   <script src="places.js"></script>
  <script src="Islands.js"></script>
  <script src="Cities.js"></script>
  <script src="Peninsulas.js"></script>	
 <script src="Archipelagoes.js"></script>
+<script src="several_european_countries.js"></script> -->
 
 <!--    <script src="zoom_out_game.js"></script> -->
   </head>
@@ -57,6 +57,8 @@
 <fieldset>
 <legend>Select a set of places to be quizzed on:</legend>
 <select name="place_set_name">
+<option value="few_european_countries">A few countries</option>
+<option value="most_european_countries">Most countries</option>
 <option value="Islands_Philippines">Islands (Philippines)</option>
 <option value="World_Islands">World Islands</option>
 <option value="Islands_Indonesia">Islands (Indonesia)</option>
@@ -80,11 +82,8 @@
 <input type="submit" value="Play">
 </fieldset>
 </form>
-
-
    <div id="map_canvas" ></div>
   <div id="zoom_buttons" ></div>
    <div id="answer_buttons"></div>
- 
   </body>
 </html>
