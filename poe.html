@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place_Object_Editor</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100%; width: 84%; float: left}
+      #answer_buttons {display: inline-block; margin-left: 25px}
+/*      #buttons {float: right; display: inline-block; text-align: right}*/
+
+ .labels {
+   color: red;
+   background-color: white;
+   font-family: "Lucida Grande", "Arial", sans-serif;
+   font-size: 16px;
+   font-weight: bold;
+   text-align: center;
+   width: 100px;     
+   border: 1px solid black;
+   white-space: wrap;
+ }
+
+      #answer_buttons a {display: block}
+    </style>
+
+    <script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3v79mr8qBDYk_FpYKSIpx4HE9237hSuY&sensor=false">
+    </script> 
+<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+ <!--   <script src="../js_lib/hashtable.js"></script> -->
+
+<script src="maplabel.js"></script> 
+  <script src="../js_lib/tly_util.js"></script>
+<script src="markerwithlabel.js"></script>
+<!--  <script src="places.js"></script>
+ <script src="Islands.js"></script>
+ <script src="Cities.js"></script>
+ <script src="Peninsulas.js"></script>	
+<script src="Archipelagoes.js"></script>
+	
+
+  <script src="click_game.js"></script> 
+  <script src="drag_game.js"></script> 
+    <script src="zoom_out_game.js"></script> -->
+  <script src="map_games.js"></script> 
+<script src="poe.js"></script> 
+  </head>
+  <body onload="place_object_editor()">
+
+
+   <div id="map_canvas" ></div>
+
+  <div id="zoom_buttons" ></div>
+ 
+ <div id="map_info_div">
+ 
+   <div id="map_center_info_div"></div>
+   <div id="click_position_info_div"></div>
+  <div id="zoom_info_div"></div>
+
+<form action="ShowPlaceObject.html" autocomplete="off">
+
+<fieldset>
+<legend>Type of place:</legend>
+<select name="place_type">
+<option value="Island(s)">Island(s)</option>
+<option value="City">City</option>
+<option value="Peninsula">Peninsula</option>
+<option value="Lake">Lake</option>
+<option value="Mountain">Mountain</option>
+<option value="Other">Other</option>
+</select>
+</fieldset>
+
+<fieldset>
+<legend>Place name:</legend>
+Place name: <input type="text" name="place_name"><br>
+</fieldset>
+
+<fieldset>
+<legend>Population & Area</legend>
+Population (thousands): <input type="text" name="population"><br>
+Population rank: <input type="text" name="population_rank"><br>
+Area (sq km): <input type="text" name="area"><br>
+Area rank: <input type="text" name="area_rank"><br>
+</fieldset>
+
+<fieldset>
+<legend>Hint:</legend>
+Hint: <input type="text" name="hint_text"><br>
+</fieldset>
+
+
+<fieldset>
+<input type="submit" value="Show place object">
+</fieldset>
+</form>
+
+  </body>
+</html>
