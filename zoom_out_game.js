@@ -1,20 +1,22 @@
 function zoom_out_game(places) { //  this function is a constructor, so 'this' keyword refers to the object contructed
-    var zoom_offset = -1;
+    var zoom_offset = 0; // -1;
     var max_score_per_answer = 10; //  var max_place_score = 30;
     var score = 0; // number of question which were answered correctly on most recent asking.
     var zooms = 0;
 
     // *************** INITIALIZE PLACES ****************************
-    initialize_places_latlng(places); // initialize the places array (reg array)
+ //   initialize_places_latlng(places); // initialize the places array (reg array)
     // initialize assoc. arrays with places which are 'done', current (i.e. in play), and future (awaiting their turn)
     var done_places = new Object;
     var current_places = new Object; // places.slice(0, n_places_at_a_time);
     var future_places = new Object; // places.slice(n_places_at_a_time, n_places_in_quiz);
+    n_places_at_a_time = Math.min(n_places_at_a_time, places.length);
    for (var i = 0; i < n_places_at_a_time; i++) { // current_places
 //	for(var i in places){
         var the_place = places[i];
         current_places[the_place.name] = the_place;
-        console.log("In current_places initialization. name, age: " + the_place.name + " ,  " + current_places[the_place.name].age);
+       console.log("In current_places initialization. name, age: " + the_place.name + 
+		   " ,  " + JSON.stringify(current_places[the_place.name].frame_center) );
     }
     for (var i = n_places_at_a_time; i < places.length; i++) { // future places
 	var age = 2*(places.length - i); //  
@@ -27,6 +29,7 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     var the_place_name = random_place(current_places);
     var the_place = current_places[the_place_name];
 
+    console.log("THEPLACE: " + JSON.stringify(the_place) + "\n");
     // ********************* CONSTRUCT MAP *****************************
     var mapOptions = {
         zoom: the_place.zoom + zoom_offset,
@@ -43,8 +46,10 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
         }
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  the_place.border_polygon.setMap(map);
 
-    // *************************  CONSTRUCT CIRCLE TO MARK PLACE (OPTIONAL)  ****************************
+    console.log("ABCDEF. map center: " + map.center);
+    // *************************  CONSTRUCT CIRCLE TO MARK PLACE  ****************************
     var circle = new google.maps.Circle({
         strokeColor: 'B0B000',
         strokeOpacity: 0.75,
@@ -52,11 +57,15 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
         //   fillColor: '#FF0000',
         fillOpacity: 0.0,
         map: map,
-        clickable: true,
+        clickable: circles_clickable,
+	visible: (the_place.border === undefined),
         draggable: false,
         center: the_place.marker_position.latlng,
         radius: the_place.radius * Math.pow(2, 10 - the_place.zoom)
     });
+    the_place[circle] = circle;
+
+  
     // ********************* INFOWINDOW TO SHOW PLACE'S NAME **************************
     var info_window = new google.maps.InfoWindow({
         content: the_place.name
@@ -70,10 +79,11 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
         console.log("place: " + info_window.content + ". location:  {lat: ", circle.getCenter().lat() + ", lng: " + circle.getCenter().lng() + "}  ");
     });
 
-    // Initialize text displayed in scoer_div, etc.
+    // Initialize text displayed in score_div, etc.
     document.getElementById("score_div").innerText = 'Score: 0';
     document.getElementById("zoom_info_div").innerText = " Zoom level: " + map.getZoom();
     document.getElementById("map_center_info_div").innerText = "Map center: " + my_latlng_to_string(map.getCenter());
+    console.log("AA. map center: " + JSON.stringify(map.getCenter()));
     document.getElementById("click_position_info_div").innerText = "Click position: ";
 
     // ************************  CREATE ZOOM BUTTONS  ***********************
@@ -100,6 +110,31 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     },
     false);
     zoom_button_area.appendChild(zoom_in_button);
+
+  var sticky_zoom_out_button = document.createElement("button");
+    sticky_zoom_out_button.appendChild(document.createTextNode("Zoom Out"));
+    sticky_zoom_out_button.addEventListener("click", function(event) {
+        map.setZoom(map.getZoom() - 1);
+	zoom_offset--;
+        zoom_level_text.innerText = 'Zoom level: ' + map.getZoom();
+        zooms++;
+        the_place.zoom_clicks++;
+    },
+    false);
+    zoom_button_area.appendChild(sticky_zoom_out_button);
+
+    var sticky_zoom_in_button = document.createElement("button");
+    sticky_zoom_in_button.appendChild(document.createTextNode("Zoom In"));
+    sticky_zoom_in_button.addEventListener("click", function(event) {
+        map.setZoom(map.getZoom() + 1);
+	zoom_offset++;
+        zoom_level_text.innerText = 'Zoom level: ' + map.getZoom();
+        zooms++;
+        the_place.zoom_clicks++;
+    },
+    false);
+    zoom_button_area.appendChild(sticky_zoom_in_button);
+
     var zoom_level_text = document.createElement("button");
     zoom_level_text.innerText = 'Zoom level: ' + map.getZoom();
     zoom_button_area.appendChild(zoom_level_text);
@@ -132,7 +167,7 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
 	}
     }
 
-    // ******************* ADD EVENT LISTERNERS TO MAP *********************
+    // ******************* ADD EVENT LISTENERS TO MAP *********************
     // click -> show click position lat and lng
     google.maps.event.addListener(map, 'click', function(event) {
         console.log("map clicked at latlng: ", event.latLng.toString());
@@ -141,9 +176,12 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     });
 
     // map center changed -> update displayed Map center lat and lng.
-    google.maps.event.addListener(map, 'center_changed', function() {
+    console.log("A. map center: " + JSON.stringify(map.getCenter()));
+// /* 
+   google.maps.event.addListener(map, 'center_changed', function() {
+	console.log("B. map center: " + JSON.stringify(map.getCenter()));
         document.getElementById("map_center_info_div").innerText = 'Map center: ' + my_latlng_to_string(map.getCenter());
-    });
+    }); // */
 
     // zoom level changed -> update displayed zoom level.
     google.maps.event.addListener(map, 'zoom_changed', function(ev) {
@@ -188,26 +226,26 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
 //	the_marker.labelContent = the_place.name;
 
         // **************** RESPOND TO CLICK ON ANSWER BUTTON ****************************     
-        var delay = 800; // time allowed (ms) after correct answer before going to next question.
+        var delay = 400; // time allowed (ms) after correct answer before going to next question.
         if (clicked_button_text === the_place.name) { // ************ CORRECT ANSWER. this answer is correct. ************
             update_array(the_place.history, new Object({
                 correct: true,
                 zoom_clicks: zooms
             })); // unshift and pop the place's history	
             right_wrong_label.text = "Yes, it's ";
-	    console.log("SSSSSSSSSS place score: " + the_place.score);
+/*	    console.log("SSSSSSSSSS place score: " + the_place.score);
 	console.log("BEFORE. future, current, done sizes: " + Object.keys(future_places).length + "; " +
 			    + Object.keys(current_places).length + "; " +
-			    + Object.keys(done_places).length);
+			    + Object.keys(done_places).length); // */
 	    if(the_place.score >= place_sufficient_score){
 		// transfer the place from current to done places
 		if( (Object.keys(current_places).length > 0) && (Object.keys(future_places).length > 0) ){
 		delete current_places[the_place.name]; // delete the key/val pair from current places
 		done_places[the_place.name] = the_place; // add to done_places
-		console.log("future places: " + JSON.stringify(Object.keys(future_places)));
+	/*	console.log("future places: " + JSON.stringify(Object.keys(future_places)));
 		for(var nom in current_places){
 		    console.log("current name: "  + nom + "; " + current_places[nom].name);
-		}
+		} // */
 		// choose a place from future places and transfer it to current places
 		
 		
@@ -219,9 +257,9 @@ var new_current_place_name = random_place(future_places);
 		delete future_places[new_current_place_name];		
 		current_places[new_current_place_name] = new_current_place;
 //	console.log("Bnew current place name: " + new_current_place.name);
-	console.log("AFTER. future, current, done sizes: " + Object.keys(future_places).length + "; " +
+/*	console.log("AFTER. future, current, done sizes: " + Object.keys(future_places).length + "; " +
 			    + Object.keys(current_places).length + "; " +
-			    + Object.keys(done_places).length);
+			    + Object.keys(done_places).length); // */
 	//	}
 
 		var answer_button_areax = document.getElementById("answer_buttons");
@@ -245,18 +283,30 @@ var new_current_place_name = random_place(future_places);
         zooms = 0;
 
         // **************** GET NEXT PLACE **********************
-        the_place_name = random_place(current_places); 
-	the_place = current_places[the_place_name];
-	console.log("the_place_name: " + the_place_name + " the place: " + the_place);
 
+
+	    
+	var old_place = the_place;
+	the_place_name = random_place(current_places); 
+	the_place = current_places[the_place_name];	  
+	console.log("the_place_name: " + the_place_name + " the place: " + the_place);
         the_place.age = 0;
+      
         setTimeout(function() { // do some stuff after timeout of delay ms.
+old_place.border_polygon.setMap(null);
+ the_place.border_polygon.setMap(map);
             right_wrong_label.setMap(null);
             the_marker.setMap(null);
-            move_map_to_place(map, circle, info_window, the_place, zoom_offset);
+	    
+	//    if(false){
+	//	move_map_to_place(map, /*circle,*/ info_window, the_place, zoom_offset);
+	//    }else{
+		move_map_to_place(map, circle, info_window, the_place, zoom_offset);
+//	    }
             zoom_level_text.innerText = 'Zoom level: ' + map.getZoom();
         },
         delay);
+ 
         return the_place; // Why return the_place ???
     } // end of handle_answer_button_click
 } // end of zoom_out_game (constructor)
