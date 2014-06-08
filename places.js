@@ -120,7 +120,7 @@ var Banks_Peninsula_NZ = new Place({
         lng: 172.897339
     },
 });
-var Lac_a_Leau_Claire = new Place({
+var Lac_a_Leau_Claire = new Place({ // astrobleme 
 name: 'Lac a Leau Claire',
     zoom: 10,
     frame_center: {lat:  56.139696, lng: -74.370286}

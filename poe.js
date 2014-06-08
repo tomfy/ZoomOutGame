@@ -73,7 +73,7 @@ function place_object_editor() { //  this function is a constructor, so 'this' k
     false);
     zoom_button_area.appendChild(zoom_in_button);
 
-    document.getElementById("click_position_info_div").innerText = 'Click position: {lat: ----- , lng: ----- }'; // ' + my_latlng_to_string(init_latlng);
+    document.getElementById("click_position_info_div").innerText = 'Click position: {lat: _____ , lng: _____ }'; // ' + my_latlng_to_string(init_latlng);
     document.getElementById("map_center_info_div").innerText = 'Map center: ' + my_latlng_to_string(init_latlng);
 document.getElementById("zoom_info_div").innerText = 'Zoom level: ' + map.getZoom();
  /*   var zoom_level_text = document.createElement("button");
