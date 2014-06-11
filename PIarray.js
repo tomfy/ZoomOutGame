@@ -1,42 +1,43 @@
 var Philippine_archipelago = [
-    'Philippines_Luzon', 
-    'Philippines_Mindanao',
+    'Luzon', 
+    'Mindanao',
 
-    'Philippines_Negros', 
-    'Philippines_Samar',
-    'Philippines_Palawan', 
-    'Philippines_Panay',
-    'Philippines_Mindoro', 
-    'Philippines_Leyte',   
-    'Philippines_Cebu',  
-    'Philippines_Bohol',
-    'Philippines_Masbate',
+    'Negros', 
+    'Samar',
+    'Palawan', 
+    'Panay',
+    'Mindoro', 
+    'Leyte',   
+    'Cebu',  
+    'Bohol',
+    'Masbate',
 
   
-    'Philippines_Catanduanes',
-    'Philippines_Basilan', // 1249 sq km
-    'Philippines_Marinduque',
-    'Philippines_Busuanga',
-    'Philippines_Jolo',
+    'Catanduanes',
+    'Basilan', // 1249 sq km
+    'Marinduque',
+    'Busuanga',
+    'Jolo',
+    'Jolo2',
 
-    'Philippines_Dinagat',
-    'Philippines_Polillo', 
-    'Philippines_TawiTawi',
-    'Philippines_Guimaras', // 605 sq km
-    'Philippines_Biliran', // 555 sq km
+    'Dinagat',
+    'Polillo', 
+    'TawiTawi',
+    'Guimaras', // 605 sq km
+    'Biliran', // 555 sq km
 // 21 so far - in order of size (area)
 
   
- /*    'Philippines_Sibuyan', // 445 sq km (172 sq mi)
-    'Philippines_Siargao', // 437 sq km
-  'Philippines_Burias', // 424 sq km
- 'Philippines_Tablas', // ? ~400 ?
+ /*    'Sibuyan', // 445 sq km (172 sq mi)
+    'Siargao', // 437 sq km
+  'Burias', // 424 sq km
+ 'Tablas', // ? ~400 ?
 
-   'Philippines_Culion', // 389 sq km
-  'Philippines_Siquijor', // 337 sq km  
-    'Philippines_Ticao', // 334 sq km
-   'Philippines_Dumaran', // ? ~300 sq km ?
-    'Philippines_Camiguin', // 238 sq km
+   'Culion', // 389 sq km
+  'Siquijor', // 337 sq km  
+    'Ticao', // 334 sq km
+   'Dumaran', // ? ~300 sq km ?
+    'Camiguin', // 238 sq km
 
   // 30 so far
   
