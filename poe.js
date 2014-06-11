@@ -20,6 +20,26 @@ function place_object_editor() { //  this function is a constructor, so 'this' k
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
+
+var MY_MAPTYPE_ID1 = 'few-labels';
+ 
+  var stylez1 = [
+  {
+    featureType: "administrative.country",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }
+  ];
+var styledMapOptions1 = {
+      name: "No Countries"
+  };
+  var MapType1 = new google.maps.StyledMapType(stylez1, styledMapOptions1);
+  map.mapTypes.set(MY_MAPTYPE_ID1, MapType1);
+  map.setMapTypeId(MY_MAPTYPE_ID1);
+
+
  /*   // *************************  CONSTRUCT CIRCLE TO MARK PLACE (OPTIONAL)  ****************************
     var circle = new google.maps.Circle({
         strokeColor: 'B0B000',
@@ -73,8 +93,8 @@ function place_object_editor() { //  this function is a constructor, so 'this' k
     false);
     zoom_button_area.appendChild(zoom_in_button);
 
-    document.getElementById("click_position_info_div").innerText = 'Click position: {lat: _____ , lng: _____ }'; // ' + my_latlng_to_string(init_latlng);
-    document.getElementById("map_center_info_div").innerText = 'Map center: ' + my_latlng_to_string(init_latlng);
+    document.getElementById("click_position_info_div").innerText = 'marker_position: {lat: _____ , lng: _____ }'; // ' + my_latlng_to_string(init_latlng);
+    document.getElementById("map_center_info_div").innerText = 'frame_center: ' + my_latlng_to_string(init_latlng);
 document.getElementById("zoom_info_div").innerText = 'Zoom level: ' + map.getZoom();
  /*   var zoom_level_text = document.createElement("button");
     zoom_level_text.innerText = 'Zoom level: ' + map.getZoom();
@@ -84,18 +104,18 @@ document.getElementById("zoom_info_div").innerText = 'Zoom level: ' + map.getZoo
     // click -> show click position lat and lng
     google.maps.event.addListener(map, 'click', function(event) {
         console.log("map clicked at latlng: ", event.latLng.toString());
-        document.getElementById("click_position_info_div").innerText = 'Click position: ' + my_latlng_to_string(event.latLng);
+        document.getElementById("click_position_info_div").innerText = 'marker_position: ' + my_latlng_to_string(event.latLng) + ',';
     });
 
     // map center changed -> update displayed Map center lat and lng.
     google.maps.event.addListener(map, 'center_changed', function() {
-        document.getElementById("map_center_info_div").innerText = 'Map center: ' + my_latlng_to_string(map.getCenter());
+        document.getElementById("map_center_info_div").innerText = ' frame_center: ' + my_latlng_to_string(map.getCenter()) + ',';
     });
 
     // zoom level changed -> update displayed zoom level.
     google.maps.event.addListener(map, 'zoom_changed', function(ev) {
         //   console.log("New zoom level: ", map.getZoom());
-        document.getElementById("zoom_info_div").innerText = 'Zoom level: ' + map.getZoom();
+        document.getElementById("zoom_info_div").innerText = 'zoom: ' + map.getZoom() + ',';
     });
 
  
