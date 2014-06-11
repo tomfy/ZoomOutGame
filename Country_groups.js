@@ -1,12 +1,87 @@
-var EuropeCountries = [
+var Asia = [
+    'Russia', 'Uzbekistan', 'Turkmenistan', 'Kazakhstan', 
+    'Iran', 'Pakistan', 'Afghanistan', 'Kyrgyzstan', 'Tajikistan',
+    'India', 'Nepal', 'Bhutan', 'Myanmar', 'Bangladesh', 'Sri_Lanka',
+    'Thailand', 'Cambodia', 'Vietnam', 'Laos', 'Malaysia',
+    'Indonesia', 'Philippines', 'China', 'Taiwan', // 'Singapore',
+    'Saudi_Arabia', 'Yemen', 'Oman', 'United_Arab_Emirates', 'Qatar',
+    'Kuwait', 'Iraq', 'Jordan', 'Syria', 'Lebanon', 'Israel', 'Turkey',
+    'Armenia', 'Georgia', 'Azerbaijan', 
+    'North_Korea', 'South_Korea', 'Japan', 'Mongolia',
+];  
+
+/* var EuropeCountries = [
 'France', 'Germany', 'Italy', 'Spain', 'Belgium', 
 'Netherlands', 'Denmark', 'Poland', 'Czech Republic', 'Slovakia', 
 'Hungary', 'Romania', 'Serbia', 'Bosnia', 'Croatia', 
 'Slovenia', 'Portugal', 'Austria', 'Albania', 'Macedonia', 
+
 'Bulgaria', 'Greece', 'Turkey', 'Moldova', 'Ukraine', 
 'Russia', 'Lithuania', 'Latvia', 'Estonia', 'Finland', 
 'Sweden', 'Norway', 'United Kingdom', 'Ireland', 'Iceland', 
 'Luxembourg', 'Switzerland',
+]; */
+
+var Europe = [
+    'United_Kingdom', 'France', 'Ireland', 'Belgium', 'Luxembourg',
+    'Netherlands', 'Spain', 'Switzerland', 'Italy', 'Germany',
+    'Poland', 'Czech_Republic', 'Slovakia', 'Hungary', 'Slovenia',
+    'Lithuania', 'Latvia', 'Estonia', 'Norway', 'Sweden',
+
+    'Denmark', 'Finland', 'Belarus', 'Moldova', 'Ukraine', 
+    'Romania', 'Austria', 'Bulgaria', 'Croatia', 'Bosnia_and_Herzegovina', 
+    'Serbia', 'Montenegro', 'Macedonia', 'Albania', 'Greece', 
+    'Portugal', 'Turkey', 'Russia', 'Cyprus',
+   // 'Iceland', 
+];
+
+var Mediterranean = [
+    // These actually border the mediterranean sea or the black sea
+    'Morocco', 'Algeria', 'Tunisia', 'Libya', 'Egypt',
+    'Israel', 'Lebanon', 'Syria', 'Turkey', 'Georgia',
+    'Russia', 'Ukraine', 'Romania', 'Bulgaria', 'Greece', 
+    'Albania', 'Montenegro', 'Bosnia_and_Herzegovina', 'Croatia', 'Slovenia',
+    'Italy', 'France', 'Spain', 'Cyprus', // 'Malta' 
+// other neighboring countries
+    'Portugal', 'Serbia', 'Switzerland', 'Austria', 'Hungary', 
+    'Germany', 'Poland', 'Luxembourg', 'Belgium', 
+    'Slovakia', 'Czech_Republic', 'Moldova', 'Macedonia',
+    'Jordan', 'Saudi_Arabia', 'Armenia', 'Iraq', 'West_Bank',
+];
+
+var SouthAmerica = [
+    'Chile', 'Bolivia', 'Peru', 'Ecuador', 'Colombia',
+    'Venezuela', 'Guyana', 'Suriname', 'French_Guiana', 'Brazil',
+    'Uruguay', 'Argentina', 'Paraguay',
+];
+
+var NorthAmerica = [
+    'Canada', 'United_States', 'Mexico', 'Guatemala', 'Belize',
+    'Honduras', 'Nicaragua', 'El_Salvador', 'Costa_Rica', 'Panama',
+];
+
+var CentralAmerica = [
+    'United_States', 'Mexico', 'Guatemala', 'Belize',
+    'Honduras', 'Nicaragua', 'El_Salvador', 'Costa_Rica', 'Panama',
+    'Colombia', 'Venezuela', 'Guyana', 'Suriname', // 'French_Guiana',
+    'Ecuador', 'Peru', 'Brazil',
+];
+
+var Africa = [
+    'Morocco', 'Algeria', 'Tunisia', 'Libya', 'Egypt',
+    'Sudan', 'Chad', 'Niger', 'Mali', 'Mauritania', 
+
+    'Western_Sahara', 'Senegal', 'The_Gambia', 'Sierra_Leone', 
+    'Liberia', 'Ivory_Coast', 'Ghana', 'Benin', 'Togo', // 
+
+    'Nigeria', 'Cameroon', 'Guinea', 'Burkina_Faso', 'Guinea_Bissau',
+    'Central_African_Republic', 'Gabon', 'Rep_Congo', 'Dem_Rep_Congo', 'Ethiopia',
+
+    'Eritrea', 'Djibouti', 'Somalia', 'Kenya', 'Tanzania', 
+    'Uganda', 'Rwanda', 'Burundi', 'Angola', 'Malawi',
+
+    'Mozambique', 'Equatorial_Guinea', 'Zambia', 'Zimbabwe', 'Namibia',
+    'South_Africa', 'Botswana', 'Lesotho', 'Swaziland', 'Madagascar',
 ];
 
 
@@ -64,34 +139,10 @@ var BigGdpCountries = [ // IMF 2012 PPP top 50
     'Algeria', 'Romania', 'United_Arab_Emirates', 'Israel', 'Portugal', */
 ];
 
-var most_european_countries = [
-    'United_Kingdom', 'France', 'Ireland', 'Belgium', 'Luxembourg',
-    'Netherlands', 'Spain', 'Switzerland', 'Italy', 'Germany',
-    'Poland', 'Czech_Republic', 'Slovakia', 'Hungary', 'Slovenia',
-    'Lithuania', 'Latvia', 'Estonia', 'Norway', 'Sweden',
-    'Denmark', 'Finland', 'Belarus', 
-    'Moldova', 'Ukraine', 'Romania',
-    'Austria', 'Bulgaria', 'Croatia', 'Bosnia_and_Herzegovina', 
-    'Serbia', 'Montenegro', // has Yugoslavia instead.
- //   'Yugoslavia',
-    'Macedonia', 'Albania', 'Greece', 'Portugal', 'Turkey', 
-   // 'Iceland', 
-    // 'Russia', 
-// 'Georgia', 'Armenia', 'Azerbaijan',
-];
+
  
 
-var much_of_asia = [
-    'Uzbekistan', 'Turkmenistan', 'Kazakhstan', 
-    'Iran', 'Pakistan', 'Afghanistan', 'Kyrgyzstan', 'Tajikistan',
-    'India', 'Nepal', 'Bhutan', 'Myanmar', 'Bangladesh', 'Sri_Lanka',
-    'Thailand', 'Cambodia', 'Vietnam', 'Laos', 'Malaysia',
-    'Indonesia', 'Philippines', 'China', 'Taiwan', // 'Singapore',
-    'Saudi_Arabia', 'Yemen', 'Oman', 'United_Arab_Emirates', 'Qatar',
-    'Kuwait', 'Iraq', 'Jordan', 'Syria', 'Lebanon', 'Israel', 'Turkey',
-    'Armenia', 'Georgia', 'Azerbaijan', 
-    'North_Korea', 'South_Korea', 'Japan', 'Mongolia',
-];  
+
     
 var the_philippines = [ 'Philippines' ];
 
