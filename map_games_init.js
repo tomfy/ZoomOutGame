@@ -34,10 +34,17 @@ var place_set_hash = new Object({
     BigAreaCountries: BigAreaCountries,
     BigGdpCountries: BigGdpCountries,
     BigPopulationCountries: BigPopulationCountries,
-    most_european_countries: most_european_countries,
+
     various_countries: various_countries,
-    much_of_asia: much_of_asia,
+    Asia: Asia,
+    Europe: Europe,
+    Mediterranean: Mediterranean,
     Whole_world: Whole_world,
+    NorthAmerica: NorthAmerica,
+    CentralAmerica: CentralAmerica,
+    SouthAmerica: SouthAmerica,
+
+    Africa: Africa,
 });
 
 
@@ -105,10 +112,11 @@ function initialize() {
 	}else if(Islands[pname] !== undefined){
 	    var a_place = Islands[pname];
 	    places.push(a_place);
-	}else if(Philippine_Islands[pname] !== undefined){
+	}
+/* else if(Philippine_Islands[pname] !== undefined){
 	    var a_place = Philippine_Islands[pname];
 	    places.push(a_place);
-	}
+	} */
     }
   
     places = initialize_places_history_etc(places);
