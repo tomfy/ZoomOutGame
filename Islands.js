@@ -3,7 +3,7 @@ var Islands = {
 	name: 'Greenland',
 	zoom: 5,
 	population: {kilopeople: 56.37, rank: 1000},
-	area: {sqkm: 2130800, rank: 1},   // are in km^2, and world rank by area
+	area: {sqkm: 2130800, rank: 1},   // area in km^2, and world rank by area
 	frame_center: {
             lat: 75.6617,
             lng: -39.9388

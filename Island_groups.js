@@ -1,7 +1,3 @@
-// **************************************************************************
-// ****** end of Place 'objects', now comes various arrays of islands. ********
-// **************************************************************************
-
 // ********  Sets of islands: (arrays of objects) ************
 
 var GB_Islands = [ // area > 300 km^2, or population > 10,000

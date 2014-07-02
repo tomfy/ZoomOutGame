@@ -31,6 +31,7 @@ var place_set_hash = new Object({
     Islands_Baltic: Baltic_Islands,
     Islands_Arctic: Arctic_Islands,
     Islands_Arctic_Canada: Canada_Islands_Arctic,
+    Big_Lakes_by_Area: Big_Lakes_by_Area,
     BigAreaCountries: BigAreaCountries,
     BigGdpCountries: BigGdpCountries,
     BigPopulationCountries: BigPopulationCountries,
@@ -94,7 +95,7 @@ function initialize() {
 // load place objects into places array, and give them areas, populations from lists, if available.
     for(var i in place_names){
 	var pname = place_names[i];
-	console.log("pname: " + pname + " " + place_names[pname] );
+	console.log("i: " + i + "  pname: " + pname + " " + place_names[pname] );
 	if(Countries[pname] !== undefined){
 	    var a_place = Countries[pname];
 	    console.log("Place Name: " + pname );
@@ -111,6 +112,9 @@ function initialize() {
 	    places.push(a_place);
 	}else if(Islands[pname] !== undefined){
 	    var a_place = Islands[pname];
+	    places.push(a_place);
+	}else if(Lakes[pname] !== undefined){
+   var a_place = Lakes[pname];
 	    places.push(a_place);
 	}
 /* else if(Philippine_Islands[pname] !== undefined){

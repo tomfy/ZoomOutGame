@@ -22,6 +22,8 @@ function Place(obj) {
 };
 
 
+
+
 // Some curious landforms ---
 var Belcher_Islands = new Place({
     name: 'Belcher Islands',
@@ -146,6 +148,58 @@ var Greenland_Glaciers = new Place({
     frame_center: {lat: 69.6323, lng: -25.7857},
 });
 
+
+
+
+// Sets of long lakes near mountains like e.g. Italian alpine lakes:
+var Lakes_Alaska = new Place({
+    name: "Lakes, SW Alaska",
+    zoom: 9,
+frame_center: {lat: 59.8239, lng: -158.8166},
+marker_position: {lat: 59.8572, lng: -158.7497},
+});
+
+var Lakes_Siberia = new Place({
+    name: "Lakes, Siberia",
+frame_center: {lat: 68.1397, lng: -268.5151},
+marker_position: {lat: 68.4275, lng: 91.1755},
+zoom: 7,
+});
+
+var Lakes_Sweden = new Place({
+    name: "Lakes, Sweden",
+frame_center: {lat: 65.0071, lng: -343.2194},
+marker_position: {lat: 65.0235, lng: 16.6223},
+zoom: 9,
+});
+
+var Lakes_Italy = new Place({
+    name: "Lakes, Italy",
+frame_center: {lat: 45.7806, lng: -350.1985},
+marker_position: {lat: 45.869, lng: 9.7229},
+zoom: 9,
+});
+
+var Lakes_Scotland = new Place({
+    name: "Lakes, Scotland",
+frame_center: {lat: 57.0084, lng: -364.7183},
+marker_position: {lat: 46.0408, lng: 11.5384},
+zoom: 10,
+});
+ 
+var Lakes_Andes = new Place({
+    name: "Lake, Andes", 
+frame_center: {lat: -40.3814, lng: -431.1773},
+marker_position: {lat: -40.3486, lng: -71.4606},
+zoom: 9,
+});
+
+var Finger_Lakes = new Place({
+    name: "Finger Lakes",
+frame_center: {lat: 42.6407, lng: -436.9122},
+marker_position: {lat: 42.6875, lng: -76.8329},
+zoom: 10,
+});
 
 var StrangePlaces = [
     Belcher_Islands, Yenisei_Meanders, Taz_Meanders, Lac_a_Leau_Claire, 
