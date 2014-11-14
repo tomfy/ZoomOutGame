@@ -16,7 +16,7 @@ zoom: 6,
 	volume: {cukm: 11600, rank: 4},
 frame_center: {lat: 47.5605, lng: -448.2336},
 marker_position: {lat: 47.695, lng: -87.984},
-zoom: 8,
+zoom: 7,
     }),
 
     Lake_Victoria: new Place({
@@ -34,7 +34,7 @@ zoom: 8,
 	volume: {cukm: 3540, rank: 8},
     frame_center: {lat: 44.6586, lng: -82.6594},
 marker_position: {lat: 44.9376, lng: -82.4139},
-zoom: 8,
+zoom: 7,
     }),
 
     Lake_Michigan: new Place({
@@ -124,9 +124,9 @@ zoom: 8,
 	name: "Lake Balkhash",
 	area:  {sqkm: 18428, rank: 14},
 	volume: {cukm: 112, rank: 33},
-frame_center: {lat: 45.2011, lng: 58.7896},
-marker_position: {lat: 45.2246, lng: 58.5516},
-zoom: 9,
+frame_center: {lat: 46.0729, lng: 76.2798},
+marker_position: {lat: 46.657, lng: 76.1023},
+zoom: 8,
     }),
 
     Lake_Ladoga: new Place({
@@ -142,7 +142,9 @@ zoom: 8,
 	name: "Lake Vostok",
 	area:  {sqkm: 15690, rank: 16},
 	volume: {cukm: 5400, rank: 6},
-
+frame_center: {lat: -77.5, lng: 106.0},
+marker_position: {lat: -77.5, lng: 106.0},
+	zoom: 8,
     }),
 
     Lake_Onega: new Place({
@@ -210,8 +212,8 @@ zoom: 8,
 	name: "Issyk-Kul",
 	area:  {sqkm: 6200, rank: 24},
 	volume: {cukm: 1730, rank: 11},
-frame_center: {lat: 45.2011, lng: 58.7896},
-marker_position: {lat: 45.2246, lng: 58.5516},
+frame_center: {lat: 42.486, lng: 77.2823},
+marker_position: {lat: 42.4214, lng: 77.2696},
 zoom: 9,
     }),
 
@@ -232,11 +234,14 @@ marker_position: {lat: 58.8592, lng: 13.3319},
 zoom: 8,
     }),
 
-    Lake_Winnepegosis: new Place({
+    Lake_Winnipegosis: new Place({
 	name: "Lake Winnipegosis",
 	area:  {sqkm: 5403, rank: 27},
-frame_center: {lat: 52.3997, lng: -99.794},
-marker_position: {lat: 50.5937, lng: -98.9923},
+//frame_center: {lat: 52.3997, lng: -99.794},
+//marker_position: {lat: 52.5937, lng: -98.9923},
+
+frame_center: {lat: 52.5206, lng: -99.9766},
+marker_position: {lat: 52.553, lng: -99.8657},
 zoom: 8,
     }),
 
@@ -312,8 +317,9 @@ zoom: 9,
 	name: "Lake of the Woods",
 	area:  {sqkm: 4350, rank: 36},
 frame_center: {lat: 49.1662, lng: -94.6798},
-marker_position: {lat: 49.135, lng: -94.8395},
-zoom: 8,
+marker_position: {lat: 49.0757, lng: -94.9356},
+//  {lat: 49.0613, lng: -94.8615},
+zoom: 9,
 
 
     }),
@@ -325,6 +331,42 @@ frame_center: {lat: 44.913, lng: 132.4845},
 marker_position: {lat: 44.9901, lng: 132.4017},
 zoom: 9,
     }),
+
+ Lake_Chad : new Place({
+	name: "Lake Chad",
+	area: {sqkm: 1350, rank: 10000}, // has been shrinking, was 26000 sqkm (1960's), ~20000 sqkm in 1983, seasonally variable.
+frame_center: {lat: 13.277, lng: 13.9956},
+marker_position: {lat: 13.1383, lng: 14.425},
+zoom: 8,
+    }),
+
+    Lake_Bangweulu: new Place({
+	name: "Lake Bangweulu",
+	area: {sqkm: 3500, rank: 10000}, // highly variable seasonally
+frame_center: {lat: -11.1842, lng: 29.8378},
+marker_position: {lat: -11.1568, lng: 29.7894},
+zoom: 10,
+    }),
+
+   
+    North_Aral_Sea: new Place({
+	name: "North Aral Sea",
+	area: {sqkm: 3300, rank: 10000}, // not in wikipedia's list by area 
+frame_center: {lat: 46.4101, lng: 60.6723},
+marker_position: {lat: 46.4369, lng: 60.6761},
+zoom: 10,
+
+    }),
+
+     West_Aral_Sea: new Place({
+	name: "West Aral Sea",
+	 area: {sqkm: 3500, rank: 10000}, // not in wikipedia's list by area 
+frame_center: {lat: 45.2011, lng: 58.7896},
+marker_position: {lat: 45.2246, lng: 58.5516},
+zoom: 9,
+     }),
+
+   
 // Lakes large by volume not found above:
 
     Lake_Van: new Place({
@@ -349,9 +391,9 @@ zoom: 10,
 	name: "Lake Khovsgol",
 	area:  {sqkm: 2760, rank: 10000},
 	volume: {cukm: 480, rank: 19},
-rame_center: {lat: 53.5139, lng: 107.7227},
-marker_position: {lat: 53.3768, lng: 108.0615},
-zoom: 7,
+frame_center: {lat: 51.0187, lng: 100.5884},
+marker_position: {lat: 51.1328, lng: 100.5084},
+zoom: 9,
     }),
 
     Lake_Toba: new Place({
@@ -367,9 +409,10 @@ zoom: 10,
 	name: "Lake Argentino",
 	area:  {sqkm: 1466, rank: 10000},
 	volume: {cukm: 220, rank: 16},
-frame_center: {lat: -50.3102, lng: 287.3979},
-marker_position: {lat: -49.5715, lng: -70.7108},
+frame_center: {lat: -50.2878, lng: -72.4408},
+marker_position: {lat: -50.2384, lng: -72.4548},
 zoom: 9,
+
     }),
 
     Lake_Tahoe: new Place({
@@ -398,22 +441,6 @@ frame_center: {lat: 59.5449, lng: -154.9282},
 marker_position: {lat: 59.5357, lng: -155.1462},
 zoom: 9,
     }),
-    
-    North_Aral_Sea: new Place({
-	name: "North Aral Sea",
-	area: {sqkm: 3300, rank: 10000}, // not in wikipedia's list by area 
-frame_center: {lat: 46.4101, lng: 60.6723},
-marker_position: {lat: 46.4369, lng: 60.6761},
-zoom: 10,
-
-    }),
-
-     West_Aral_Sea: new Place({
-	name: "West Aral Sea",
-	 area: {sqkm: 3500, rank: 10000}, // not in wikipedia's list by area 
-frame_center: {lat: 45.2011, lng: 58.7896},
-marker_position: {lat: 45.2246, lng: 58.5516},
-zoom: 9,
-     }),
+ 
 
 }; // end of Lakes
