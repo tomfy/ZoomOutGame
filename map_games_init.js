@@ -1,6 +1,6 @@
 var puzzle_obj;
 var history_size = 6;
-var n_places_at_a_time = 6;
+var n_places_at_a_time = 4;
 var n_places_in_quiz = 50;
 var radius_factor = 1.5;
 var correct_points = 3;
@@ -32,6 +32,8 @@ var place_set_hash = new Object({
     Islands_Arctic: Arctic_Islands,
     Islands_Arctic_Canada: Canada_Islands_Arctic,
     Big_Lakes_by_Area: Big_Lakes_by_Area,
+    Great_Lakes_NA: Great_Lakes_NA,
+    Great_Lakes_Africa: Great_Lakes_Africa,
     BigAreaCountries: BigAreaCountries,
     BigGdpCountries: BigGdpCountries,
     BigPopulationCountries: BigPopulationCountries,

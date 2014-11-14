@@ -139,6 +139,7 @@ function click_game(places) { // function zoom_out_game is a constructor, so 'th
     function put_borders_on_map(map, places) {
         for (var i = 0; i < places.length; i++) {
   // places[i].border_polygon.innerPolygon.setMap(map);
+	    if(places[i].border_polygon !== undefined){ // BORDER is defined, use it.
             places[i].border_polygon.setMap(map);
 	  
 
@@ -198,8 +199,86 @@ function click_game(places) { // function zoom_out_game is a constructor, so 'th
   //     }); // end event listener for mousemove on polygon
            
             })();
-        }
+            }else{ // BORDER undefined, use circle
+ (function() { // closure
+                var circle = new google.maps.Circle({
+                    strokeColor: 'A0D040',
+                    // 0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    //   fillColor: '#FF0000',
+                    fillOpacity: 0.0,
+                    map: map,
+                    clickable: true,
+                    draggable: false,
+                    //true,
+                    center: places[i].marker_position.latlng,
+                    radius: places[i].radius * radius_factor,
+                    // * Math.pow(2, 8 - map.zoom)
+                    place_name: places[i].name
+                });
+
+                google.maps.event.addListener(circle, 'click', function() {
+
+                    console.log("circle; click.  place: " + this.place_name);
+                    console.log("the_place.name: " + the_place.name);
+                    var correct_answer = (this.place_name === the_place.name);; // the_place : place asked, this: circle.
+                    if (correct_answer) {
+                        console.log("CORRECT! " + this.place_name + "  " + the_place.name);
+                     /*   this.setOptions({
+                            strokeOpacity: 0.6
+                        }); */
+			var stroke_opacity = this.strokeOpacity;
+
+			if(stroke_opacity > 0.75){ 
+                        this.setOptions({
+                            strokeColor: 'E07020',
+			    strokeOpacity: 0.7,
+                        }); 
+			}else if(stroke_opacity > 0.5){
+			    this.setOptions({strokeOpacity: 0.01 });
+			}else{
+			    this.setOptions({
+				strokeColor:  'A0D040',
+				strokeOpacity: 0.8,
+			    });
+			}
+                        question_button_area.removeChild(question_buttons[the_index]);
+                        score += correct_points;
+
+                        update_array(the_place.history, new Object({
+                            correct: true,
+                            zoom_clicks: 0
+                        })); // unshift and pop	
+
+                        the_index = random_place(places)
+                        the_place = places[the_index];
+                        question_button_area.appendChild(question_buttons[the_index]);
+                    } else {
+                        score -= incorrect_cost;
+                        console.log("Nope. You clicked: " + this.place_name);
+
+                        update_array(the_place.history, new Object({
+                            correct: false,
+                            zoom_clicks: 0
+                        })); // unshift and pop	
+                    };
+                    document.getElementById("score_div").innerText = 'Score: ' + score;
+
+                });
+
+                var info_window = new google.maps.InfoWindow({
+                    content: places[i].name
+                });
+                google.maps.event.addListener(circle, 'rightclick', function(ev) {
+                    info_window.setPosition(circle.getCenter());
+                    info_window.open(map);
+                });
+            })();
+            }
+	}
     }
+
 
     function put_circles_on_map(map, places) {
 

@@ -1,5 +1,5 @@
 function zoom_out_game(places) { //  this function is a constructor, so 'this' keyword refers to the object contructed
-    var zoom_offset = -1;
+    var zoom_offset = 0; // -1;
     var max_score_per_answer = 10; //  var max_place_score = 30;
     var score = 0; // number of question which were answered correctly on most recent asking.
     var zooms = 0;
@@ -113,7 +113,7 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     zoom_button_area.appendChild(zoom_in_button);
 
     var sticky_zoom_out_button = document.createElement("button");
-    sticky_zoom_out_button.appendChild(document.createTextNode("Zoom Out"));
+    sticky_zoom_out_button.appendChild(document.createTextNode("Zoom Offset (Out)"));
     sticky_zoom_out_button.addEventListener("click", function(event) {
             map.setZoom(map.getZoom() - 1);
             zoom_offset--;
@@ -125,7 +125,7 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     zoom_button_area.appendChild(sticky_zoom_out_button);
 
     var sticky_zoom_in_button = document.createElement("button");
-    sticky_zoom_in_button.appendChild(document.createTextNode("Zoom In"));
+    sticky_zoom_in_button.appendChild(document.createTextNode("Zoom Offset (In)"));
     sticky_zoom_in_button.addEventListener("click", function(event) {
             map.setZoom(map.getZoom() + 1);
             zoom_offset++;
@@ -180,7 +180,7 @@ function zoom_out_game(places) { //  this function is a constructor, so 'this' k
     console.log("A. map center: " + JSON.stringify(map.getCenter()));
     // /* 
     google.maps.event.addListener(map, 'center_changed', function() {
-        console.log("B. map center: " + JSON.stringify(map.getCenter()));
+    //    console.log("B. map center: " + JSON.stringify(map.getCenter()));
         document.getElementById("map_center_info_div").innerText = 'Map center: ' + my_latlng_to_string(map.getCenter());
     }); // */
 
